@@ -1,8 +1,12 @@
 <html>
 
 <head>
-  <title>Easy Parking</title>
+  <title>Wellcome to Easy Parking</title>
   <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <!-- add icon link -->
+  <link rel = "icon" href =  
+  "images/easyParkingLogo.png" 
+          type = "image/x-icon"> 
   <link rel="stylesheet" href="/stylesheets/style.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
@@ -17,7 +21,7 @@
   <script src="https://unpkg.com/esri-leaflet@2.1.4/dist/esri-leaflet.js"
     integrity="sha512-m+BZ3OSlzGdYLqUBZt3u6eA0sH+Txdmq7cqA1u8/B2aTXviGMMLOfrKyiIW7181jbzZAY0u+3jWoiL61iLcTKQ=="
     crossorigin=""></script>
-  
+
   <!-- Load Esri Leaflet Geocoder from CDN -->
   <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.9/dist/esri-leaflet-geocoder.css"
     integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
@@ -48,11 +52,11 @@
         <script>
           var mymap = L.map('mapid').setView([38.70722, -9.15252], 15);
           var mapMark = L.icon({
-    iconUrl: 'mapMark.png',
-    iconSize:     [38, 95], // size of the icon
-    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-});
+            iconUrl: 'orangemapmark.png',
+            iconSize: [38, 95], // size of the icon
+            iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+            popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+          });
 
           var marker = L.marker([38.70722, -9.15254]).addTo(mymap);
 
