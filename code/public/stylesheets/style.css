@@ -1,8 +1,73 @@
 body {
-  padding: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.image{
+  flex:1;
+  padding: 0px;
+  padding-left: 20px;
+}
+
+#eplogo {
+  width: 200px;
+}
+
+.title {
+  flex:8;
+  padding-right: 50px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-areas:
+  'h'
+  'm'
+  'f';
+}
+
+.map-flex{
+  display: flex;
+}
+
+.header-flex{
+  display: flex;
+  background-color: rgb(41, 41, 41);
+  color: white;
+  align-items: center;
+}
+
+.footer-flex {
+  display: flex;
+  background-color: rgb(199, 72, 14);
+  color: white;
+  padding: 10;
+  align-items: center;
+}
+
+.grid-header {
+  grid-area:h;
+}
+
+.grid-main {
+  grid-area:m;
+}
+
+.grid-footer {
+  grid-area:f;
+}
+
+#mapid { 
+  height: 600px; 
+  width: 1200px;
 }
