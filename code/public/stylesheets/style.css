@@ -4,7 +4,7 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #ff9100;
 }
 
 .image{
@@ -29,11 +29,11 @@ h1 {
 
 .grid-container {
   display: grid;
-  grid-template-columns: auto;
+  grid-template-columns:auto 33%;
   grid-template-areas:
-  'h'
-  'm'
-  'f';
+  'h h'
+  'm s'
+  'f f';
 }
 
 .map-flex{
@@ -63,6 +63,10 @@ h1 {
   grid-area:m;
 }
 
+.grid-aside {
+  grid-area:s;
+}
+
 .grid-footer {
   grid-area:f;
 }
@@ -70,4 +74,71 @@ h1 {
 #mapid { 
   height: 600px; 
   width: 1200px;
+}
+
+.parques-flex{
+  display: flex;
+  background-color: rgb(21, 8, 77);
+  color: white;
+  padding: 10;
+  align-items: center;
+}
+/*-------------------------------*/
+
+
+#parques{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+#icon {
+  background-color:brown;
+  font-size: 25px;
+  color:white;
+  padding:10px;
+  max-width: 50px;
+}
+
+#top-of-slot{
+  flex: 1;
+  display: flex;
+}
+
+#bottom-of-slot {
+  flex: 1;
+}
+
+#precoDiario {
+  padding-left: 5px;
+  padding-top: 20px;
+  font-size:  0.5em;
+}
+
+
+.parqueSections{
+  background-color:rgb(18, 5, 199);
+  color:rgb(131, 131, 131);
+  margin: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.50em;
+  grid-row: 1;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.full{
+  background-color: rgb(255, 0, 0);
+  color:rgb(102, 102, 102);
+  margin: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.50em;
+  grid-row: 1;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
 }
