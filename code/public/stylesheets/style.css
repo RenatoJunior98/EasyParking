@@ -56,19 +56,19 @@ h1 {
 }
 
 .grid-header {
-  grid-area:h;
+  grid-area: h;
 }
 
 .grid-main {
-  grid-area:m;
+  grid-area: m;
 }
 
 .grid-aside {
-  grid-area:s;
+  grid-area: s;
 }
 
 .grid-footer {
-  grid-area:f;
+  grid-area: f;
 }
 
 #mapid { 

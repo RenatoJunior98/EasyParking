@@ -14,8 +14,8 @@ function validation(object) {
     return aux;
 }
 
-function unit(n){ // returns an object's array from the array of parques.
-    for (let i = 0; i < units.length; i++){
+function parque(n){ // returns an object's array from the array of parques.
+    for (let i = 0; i < parques.length; i++){
         aux = parques[i];
         if (n == i){
             return aux;
@@ -23,17 +23,16 @@ function unit(n){ // returns an object's array from the array of parques.
     }
 }
 
-function unitSlot(object) { // returns all "parques" squares with their information for main tag.
+function parqueSlot(object) { // returns all "parques" squares with their information for main tag.
     sum = "";
     for (let i = 0; i < object.length; i++){
-    aux = unit(i);
+    aux = parque(i);
     icon = aux[0].substring(0, 2);
     slot =
     '<section '+validation(aux)+'class = "parqueSections">'+'<section id="top-of-slot"><h1 id="icon">'+icon+'</h1><section id="precoDiario"><h1>'+aux[0]+'</h1>'+'<p>Grade: '+aux[1]+'</p></section></section><section id="bottom-of-slot"><p>Preço: '+aux[2]+'</p></section></section>';
     sum = sum + slot;
     }
     return sum;
-    
 }
 
 window.onload =  function () {
@@ -42,14 +41,14 @@ window.onload =  function () {
     student.innerText = studentName + " grades";
 
     document.getElementById('grades');
-    grades.innerHTML = unitSlot(units);
+    grades.innerHTML = parqueSlot (parques);
 
 
     failed = 0;
     livres = 0;
     sum = 0;
-    for (let i = 0; i < units.length; i++){
-        aux = unit(i);
+    for (let i = 0; i < parques.length; i++){
+        aux = parque(i);
         if (aux[1]< 9.5){
             sum = sum;
             full++;
@@ -63,6 +62,6 @@ window.onload =  function () {
     average = livres / passed;
 
     document.getElementById('summary');
-    summary.innerHTML = '<summary><b>Average: '+average.toFixed(1)+'</summary><p>'+full+' failed units</p><p>'+livres+' passed units</p></b>';
+    summary.innerHTML = '<summary><b>Average: '+average.toFixed(1)+'</summary><p>'+full+' failed parques</p><p>'+livres+' passed parques</p></b>';
     
 }
