@@ -3,7 +3,7 @@ var pool = require("./DBConn");
 
 module.exports.getAll = async function() {
     try {
-        let sql = "select Nome, lugaresTotal, precoDiario from parque inner join Preco where ParqueID = 1 and PrecoID = 1;";
+        let sql = "select ParqueID as 'parque', Nome, lugaresTotal, precoDiario from parque inner join Preco where Preco_ID = precoID;";
         let parques = await pool.query(sql);
         return {status:200, data: parques};
     } catch(err) {
