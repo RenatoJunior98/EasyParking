@@ -4,7 +4,7 @@ body {
 }
 
 a {
-  color: #019ad6;
+  color: #010200;
 }
 
 .image{
@@ -73,7 +73,7 @@ h1 {
 
 #mapid { 
   height: 600px; 
-  width: 1250px;
+  width: 900px;
 }
 
 /*.parques-flex{
@@ -86,7 +86,7 @@ h1 {
 /*-------------------------------*/
 
 
-#grades{
+#aside{
   display: flex;
   justify-content: flex-start;
   flex-wrap:wrap;
@@ -136,7 +136,7 @@ h1 {
   flex: 1;
 }
 
-#unit-grade {
+#aside {
   padding-left: 5px;
   padding-top: 20px;
   font-size:  0.5em;
