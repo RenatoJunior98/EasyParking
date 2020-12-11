@@ -4,7 +4,7 @@ window.onload = function() {
 }
 
 async function loadParques() {
-    let elemMain = document.getElementById("aside");
+    let elemAside = document.getElementById("aside");
     try {
         let parques = await $.ajax({
             url: "/api/parques",
@@ -13,15 +13,15 @@ async function loadParques() {
         });
         let html ="";
         for (let parque of parques) {
-            html += "<section><h1>"+parque.Nome+"</h1>"+
+            html += "<section style='border: 2px solid; border-color: #232323; padding:10px;'><h1>"+parque.Nome+"</h1>"+
             "<p> Lugares Totais: "+parque.lugaresTotal+"</p>" + 
-            "<p> Preço diário "+parque.precoDiario+"</p></section>";
+            "<p> Preço diário: "+parque.precoDiario+"€</p></section>";
         }
-        elemMain.innerHTML = html;
+        elemAside.innerHTML = html;
 
     } catch(err) {
         console.log(err);
-        elemMain.innerHTML = "<h1> Página não está disponível</h1>"+
+        elemAside.innerHTML = "<h1> Página não está disponível</h1>"+
                 "<h2> Por favor tente mais tarde</h2>";
     }
 } 

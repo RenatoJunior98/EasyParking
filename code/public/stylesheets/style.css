@@ -29,7 +29,7 @@ h1 {
 
 .grid-container {
   display: grid;
-  grid-template-columns:auto 33%;
+  grid-template-columns:auto 25%;
   grid-template-areas:
   'h h'
   'm s'
@@ -73,7 +73,7 @@ h1 {
 
 #mapid { 
   height: 600px; 
-  width: 900px;
+  width: 1400px;
 }
 
 /*.parques-flex{
@@ -90,7 +90,9 @@ h1 {
   display: flex;
   justify-content: flex-start;
   flex-wrap:wrap;
-
+  flex-direction: column;
+  /* border: 3px solid;
+  border-color: #232323; */
 }
 
 .gradingSections{
