@@ -4,10 +4,11 @@ var util = require('util');
 
 var pool = mysql.createPool({
   connectionLimit: 20,
-  host     : '127.0.0.1',
-  user     : 'root',
-  password : '1357902468',
-  database : 'mydb'
+  host     : 'remotemysql.com',
+  port     : '3306',
+  user     : '95kfprL3Es',
+  password : 'HXur9e49BD',
+  database : '95kfprL3Es'
 });
 
 
