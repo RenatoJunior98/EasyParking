@@ -29,7 +29,7 @@ h1 {
 
 .grid-container {
   display: grid;
-  grid-template-columns:auto 25%;
+  grid-template-columns:68% auto;
   grid-template-areas:
   'h h'
   'm s'
@@ -73,7 +73,7 @@ h1 {
 
 #mapid { 
   height: 600px; 
-  width: 1400px;
+  width: 1000px;
 }
 
 /*.parques-flex{
