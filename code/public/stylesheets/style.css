@@ -13,6 +13,12 @@ a {
   padding-left: 20px;
 }
 
+#parque{
+  border: 2px solid; 
+  border-color: #232323; 
+  padding:10px;
+}
+
 #eplogo {
   width: 200px;
 }

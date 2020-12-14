@@ -13,20 +13,23 @@ async function loadParques() {
             method: "get",
             dataType: "json"
         });
-        let html ="";
+        let html =""
         for (let parque of parques) {
             if(parque.lugaresLivres==0){
-                html += "<section style='border: 2px solid; border-color: #232323; padding:10px;'><h1>"+parque.Nome+"</h1>"+
+                html += "<section id = 'parque'>" +
+                "<h1>" + parque.Nome+"</h1>"+
             "<p> Lugares Totais: "+parque.lugaresTotal+"</p>" + 
             //"<p style='color:#660000;'> Lugares Totais: "+parque.lugaresLivres+"</p>"+
-            "<p> Preço diário: "+parque.precoDiario+"€</p></section>";
+            "<p> Preço diário: "+parque.precoDiario+"€</p>" +
+            "</section>";
               }
               else {
-                html += "<section style='border: 2px solid; border-color: #232323; padding:10px;'><h1>"+parque.Nome+"</h1>"+
+                html += "<section id = 'parque'><h1>"+parque.Nome+"</h1>"+
             "<p> Lugares Totais: "+parque.lugaresTotal+"</p>" + 
             //"<p style='color:#006622;'> Lugares Totais: "+parque.lugaresLivres+"</p>"+
             "<p> Preço diário: "+parque.precoDiario+"€</p></section>";
         }
+
     }
         elemAside.innerHTML = html;
 
