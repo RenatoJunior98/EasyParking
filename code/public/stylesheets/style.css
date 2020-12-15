@@ -33,15 +33,6 @@ h1 {
   font-size: 2em;
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns:68% auto;
-  grid-template-areas:
-  'h h'
-  'm s'
-  'f f';
-}
-
 .map-flex{
   display: flex;
 }
@@ -60,12 +51,15 @@ h1 {
   padding: 10;
   align-items: center;
 }
+  /* position: absolute;
+  bottom: 0;
+  width: 100%; */
 
 .grid-header {
   grid-area: h;
 }
 
-.grid-main {
+.grid-mapa {
   grid-area: m;
 }
 
@@ -73,13 +67,29 @@ h1 {
   grid-area: s;
 }
 
+.grid-description {
+  grid-area: d;
+}
+
 .grid-footer {
   grid-area: f;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns:68% auto;
+  grid-template-areas:
+  'h h'
+  'm s'
+  'd d'
+  'f f';
+}
+
 #mapid { 
+  /* height: 600px; 
+  width: 1000px; */
   height: 600px; 
-  width: 1000px;
+  width: 100%;
 }
 
 /*.parques-flex{

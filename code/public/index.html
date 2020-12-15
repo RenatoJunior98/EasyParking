@@ -3,7 +3,7 @@
 <head>
   <title>Wellcome to Easy Parking</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
   <!-- add icon link -->
   <link rel = "icon" href =  
@@ -11,6 +11,7 @@
           type = "image/x-icon"> 
   <link rel="stylesheet" href="/stylesheets/style.css">
   <script src="javascripts/parquesLista.js"></script>
+  <script src="javascripts/mapa.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
     crossorigin="" />
@@ -53,44 +54,12 @@
     <aside class="grid-aside" id="aside">
     </aside>
 
-    <main class="grid-main">
+    <mapa class="grid-mapa">
+      <div class="map-flex" id="mapid"></div>
+      <script src="javascripts/mapa.js"></script>
+    </mapa>
 
-      <section class="map-flex" id="mapid">
-        <script>
-          var mymap = L.map('mapid').setView([38.70722, -9.15252], 15);
-          var mapMark = L.icon({
-            iconUrl: 'orangemapmark.png',
-            iconSize: [38, 95], // size of the icon
-            iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
-            popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
-          });
-
-          var marker = L.marker([38.70722, -9.15254]).addTo(mymap);
-
-          L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-            maxZoom: 21,
-            id: 'mapbox/streets-v11',
-            tileSize: 512,
-            zoomOffset: -1,
-            accessToken: 'pk.eyJ1IjoiMjAwMHl0cmljYXJkbyIsImEiOiJja2llYzA2aDkweDJsMnRyc2NmYTdlb2hmIn0.wvxtVtYjr_2Us5p1V6lGyg'
-          }).addTo(mymap);
-
-
-          var searchControl = L.esri.Geocoding.geosearch().addTo(mymap);
-
-          var results = L.layerGroup().addTo(mymap);
-
-          searchControl.on('results', function (data) {
-            results.clearLayers();
-            //  for (var i = data.results.length - 1; i >= 0; i--) {
-            //    results.addLayer(L.marker(data.results[i].latlng));
-            // }
-          });
-        </script>
-
-      </section>
-
+    <description class="grid-description">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget blandit turpis. Sed in semper orci.
         Phasellus facilisis turpis eu libero facilisis consequat sit amet non felis. Maecenas efficitur, mauris quis
         ornare aliquam, mi quam egestas neque, vel placerat quam dui ac tortor. Cras lobortis elit eget mi condimentum,
@@ -127,8 +96,7 @@
         ullamcorper condimentum. Mauris sed velit ac lacus varius egestas. Aliquam id sapien varius, eleifend lorem in,
         tincidunt augue. Maecenas posuere mi sed velit fermentum accumsan. Vestibulum ante ipsum primis in faucibus orci
         luctus et ultrices posuere cubilia curae</p>
-
-    </main>
+      </description>
 
   <footer class="grid-footer">
     <section class="footer-flex">
