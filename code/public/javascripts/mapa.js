@@ -8,7 +8,12 @@ var mapMark = L.icon({
   iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
   popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
-var marker = L.marker([38.70722, -9.15254]).addTo(mymap);
+
+
+function parquesMarkers(loc){
+  var marker = L.marker([38.70722, -9.15254]).addTo(mymap);
+  // 38.70722, -9.15254
+}
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
   attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',

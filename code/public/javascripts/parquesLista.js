@@ -24,7 +24,7 @@ async function loadParques() {
             "</button>"
               }
               else {
-                html += "<button class='button button1' id = 'parque' onclick='selecionarParque()'><h1>"+parque.Nome+"</h1>"+
+                html += "<button class='button button1' id = 'parque' onclick='selecionarParque("+parque.Localizacao+")'><h1>"+parque.Nome+"</h1>"+
             "<p> Lugares Totais: "+parque.lugaresTotal+"</p>" + 
             //"<p style='color:#006622;'> Lugares Totais: "+parque.lugaresLivres+"</p>"+
             "<p> Preço diário: "+parque.precoDiario+"€</p></button>";
@@ -39,7 +39,8 @@ async function loadParques() {
                 "<h2> Por favor tente mais tarde</h2>";
     }
 } 
-function selecionarParque() {
+function selecionarParque(Localizacao) {
+    parquesMarkers(Localizacao);
     //let html = "" + descricao;
     document.getElementById("description").innerHTML = "Informações do parque selecionado...";
   }
