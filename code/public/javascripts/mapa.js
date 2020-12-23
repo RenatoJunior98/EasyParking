@@ -10,8 +10,8 @@ var mapMark = L.icon({
 });
 
 
-function parquesMarkers(loc){
-  var marker = L.marker([38.70722, -9.15254]).addTo(mymap);
+function parquesMarkers(loc, locc){
+  var marker = L.marker([loc, locc]).addTo(mymap);
   // 38.70722, -9.15254
 }
 

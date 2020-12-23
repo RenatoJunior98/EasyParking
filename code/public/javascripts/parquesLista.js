@@ -24,7 +24,12 @@ async function loadParques() {
             "</button>"
               }
               else {
-                html += "<button class='button button1' id = 'parque' onclick='selecionarParque("+parque.Localizacao+")'><h1>"+parque.Nome+"</h1>"+
+               let loc= parque.Localizacao.split(",", 1);
+               let aux = loc + ",";
+               let locc = parque.Localizacao.replace(aux, '');
+               coordenada1 = parseFloat(loc);
+               coordenada2 = parseFloat(locc);
+                html += "<button class='button button1' id = 'parque' onclick='selecionarParque("+coordenada1+","+ coordenada2 +")'><h1>"+parque.Nome+"</h1>"+
             "<p> Lugares Totais: "+parque.lugaresTotal+"</p>" + 
             //"<p style='color:#006622;'> Lugares Totais: "+parque.lugaresLivres+"</p>"+
             "<p> Preço diário: "+parque.precoDiario+"€</p></button>";
@@ -39,8 +44,8 @@ async function loadParques() {
                 "<h2> Por favor tente mais tarde</h2>";
     }
 } 
-function selecionarParque(Localizacao) {
-    parquesMarkers(Localizacao);
+function selecionarParque(loc, locc) {
+    parquesMarkers(loc, locc);
     //let html = "" + descricao;
     document.getElementById("description").innerHTML = "Informações do parque selecionado...";
   }
