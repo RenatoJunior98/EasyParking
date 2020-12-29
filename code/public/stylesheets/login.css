@@ -46,7 +46,7 @@ a {
 
 button {
 	border-radius: 20px;
-	background-color: rgb(255, 102, 36);
+	background-color: #FF5F00;
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
@@ -159,7 +159,7 @@ input {
 }
 
 .overlay {
-	background: rgb(255, 102, 36);;
+	background: #FF5F00;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
@@ -208,3 +208,51 @@ input {
 	transform: translateX(20%);
 }
 
+/* __________header__________ */
+
+.header {
+	overflow: hidden;
+	padding: 20px 10px;
+  }
+  
+  .header a {
+	float: left;
+	color: black;
+	text-align: center;
+	padding: 12px;
+	text-decoration: none;
+	font-size: 18px; 
+	line-height: 25px;
+	border-radius: 4px;
+  }
+  
+  .header a.logo {
+	font-size: 25px;
+	font-weight: bold;
+  }
+  
+  .header a:hover {
+	background-color: rgb(41, 41, 41);
+	color: #FFFFFF;
+  }
+  
+  .header a.active {
+	background-color:#FF5F00;
+	color: white;
+  }
+  
+  .header-right {
+	float: right;
+  }
+  
+  @media screen and (max-width: 500px) {
+	.header a {
+	  float: none;
+	  display: block;
+	  text-align: left;
+	}
+	
+	.header-right {
+	  float: none;
+	}
+  }
