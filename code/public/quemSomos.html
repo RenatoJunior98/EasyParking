@@ -3,38 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <title>Wellcome to Easy Parking</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <!-- add icon link -->
   <link rel = "icon" href =  
   "images/easyParkingLogo.png" 
           type = "image/x-icon"> 
-  <link rel="stylesheet" href="/stylesheets/style.css">
-  <script src="javascripts/parquesLista.js"></script>
-  <script src="javascripts/mapa.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-    crossorigin="" />
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-    crossorigin="">
-    </script>
-
-  <!-- Load Esri Leaflet from CDN -->
-  <script src="https://unpkg.com/esri-leaflet@2.1.4/dist/esri-leaflet.js"
-    integrity="sha512-m+BZ3OSlzGdYLqUBZt3u6eA0sH+Txdmq7cqA1u8/B2aTXviGMMLOfrKyiIW7181jbzZAY0u+3jWoiL61iLcTKQ=="
-    crossorigin=""></script>
-
-  <!-- Load Esri Leaflet Geocoder from CDN -->
-  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.9/dist/esri-leaflet-geocoder.css"
-    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
-    crossorigin="">
-  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.9/dist/esri-leaflet-geocoder.js"
-    integrity="sha512-QXchymy6PyEfYFQeOUuoz5pH5q9ng0eewZN8Sv0wvxq3ZhujTGF4eS/ySpnl6YfTQRWmA2Nn3Bezi9xuF8yNiw=="
-    crossorigin=""></script>
-  <!-- <script src="javascripts/map.js"></script> -->
-
-  
+  <link rel="stylesheet" href="/stylesheets/quemSomosCSS.css">
 </head>
 
 <body class="grid-container">
@@ -44,8 +18,8 @@
         <img src="\images\easyParkingLogo.png" id="eplogo" alt="Easy Parking Logo">
         </section> -->
         <div class="header-right">
-          <a class="active" href="/index.html">Home</a>
-          <a href="/quemSomos.html">Quem somos</a>
+          <a href="/index.html">Home</a>
+          <a class="active" href="/quemSomos.html">Quem somos</a>
           <a href="#ajuda">Ajuda</a>
           <a href="/perfil.html">Perfil</a>
           <a href="/iniciarSessao.html">Iniciar Sessão</a>
@@ -53,16 +27,13 @@
       </div>
     </header>
 
-    <aside class="grid-aside" id="aside">
-    </aside>
 
-    <mapa class="grid-mapa">
-      <div class="map-flex" id="mapid"></div>
-      <script src="javascripts/mapa.js"></script>
-    </mapa>
-
-    <description class="grid-description">
-      <p id = "description" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget blandit turpis. Sed in semper orci.
+    <main class="grid-main">
+      <h1>
+          Quem Somos
+      </h1>
+      
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget blandit turpis. Sed in semper orci.
         Phasellus facilisis turpis eu libero facilisis consequat sit amet non felis. Maecenas efficitur, mauris quis
         ornare aliquam, mi quam egestas neque, vel placerat quam dui ac tortor. Cras lobortis elit eget mi condimentum,
         nec congue massa efficitur. Curabitur eget odio efficitur diam posuere fringilla a nec libero. Nunc ac magna
@@ -98,7 +69,7 @@
         ullamcorper condimentum. Mauris sed velit ac lacus varius egestas. Aliquam id sapien varius, eleifend lorem in,
         tincidunt augue. Maecenas posuere mi sed velit fermentum accumsan. Vestibulum ante ipsum primis in faucibus orci
         luctus et ultrices posuere cubilia curae</p>
-      </description>
+      </main>
 
   <footer class="grid-footer">
     <section class="footer-flex">

@@ -28,12 +28,6 @@ a {
   width: 80px;
 }
 
-#parque{
-  border: 2px solid; 
-  border-color: #232323; 
-  padding:10px;
-}
-
 .header a.logo {
   font-size: 25px;
   font-weight: bold;
@@ -41,10 +35,6 @@ a {
 
 h1 {
   font-size: 2em;
-}
-
-.map-flex{
-  display: flex;
 }
 
 .header{
@@ -105,16 +95,8 @@ h1 {
   grid-area: h;
 }
 
-.grid-mapa {
+.grid-main {
   grid-area: m;
-}
-
-.grid-aside {
-  grid-area: s;
-}
-
-.grid-description {
-  grid-area: d;
 }
 
 .grid-footer {
@@ -123,88 +105,9 @@ h1 {
 
 .grid-container {
   display: grid;
-  grid-template-columns:68% auto;
+  grid-template-columns: auto;
   grid-template-areas:
   'h h'
-  'm s'
-  'd d'
+  'm m'
   'f f';
-}
-
-#mapid { 
-  /* height: 600px; 
-  width: 1000px; */
-  height: 600px; 
-  width: 100%;
-}
-
-/*.parques-flex{
-  display: flex;
-  background-color: rgb(21, 8, 77);
-  color: rgb(0, 0, 0);
-  padding: 10;
-  align-items: center;
-}*/
-/*-------------------------------*/
-
-
-#aside{
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap:wrap;
-  flex-direction: column;
-  /* border: 3px solid;
-  border-color: #232323; */
-}
-
-#icon {
-  background-color:brown;
-  font-size: 25px;
-  color:white;
-  padding:10px;
-  max-width: 50px;
-}
-
-#top-of-slot{
-  flex: 1;
-  display: flex;
-}
-
-#bottom-of-slot {
-  flex: 1;
-}
-
-#aside {
-  padding-left: 5px;
-  padding-top: 20px;
-  font-size:  0.5em;
-}
-
-.button {
-  font-family:'Montserrat', sans-serif;
-  border: none;
-  color: white;
-  padding: 16px 32px;
- 
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.3s;
-  cursor: pointer;
-}
-
-.button1 {
-  background-color: white; 
-  color: black; 
-  border: 2px solid #FF5F00;
-}
-
-.button1:hover {
-  background-color: #FF5F00;
-  color: white;
-}
-
-button:focus {
-   background-color: #FF5F00; 
 }
