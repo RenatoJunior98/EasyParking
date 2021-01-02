@@ -15,6 +15,12 @@ body{
   background-color: #f3f5f9;
 }
 
+p{
+  padding-left: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .wrapper{
   display: flex;
   position: relative;
@@ -158,3 +164,46 @@ h1 {
   'f f';
 } */
 
+.input-flex{
+  padding: 20;
+}
+
+
+.wrapper .sidebar ul li .side-active{
+  color: #FF5F00;
+  font-size: 18px; 
+  font-weight: bold;
+}
+
+
+/* testing */
+
+.button {
+  font-family:'Montserrat', sans-serif;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+ 
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #FF5F00;
+}
+
+.button1:hover {
+  background-color: #FF5F00;
+  color: white;
+}
+
+button:focus {
+   background-color: #FF5F00; 
+   color: white;
+}
