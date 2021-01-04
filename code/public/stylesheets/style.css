@@ -152,7 +152,7 @@ h1 {
   justify-content: flex-start;
   /* flex-wrap:wrap; */
   flex-direction: column;
-  height: 500px; 
+  height: 300px; 
   padding-left: 5px;
   padding-top: 20px;
   font-size:  0.5em;

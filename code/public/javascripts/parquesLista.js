@@ -24,11 +24,8 @@ async function loadParques() {
             "</button>"
               }
               else {
-               let loc= parque.Localizacao.split(",", 1);
-               let aux = loc + ",";
-               let locc = parque.Localizacao.replace(aux, '');
-               coordenada1 = parseFloat(loc);
-               coordenada2 = parseFloat(locc);
+               coordenada1 = parque.Latitude;
+               coordenada2 = parque.Longitude;
                 html += "<button class='button button1' id = 'parque' onclick='selecionarParque("+coordenada1+","+ coordenada2 +")'><h1>"+parque.Nome+"</h1>"+
             "<p> Lugares Totais: "+parque.lugaresTotal+"</p>" + 
             //"<p style='color:#006622;'> Lugares Totais: "+parque.lugaresLivres+"</p>"+
@@ -44,8 +41,8 @@ async function loadParques() {
                 "<h2> Por favor tente mais tarde</h2>";
     }
 } 
-function selecionarParque(loc, locc) {
-    parquesMarkers(loc, locc);
+function selecionarParque(long, lat) {
+    parquesMarkers(long, lat);
     //let html = "" + descricao;
     document.getElementById("description").innerHTML = "Informações do parque selecionado...";
   }
