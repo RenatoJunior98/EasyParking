@@ -27,10 +27,10 @@ p{
 }
 
 .wrapper .sidebar{
-  width: 200px;
+  width: 220px;
   height: 100%;
   background: rgb(41, 41, 41);
-  padding: 30px 0px;
+  padding-left: 30px 0px;
   position: fixed;
 }
 
@@ -67,7 +67,7 @@ p{
 
 .wrapper .main_content{
   width: 100%;
-  margin-left: 200px;
+  margin-left: 220px;
 }
 
 .wrapper .main_content .header{
@@ -133,17 +133,6 @@ h1 {
   float: right;
 }
 
-@media screen and (max-width: 500px) {
-  .header a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-  
-  .header-right {
-    float: none;
-  }
-}
 .footer-flex {
   display: flex;
   background-color:#FF5F00;
