@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 * {box-sizing: border-box;}
 
+html {
+  overflow-y:scroll;
+}
+
 *{
   margin: 0;
   padding: 0;
@@ -148,11 +152,12 @@ h1 {
 }
 
 #aside {
+  /* background-color:  rgb(41, 41, 41); */
   display: flex;
   justify-content: flex-start;
   /* flex-wrap:wrap; */
   flex-direction: column;
-  height: 300px; 
+  height: 600px; 
   padding-left: 5px;
   padding-top: 20px;
   font-size:  0.5em;
@@ -164,7 +169,7 @@ h1 {
   border: none;
   color: white;
   padding: 16px 32px;
- 
+  border-radius: 8px;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;

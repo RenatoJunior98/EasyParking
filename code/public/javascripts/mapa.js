@@ -3,7 +3,7 @@
 
 var mymap = L.map('mapid').setView([38.70722, -9.15252], 15);
 var mapMark = L.icon({
-  iconUrl: 'orangemapmark.png',
+  iconUrl: '...\images\orangemapmarker.png',
   iconSize: [38, 95], // size of the icon
   iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
   popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
@@ -11,7 +11,7 @@ var mapMark = L.icon({
 
 
 function parquesMarkers(long, lat){
-  var marker = L.marker([long, lat]).addTo(mymap);
+  var marker = L.marker([long, lat], {icon: mapMark}).addTo(mymap);
   // 38.70722, -9.15254
 }
 
