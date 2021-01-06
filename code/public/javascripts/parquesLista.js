@@ -6,7 +6,7 @@ window.onload = function() {
 }
 
 async function loadParques() {
-    let elemAside = document.getElementById("aside");
+    let elemAside = document.getElementById("listaParques");
     try {
         let parques = await $.ajax({
             url: "/api/parques",
@@ -44,7 +44,7 @@ async function loadParques() {
 } 
 
 async function loadReviews(PID, LP, tipo, CM) {
-    let elemAside = document.getElementById("reviews");
+    let elemAside = document.getElementById("aside");
     try {
         let reviews = await $.ajax({
             url: "/api/parques/"+PID,

@@ -1,44 +1,69 @@
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 * {box-sizing: border-box;}
 
-html {
+/* html {
   overflow-y:scroll;
+} */
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
 }
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
 
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   list-style: none;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Roboto';
 }
 
 body {
   padding: 0px;
-  font-family:'Montserrat', sans-serif;
+  font-family: 'Roboto';
 }
 
 
 p {
-  font-family:'Montserrat', sans-serif;
   font-size: 14px;
-	font-weight: 100;
 }
 
 a {
   color: #ffffff;
 }
 
-.image{
-  flex:1;
-  padding: 0px;
-  padding-left: 20px;
-  align-items: center;
+#ep-logo{
+  width: 100px;
+  height: 100px;
 }
 
-#eplogo{
-  width: 80px;
+.image{
+  flex:1;
+  margin-left: 15px;
+}
+
+.searchBar{
+  flex:8;
+  width: 400px;
+  margin-top: 28px;
+  margin-left: 30px;
 }
 
 #parque{
@@ -101,52 +126,44 @@ h1 {
   float: right;
 }
 
-.footer-flex {
-  display: flex;
-  background-color:#FF5F00;
-  color: white;
-  padding: 10;
-  align-items: center;
-}
-  /* position: absolute;
-  bottom: 0;
-  width: 100%; */
-
 .grid-header {
   grid-area: h;
+}
+
+.grid-bar {
+  display: flex;
+  background-color: #FF5F00;
+  border-radius: 0 0 10px 10px;
+  grid-area: b;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .grid-mapa {
   grid-area: m;
 }
 
+.grid-listaParques {
+  grid-area: l;
+  margin: 10px;
+}
+
 .grid-aside {
   grid-area: s;
-}
-
-.grid-description {
-  grid-area: d;
-  padding: 10px;
-}
-
-.grid-footer {
-  grid-area: f;
+  background-color: #FFFFFF;
 }
 
 .grid-container {
   display: grid;
-  grid-template-columns:68% auto;
-  grid-template-areas:
-  'h h'
-  'm s'
-  'd d'
-  'f f';
+  grid-template-columns:auto 70%;
+  grid-template-rows: 100%;
+  grid-template-areas:  
+  's m';
 }
 
 #mapid { 
   /* height: 600px; 
   width: 1000px; */
-  height: 600px; 
+  height: 100%; 
   width: 100%;
 }
 
@@ -159,17 +176,17 @@ h1 {
   flex: 1;
 }
 
-#aside {
+#listaParques {
   /* background-color:  rgb(41, 41, 41); */
   display: flex;
   justify-content: flex-start;
   /* flex-wrap:wrap; */
   flex-direction: column;
-  height: 600px; 
   padding-left: 5px;
   padding-top: 20px;
   font-size:  0.5em;
   overflow-y: auto;
+  
 }
 
 #reviews {
@@ -213,4 +230,43 @@ h1 {
 button:focus {
    background-color: #FF5F00; 
    color: white;
+}
+
+/* FORM */
+
+form.example input[type=text] {
+  width:300px;
+  flex:8;
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid #FF5F00;
+  /* float: left; */
+  margin:auto;
+  background: #f1f1f1;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+			0 10px 10px rgba(0,0,0,0.22);
+}
+
+form.example button {
+  /* float: left; */
+  width: 20%;
+  padding: 10px;
+  background: #ffffff;
+  color: #FF5F00;
+  font-size: 17px;
+  border: 1px solid #FF5F00;
+  border-left: none;
+  cursor: pointer;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+			0 10px 10px rgba(0,0,0,0.22);
+}
+
+form.example button:hover {
+  background: #dfdfdf;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
 }

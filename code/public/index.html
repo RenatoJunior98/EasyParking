@@ -31,16 +31,13 @@
     integrity="sha512-QXchymy6PyEfYFQeOUuoz5pH5q9ng0eewZN8Sv0wvxq3ZhujTGF4eS/ySpnl6YfTQRWmA2Nn3Bezi9xuF8yNiw=="
     crossorigin=""></script>
   <!-- <script src="javascripts/map.js"></script> -->
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
 <body class="grid-container">
-  <header class="grid-header">
+  <!-- <header class="grid-header">
     <div class="header">
-      <!-- <section class="image">
-        <img src="\images\easyParkingLogo.png" id="eplogo" alt="Easy Parking Logo">
-        </section> -->
       <div class="header-right">
         <a class="active" href="/index.html">Home</a>
         <a href="/quemSomos.html">Quem somos</a>
@@ -49,64 +46,40 @@
         <a href="/iniciarSessao.html">Iniciar Sessão</a>
       </div>
     </div>
-  </header>
+  </header> -->
 
+  <section class="grid-left">
+<aside class="grid-aside" id="aside">
 
-  <aside class="grid-aside" id="aside">
-  </aside>
+  <section class="grid-bar">
+  <section class="image">
+    <img src="\images\easyParkingLogo.png" id="ep-logo" alt="Easy Parking Logo">
+  </section>
+  <section class="searchBar">
+  <form class="example" action="/action_page.php">
+    <input type="text" placeholder="Pesquise por parque.." name="search">
+    <button type="submit"><i class="fa fa-search"></i></button>
+  </form>
+</section>
+
+</section>  
+
+  <parques class="grid-listaParques" id="listaParques" style= "overflow-y: scroll;">
+  </parques>
+
+</aside>
+  </section>
 
   <mapa class="grid-mapa">
     <div class="map-flex" id="mapid"></div>
     <script src="javascripts/mapa.js"></script>
   </mapa>
 
-  <description class="grid-description">
-    <p id="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget blandit turpis. Sed in semper
-      orci.
-      Phasellus facilisis turpis eu libero facilisis consequat sit amet non felis. Maecenas efficitur, mauris quis
-      ornare aliquam, mi quam egestas neque, vel placerat quam dui ac tortor. Cras lobortis elit eget mi condimentum,
-      nec congue massa efficitur. Curabitur eget odio efficitur diam posuere fringilla a nec libero. Nunc ac magna
-      vitae justo porttitor vestibulum eu vitae leo. Nam consectetur, nibh in tincidunt congue, nulla velit malesuada
-      tortor, eget volutpat nulla justo nec nisl. Pellentesque ut posuere nulla, vitae viverra ex. Cras dictum
-      ullamcorper condimentum. Mauris sed velit ac lacus varius egestas. Aliquam id sapien varius, eleifend lorem in,
-      tincidunt augue. Maecenas posuere mi sed velit fermentum accumsan. Vestibulum ante ipsum primis in faucibus orci
-      luctus et ultrices posuere cubilia curae;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget
-      blandit turpis. Sed in semper orci.
-      Phasellus facilisis turpis eu libero facilisis consequat sit amet non felis. Maecenas efficitur, mauris quis
-      ornare aliquam, mi quam egestas neque, vel placerat quam dui ac tortor. Cras lobortis elit eget mi condimentum,
-      nec congue massa efficitur. Curabitur eget odio efficitur diam posuere fringilla a nec libero. Nunc ac magna
-      vitae justo porttitor vestibulum eu vitae leo. Nam consectetur, nibh in tincidunt congue, nulla velit malesuada
-      tortor, eget volutpat nulla justo nec nisl. Pellentesque ut posuere nulla, vitae viverra ex. Cras dictum
-      ullamcorper condimentum. Mauris sed velit ac lacus varius egestas. Aliquam id sapien varius, eleifend lorem in,
-      tincidunt augue. Maecenas posuere mi sed velit fermentum accumsan. Vestibulum ante ipsum primis in faucibus orci
-      luctus et ultrices posuere cubilia curaeLorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget
-      blandit turpis. Sed in semper orci.
-      Phasellus facilisis turpis eu libero facilisis consequat sit amet non felis. Maecenas efficitur, mauris quis
-      ornare aliquam, mi quam egestas neque, vel placerat quam dui ac tortor. Cras lobortis elit eget mi condimentum,
-      nec congue massa efficitur. Curabitur eget odio efficitur diam posuere fringilla a nec libero. Nunc ac magna
-      vitae justo porttitor vestibulum eu vitae leo. Nam consectetur, nibh in tincidunt congue, nulla velit malesuada
-      tortor, eget volutpat nulla justo nec nisl. Pellentesque ut posuere nulla, vitae viverra ex. Cras dictum
-      ullamcorper condimentum. Mauris sed velit ac lacus varius egestas. Aliquam id sapien varius, eleifend lorem in,
-      tincidunt augue. Maecenas posuere mi sed velit fermentum accumsan. Vestibulum ante ipsum primis in faucibus orci
-      luctus et ultrices posuere cubilia curaeLorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget
-      blandit turpis. Sed in semper orci.
-      Phasellus facilisis turpis eu libero facilisis consequat sit amet non felis. Maecenas efficitur, mauris quis
-      ornare aliquam, mi quam egestas neque, vel placerat quam dui ac tortor. Cras lobortis elit eget mi condimentum,
-      nec congue massa efficitur. Curabitur eget odio efficitur diam posuere fringilla a nec libero. Nunc ac magna
-      vitae justo porttitor vestibulum eu vitae leo. Nam consectetur, nibh in tincidunt congue, nulla velit malesuada
-      tortor, eget volutpat nulla justo nec nisl. Pellentesque ut posuere nulla, vitae viverra ex. Cras dictum
-      ullamcorper condimentum. Mauris sed velit ac lacus varius egestas. Aliquam id sapien varius, eleifend lorem in,
-      tincidunt augue. Maecenas posuere mi sed velit fermentum accumsan. Vestibulum ante ipsum primis in faucibus orci
-      luctus et ultrices posuere cubilia curae</p>
-      <p id="reviews"></p>
-  </description>
-
-
-  <footer class="grid-footer">
+  <!-- <footer class="grid-footer">
     <section class="footer-flex">
       <p>Contact us by email (<a href="mailto: easyparking.geral@gmail.com">easyparking.geral@gmail.com</a>)</p>
     </section>
-  </footer>
+  </footer> -->
 
 </body>
 
