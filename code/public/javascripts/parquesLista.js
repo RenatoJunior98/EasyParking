@@ -68,10 +68,8 @@ async function loadReviews(PID, LP, tipo, CM) {
 }
 
 function selecionarParque(long, lat, ParqueID, LP, tipo, CM) {
-    let userID = 0;
-    console.log(userID);
+    loadReviews(ParqueID, LP, tipo, CM);
     parquesMarkers(long, lat);
-    checkLogin(userID, ParqueID);
+    //checkLogin(userID, ParqueID);
     //let html = "" + descricao;
-    document.getElementById("description").innerHTML = "<h1> Informações do parque selecionado: <br> </h1>";
   }
