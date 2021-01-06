@@ -11,4 +11,14 @@ router.get('/', async function(req, res, next) {
        send(result.data);
   });
 
+
+/* GET reviews */
+router.get('/:id', async function(req, res, next) {
+  let id = req.params.id;
+  let filterObj = req.query;
+  let result = await parkModel.getReviews(id);
+  res.status(result.status).
+     send(result.data);
+});
+
 module.exports = router;

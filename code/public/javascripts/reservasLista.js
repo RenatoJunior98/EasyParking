@@ -7,7 +7,7 @@ window.onload = function() {
 //     let elemAside = document.getElementById("main_content");
 //     try {
 //         let parques = await $.ajax({
-//             url: "/api/reservas",
+//             url: "/reservas",
 //             method: "get",
 //             dataType: "json"
 //         });
