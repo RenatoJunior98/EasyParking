@@ -18,12 +18,12 @@
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888; 
+  background: rgb(75, 75, 75); 
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: rgb(46, 46, 46); 
 }
 
 
@@ -235,30 +235,53 @@ button:focus {
 /* FORM */
 
 form.example input[type=text] {
+  border-radius: 10px;
   width:300px;
   flex:8;
   padding: 10px;
   font-size: 17px;
-  border: 1px solid #FF5F00;
+  border: 1px solid #ffffff;
   /* float: left; */
   margin:auto;
   background: #f1f1f1;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
-			0 10px 10px rgba(0,0,0,0.22);
+  transition: box-shadow .3s;
+	box-shadow: 0 3px 3px rgba(33,33,33,.2); 
+}
+
+form.example input[type=text]:hover {
+  outline: none;
+}
+
+form.example textarea[type=text]:focus{
+  outline: none;
+}
+
+form.example select:focus{
+  outline: none;
 }
 
 form.example button {
   /* float: left; */
+  border-radius: 10px;
   width: 20%;
   padding: 10px;
   background: #ffffff;
   color: #FF5F00;
   font-size: 17px;
-  border: 1px solid #FF5F00;
+  border: 1px solid #ffffff;
   border-left: none;
   cursor: pointer;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
-			0 10px 10px rgba(0,0,0,0.22);
+  /* transition: box-shadow .3s; */
+	box-shadow: 0 3px 3px rgba(33,33,33,.2); 
+}
+
+button:active {
+  outline: none;
+  border: none;
+}
+  
+button:focus {
+  outline: none;
 }
 
 form.example button:hover {
@@ -269,4 +292,8 @@ form.example::after {
   content: "";
   clear: both;
   display: table;
+}
+
+input:focus, textarea:focus, select:focus{
+	outline: none;
 }

@@ -122,13 +122,13 @@ h2 {
 	text-align: center;
 }
 
-p {
+/* p {
 	font-size: 14px;
 	font-weight: 100;
 	line-height: 20px;
 	letter-spacing: 0.5px;
 	margin: 20px 0 30px;
-}
+} */
 
 span {
 	font-size: 12px;
@@ -142,15 +142,19 @@ a {
 }
 
 button {
-	border-radius: 10px;
+	font-family: 'Roboto';
+	border-radius: 5px;
 	background-color: #FF5F00;
+	border: 1px solid #FF5F00;
 	color: #FFFFFF;
+	cursor: pointer;
+	margin: 5px;
 	font-size: 16px;
-	font-weight: bold;
-	padding: 12px 45px;
-	letter-spacing: 1px;
+	padding: 10px 16px;
+	/* letter-spacing: 1px; */
 	text-transform: uppercase;
-	transition: transform 80ms ease-in;
+	transition: box-shadow .3s;
+	box-shadow: 0 3px 3px rgba(33,33,33,.2); 
 }
 
 button:active {
@@ -161,16 +165,21 @@ button:focus {
 	outline: none;
 }
 
+button:hover{
+	box-shadow: 0 6px 6px rgba(37, 37, 37, 0.2); 
+}
+
 .buttonRegistar{
-	border-radius: 10px;
+	font-family: 'Roboto';
+	border-radius: 5px;
 	background-color:#FFFFFF ;
+	border: 1px solid #ffffff;
 	color: #FF5F00;
+	margin: 5px;
 	font-size: 16px;
-	font-weight: bold;
-	padding: 12px 45px;
-	letter-spacing: 1px;
+	padding: 10px 16px;
+	/* letter-spacing: 1px; */
 	text-transform: uppercase;
-	transition: transform 80ms ease-in;
 }
 
 form {
@@ -182,6 +191,10 @@ form {
 	padding: 0 50px;
 	height: 100%;
 	text-align: center;
+}
+
+input:focus, textarea:focus, select:focus{
+	outline: none;
 }
 
 input {
@@ -208,17 +221,12 @@ input {
 	position: absolute;
 	top: 0;
 	height: 100%;
-	transition: all 0.6s ease-in-out;
 }
 
 .sign-in-container {
 	left: 0;
 	width: 50%;
 	z-index: 2;
-}
-
-.container.right-panel-active .sign-in-container {
-	transform: translateX(100%);
 }
 
 .sign-up-container {
@@ -228,11 +236,6 @@ input {
 	z-index: 1;
 }
 
-.container.right-panel-active .sign-up-container {
-	transform: translateX(100%);
-	opacity: 1;
-}
-
 .overlay-container {
 	position: absolute;
 	top: 0;
@@ -240,7 +243,6 @@ input {
 	width: 50%;
 	height: 100%;
 	overflow: hidden;
-	z-index: 100;
 }
 
 .overlay {
@@ -253,12 +255,6 @@ input {
 	left: -100%;
 	height: 100%;
 	width: 200%;
-  	transform: translateX(0);
-	transition: transform 0.6s ease-in-out;
-}
-
-.container.right-panel-active .overlay {
-  	transform: translateX(50%);
 }
 
 .overlay-panel {
@@ -272,29 +268,17 @@ input {
 	top: 0;
 	height: 100%;
 	width: 50%;
-	transform: translateX(0);
-	transition: transform 0.6s ease-in-out;
 }
 
-.overlay-left {
-	transform: translateX(-20%);
-}
-
-.container.right-panel-active .overlay-left {
-	transform: translateX(0);
-}
 
 .overlay-right {
 	right: 0;
-	transform: translateX(0);
 }
 
-.container.right-panel-active .overlay-right {
-	transform: translateX(20%);
-}
 
 .formularioRegistar{
 	background-color: #FF5F00;
+	width: 384px;
 }
 
 /* __________header__________ */
