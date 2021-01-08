@@ -35,3 +35,8 @@ searchControl.on('results', function (data) {
   //    results.addLayer(L.marker(data.results[i].latlng));
   // }
 });
+//var button = document.createElement("button");
+//button.class = "profileB";
+//button.innerHTML = '<i class="material-icons" style="font-size:45px;color:white">person</i>';
+
+//document.getElementById("body").appendChild(button);

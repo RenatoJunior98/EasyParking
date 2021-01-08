@@ -49,6 +49,32 @@ a {
   color: #ffffff;
 }
 
+button.profileB {
+  background:#FF5F00;
+  position: fixed;
+  top: 25;
+  right: 25;
+  border: 3px solid #FF5F00;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  z-index: 100;
+  transition: box-shadow .3s;
+	box-shadow: 0 3px 3px rgba(33,33,33,.2); 
+}
+
+button.profileB:active {
+	transform: scale(0.95);
+}
+
+button.profileB:focus {
+	outline: none;
+}
+
+button.profileB:hover{
+	box-shadow: 0 6px 6px rgba(37, 37, 37, 0.2); 
+}
+
 #ep-logo{
   width: 100px;
   height: 100px;
@@ -90,6 +116,7 @@ h1 {
 
 .map-flex{
   display: flex;
+  position: relative;
 }
 
 .header{
@@ -154,6 +181,7 @@ h1 {
 
 .grid-container {
   display: grid;
+  position: relative;
   grid-template-columns:auto 70%;
   grid-template-rows: 100%;
   grid-template-areas:  
@@ -165,6 +193,7 @@ h1 {
   width: 1000px; */
   height: 100%; 
   width: 100%;
+  z-index: 1
 }
 
 #top-of-slot{
@@ -243,7 +272,7 @@ form.example input[type=text] {
   border: 1px solid #ffffff;
   /* float: left; */
   margin:auto;
-  background: #f1f1f1;
+  background: #ffffff;
   transition: box-shadow .3s;
 	box-shadow: 0 3px 3px rgba(33,33,33,.2); 
 }
@@ -285,7 +314,7 @@ button:focus {
 }
 
 form.example button:hover {
-  background: #dfdfdf;
+  box-shadow: 0px 6px 6px rgba(37, 37, 37, 0.2);
 }
 
 form.example::after {
