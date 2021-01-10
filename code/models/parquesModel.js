@@ -1,36 +1,43 @@
-  
+
 var pool = require("./DBConn");
 
-module.exports.getAll = async function() {
+module.exports.getAll = async function (filterObj) {
     try {
-        let sql = "select ClassificacaoMedia, LugaresPrioritarios, Tipologia, ParqueID, Latitude, Longitude, Descricao, Nome, lugaresTotal, precoDiario from Parque inner join Preco where Preco_ID = precoID;";
-        let parques = await pool.query(sql);
-        return {status:200, data: parques};
-    } catch(err) {
+        let filterQueries = "";
+        let filterValues = [];
+        if (filterObj.Nome) {
+            filterQueries += " AND Nome LIKE ?";
+            filterValues.push("%" + filterObj.Nome + "%");
+        }
+        let sql = "select ClassificacaoMedia, LugaresPrioritarios, Tipologia, ParqueID, Latitude, Longitude, Descricao, Nome, lugaresTotal, precoDiario from Parque inner join Preco where Preco_ID = precoID" +
+        filterQueries;
+        let parques = await pool.query(sql,filterValues);
+        return { status: 200, data: parques };
+    } catch (err) {
         console.log(err);
-        return {status:500, data: err};
+        return { status: 500, data: err };
     }
 }
 
-module.exports.getReviews = async function(ParqueID) {
+module.exports.getReviews = async function (ParqueID) {
     try {
-        let sql = "select * from Review inner join User where Parque_ID = "+ParqueID+" and User_ID = UserID;";
+        let sql = "select * from Review inner join User where Parque_ID = " + ParqueID + " and User_ID = UserID;";
         let reviews = await pool.query(sql);
-        return {status:200, data: reviews};
-    } catch(err) {
+        return { status: 200, data: reviews };
+    } catch (err) {
         console.log(err);
-        return {status:500, data: err};
+        return { status: 500, data: err };
     }
 }
 
 
-module.exports.verificarLogin = async function(username, pass) {
+module.exports.verificarLogin = async function (username, pass) {
     try {
-        let sql = "select userID from User where Username = \""+username+"\" and Pass = \""+pass+"\";";
+        let sql = "select userID from User where Username = \"" + username + "\" and Pass = \"" + pass + "\";";
         let login = await pool.query(sql);
-        return {status:200, data: login};
-    } catch(err) {
+        return { status: 200, data: login };
+    } catch (err) {
         console.log(err);
-        return {status:500, data: err};
+        return { status: 500, data: err };
     }
 }

@@ -5,7 +5,8 @@ var parkModel = require("../models/parquesModel");
 
 /* GET all parques */
 router.get('/', async function(req, res, next) {
-    let result = await parkModel.getAll();
+  let filterObj = req.query;  
+  let result = await parkModel.getAll(filterObj);
     res.status(result.status).
        send(result.data);
   });
