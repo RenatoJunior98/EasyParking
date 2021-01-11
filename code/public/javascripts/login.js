@@ -25,7 +25,7 @@ const container = document.getElementById('container');
     }
         elemAside.innerHTML = html;
         sessionStorage.setItem( "userID", String(UserID));
-        window.open("index.html");
+        window.open("index.html","_self");
     return UserID;
     } catch(err) {
         console.log(err);

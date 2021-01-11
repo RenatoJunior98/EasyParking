@@ -1,6 +1,6 @@
 var pool = require("./DBConn");
 
-module.exports.newReviw = async function (comentario, classificacao) {
+module.exports.newReview = async function (comentario, classificacao) {
     try {
         let sql = "Insert into Review (Comentario, Classificacao, Parque_ID, User_ID) values (?,?,?,?);";
         let reviews = await pool.query(sql, comentario, classificacao, sessionStorage.getItem("parqueID"), sessionStorage.getItem("userID"));

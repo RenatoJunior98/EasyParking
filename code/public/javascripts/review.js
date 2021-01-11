@@ -1,4 +1,4 @@
-async function newReviw() {
+async function newReview() {
     let elemAside = document.getElementById("listaParques");
     if (parquesFiltrados){
         showParques(parquesFiltrados);

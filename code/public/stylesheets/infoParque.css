@@ -45,7 +45,8 @@ p {
 }
 
 a {
-  color: #ffffff;
+  color: #3c15c5;
+  font-size: 14px;
 }
 
 button.profileB {
@@ -74,21 +75,40 @@ button.profileB:hover{
 	box-shadow: 0 6px 6px rgba(37, 37, 37, 0.2); 
 }
 
-#ep-logo{
-  width: 100px;
-  height: 100px;
-}
+/* LEFT SIDE */
 
-.image{
+.voltar-flex{
   flex:1;
-  margin-left: 15px;
+  margin: 41px;
 }
 
-.searchBar-flex{
+.nomeParque-flex{
   flex:8;
-  width: 400px;
-  margin-top: 28px;
-  margin-left: 30px;
+}
+
+.grid-containerInfo{
+  display: flex;
+  flex-direction: column;
+}
+
+.atalhos-flex{
+  flex: 1;
+}
+
+.info-flex{
+  flex: 2;
+}
+
+.precario-flex{
+  flex: 3;
+}
+
+.reviewHeader-flex{
+  flex:4;
+}
+
+.reviews-flex{
+  flex:8;
 }
 
 #parque{
@@ -96,13 +116,6 @@ button.profileB:hover{
   border-color: #232323; 
   padding:10px;
 }
-
-#review{
-  border: 2px solid; 
-  border-color: #232323; 
-  padding:10px;
-}
-
 
 h1 {
   font-size: 2em;
@@ -113,6 +126,7 @@ h1 {
   background-color: #FF5F00;
   border-radius: 0 0 10px 10px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  align-items: center;
 }
 
 .grid-mapa {
@@ -121,7 +135,7 @@ h1 {
 
 .grid-listaParques {
   margin: 10px;
-} 
+}
 
 .grid-aside {
   grid-area: s;
@@ -138,6 +152,8 @@ h1 {
 }
 
 #mapid { 
+  /* height: 600px; 
+  width: 1000px; */
   height: 100%; 
   width: 100%;
   z-index: 1
@@ -152,33 +168,19 @@ h1 {
   flex: 1;
 }
 
-#listaParques {
-  /* background-color:  rgb(41, 41, 41); */
+/* #reviews {
+  background-color:  rgb(41, 41, 41);
   display: flex;
   justify-content: flex-start;
-  /* flex-wrap:wrap; */
-  flex-direction: column;
-  padding-left: 5px;
-  padding-top: 20px;
-  font-size:  0.5em;
-  overflow-y: auto;
-  
-}
-
-#reviews {
-  /* background-color:  rgb(41, 41, 41); */
-  display: flex;
-  justify-content: flex-start;
-  /* flex-wrap:wrap; */
+  flex-wrap:wrap;
   flex-direction: column;
   height: 600px; 
   padding-left: 5px;
   padding-top: 20px;
-  font-size:  0.5em;
   overflow-y: auto;
-}
+} */
 
-.button1 {
+.button {
   font-family:'Montserrat', sans-serif;
   border: none;
   color: white;
@@ -190,84 +192,20 @@ h1 {
   margin: 4px 2px;
   transition-duration: 0.3s;
   cursor: pointer;
+}
+
+.button1 {
   background-color: white; 
   color: black; 
   border: 2px solid #FF5F00;
 }
-
 
 .button1:hover {
   background-color: #FF5F00;
   color: white;
 }
 
-.button1:focus {
+button:focus {
    background-color: #FF5F00; 
    color: white;
-}
-
-/* FORM */
-
-form.searchBar input[type=text] {
-  border-radius: 10px;
-  width:300px;
-  flex:8;
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid #ffffff;
-  /* float: left; */
-  margin:auto;
-  background: #ffffff;
-  transition: box-shadow .3s;
-	box-shadow: 0 3px 3px rgba(33,33,33,.2); 
-}
-
-form.searchBar input[type=text]:hover {
-  outline: none;
-}
-
-form.searchBar textarea[type=text]:focus{
-  outline: none;
-}
-
-form.searchBar select:focus{
-  outline: none;
-}
-
-form.searchBar input[type=button] {
-  /* float: left; */
-  border-radius: 10px;
-  width: 20%;
-  padding: 10px;
-  background: #ffffff;
-  color: #FF5F00;
-  font-size: 17px;
-  border: 1px solid #ffffff;
-  border-left: none;
-  cursor: pointer;
-  /* transition: box-shadow .3s; */
-	box-shadow: 0 3px 3px rgba(33,33,33,.2); 
-}
-
-input[type=button]:active {
-  outline: none;
-  border: none;
-}
-  
-input[type=button]:focus {
-  outline: none;
-}
-
-form.searchBar input[type=button]:hover {
-  box-shadow: 0px 6px 6px rgba(37, 37, 37, 0.2);
-}
-
-form.searchBar::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-input:focus, textarea:focus, select:focus{
-	outline: none;
 }

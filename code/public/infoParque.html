@@ -7,9 +7,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <!-- add icon link -->
   <link rel="icon" href="images/easyParkingLogo.png" type="image/x-icon">
-  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/infoParque.css">
   <script src="javascripts/parquesLista.js"></script>
   <script src="javascripts/mapa.js"></script>
+  <script src="javascripts/infoParque.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
     crossorigin="" />
@@ -37,28 +38,37 @@
 <body class="grid-container">
 
 
-  <button onclick="window.location.href='/iniciarSessao.html';" class="profileB"><i class="material-icons"
-      style="font-size:45px;color:white">person</i></button>
+  <button onclick="window.location.href='/iniciarSessao.html';" class="profileB"><i class="material-icons" style="font-size:45px;color:white">person</i></button>
 
 
+  <aside class="grid-aside" id="aside">
 
-  <section class="grid-left">
-    <aside class="grid-aside" id="aside">
+    <section class="grid-bar">
 
-      <section class="grid-bar">
-        <section class="voltar">
-          <a class="voltarB" href="/index.html">Voltar</a>
-        </section>
-        <section class="nomeParque">
-          <a class="nomeParque-style">Nome Parque</a>
+      <section class="voltar-flex">
+        <a class="voltarB" href="/index.html">Voltar</a>
+      </section>
+      <section class="nomeParque-flex" id="nomeParque"><a>Alcantara Parque</a></section>
+    </section>
+
+    <section class="grid-containerInfo">
+
+      <section class="atalhos-flex" id="atalhos"><a>1</a></section>
+      <section class="info-flex" id="info"></section>
+      <section class="precario-flex" id="precario"><a>3</a></section>
+      <section class="reviewHeader-flex"><a>4</a>
+
+        <section class="classificação-flex"></section>
+        <section class="rightSide-flex" id="nomeParque">
+          <a>Reviews e classificações de utilizadores</a>
+          <br><input type="button" class="buttonReview" value="Fazer Review"></input></br>
         </section>
 
       </section>
+      <section class="reviews-flex" id="reviews"><p>Lista reviews</p></section>
+    </section>
 
-      <parques class="grid-listaParques" id="listaParques" style="overflow-y: scroll;">
-      </parques>
-    </aside>
-  </section>
+  </aside>
 
   <mapa class="grid-mapa">
     <div class="map-flex" id="mapid"></div>

@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="/stylesheets/style.css">
   <script src="javascripts/parquesLista.js"></script>
   <script src="javascripts/mapa.js"></script>
-  <script src="\javascripts\infoParque.js"></script>
+  <script src="javascripts/infoParque.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
     crossorigin="" />
@@ -40,7 +40,6 @@
 
 <button onclick="window.location.href='/iniciarSessao.html';" class="profileB"><i class="material-icons" style="font-size:45px;color:white">person</i></button>
   
-  <section class="grid-left">
 <aside class="grid-aside" id="aside">
 
   <section class="grid-bar">
@@ -59,10 +58,9 @@
   <parques class="grid-listaParques" id="listaParques" style= "overflow-y: scroll;">    
   </parques>
 </aside>
-  </section>
 
   <mapa class="grid-mapa">
-    <div class="map-flex" id="mapid"></div>
+    <div id="mapid"></div>
     <script src="javascripts/mapa.js"></script>
   </mapa>
 

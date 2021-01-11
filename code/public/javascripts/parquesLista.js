@@ -45,8 +45,8 @@ elemAside.innerHTML = html;
 
 
 function selecionarParque(long, lat, ParqueID, LP, tipo, CM) {
-    loadInfo(ParqueID, LP, tipo, CM);
-    parquesMarkers(long, lat);
+    window.open("infoParque.html","_self");
+    loadInfo(ParqueID, LP, tipo, CM, long, lat);
 }
 
 
