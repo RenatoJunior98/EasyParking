@@ -30,4 +30,14 @@ router.get('/:username/:pass', async function(req, res, next) {
 });
 
 
+/* new review */
+router.post('/:parqueID/:userID', async function(req, res, next) {
+  let parqueID = req.params.parqueID;
+  let userID = req.params.userID;
+  let result = await parkModel.newReview(parqueID, userID);
+  res.status(result.status).
+     send(result.data);
+});
+
+
 module.exports = router;
