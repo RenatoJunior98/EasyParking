@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Easy Parking</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- add icon link -->
+    <link rel="icon" href="images/easyParkingLogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/stylesheets/styleReview.css">
+    <script src="javascripts/parquesLista.js"></script>
+    <script src="javascripts/infoParque.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+        <a class="voltarB" href="/index.html">Voltar</a>
+    <main>
+        <section class="container" id="container">
+            <section class="form-container reviewCont">
+                <form>
+                    <h1>Review</h1>
+                    <input type="textarea" placeholder="Escreva a sua review" id="reviewTexto" />
+                    <label for="quantity">Classificação que daria ao parque (entre 1 e 5):</label>
+                    <input type="number" id="classificacao" name="classificacao" min="1" max="5">
+                    <button onclick="postReview()">Submeter</button>
+                </form>
+            </section>
+        </section>
+    </main>
+</body>
+
+</html>
