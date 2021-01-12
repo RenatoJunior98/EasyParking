@@ -49,7 +49,7 @@ function selecionarParque(parque) {
     sessionStorage.setItem("parque",JSON.stringify(parque)); 
     console.log(sessionStorage.getItem("parque"));
    // showInfo(parque);
-    window.open("infoParque.html");
+    window.open("infoParque.html","_self");
     //loadInfo(parque);
    
 }

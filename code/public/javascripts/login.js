@@ -1,8 +1,4 @@
-const signUpButton = document.getElementById('signUp');
-const signInButton = document.getElementById('signIn');
-const container = document.getElementById('container');
-
- async function checkLogin() {
+async function checkLogin() {
 	var userName=document.getElementById('username').value;
 	var password=document.getElementById('pass').value;
 	let elemAside = document.getElementById("IS");
@@ -25,7 +21,7 @@ const container = document.getElementById('container');
     }
         elemAside.innerHTML = html;
         sessionStorage.setItem( "userID", UserID);
-        console.log(sessionStorage.getItem("userID"));
+        alert(sessionStorage.getItem("userID"));
         window.open("index.html","_self");
     return UserID;
     } catch(err) {
@@ -34,17 +30,3 @@ const container = document.getElementById('container');
                 "<h2> Por favor tente mais tarde</h2>";
     }
 }
-
-//  function getuPassword(){
-//     var text=document.getElementById('username').value;
-//  }
-
-
-// signUpButton.addEventListener('click', () => {
-// 	container.classList.add("right-panel-active");
-// });
-
-// signInButton.addEventListener('click', () => {
-// 	container.classList.remove("right-panel-active");
-// });
-// });

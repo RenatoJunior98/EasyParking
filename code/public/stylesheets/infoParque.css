@@ -42,11 +42,13 @@ body {
 
 p {
   font-size: 14px;
+  font-family: 'Roboto';
 }
 
 a {
   color: #3c15c5;
   font-size: 14px;
+  font-family: 'Roboto';
 }
 
 button.profileB {
@@ -97,6 +99,10 @@ button.profileB:hover{
 
 .info-flex{
   flex: 2;
+  border-top: 1px solid #D9D9D9;
+  border-bottom: 1px solid #D9D9D9;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .precario-flex{
@@ -105,16 +111,55 @@ button.profileB:hover{
 
 .reviewHeader-flex{
   flex:4;
+  border-top: 1px solid #D9D9D9;
+  padding-top: 15px;
+}
+
+.classificação-flex{
+  display: flex;
+  flex-direction: row;
+}
+
+.classificacao{
+  flex: 1;
+  background: #FF5F00;
+  color: white;
+  border-radius: 5px;
+  margin-left: 20px;
+  padding: 10px;
+  align-items: center;
+}
+
+.rightSide-flex{
+  flex: 2;
+  margin-left: 20px;
 }
 
 .reviews-flex{
   flex:8;
 }
 
-#parque{
-  border: 2px solid; 
-  border-color: #232323; 
-  padding:10px;
+.buttonReview{
+  border: 2px solid #FF5F00;
+  color: #FF5F00;
+  border-radius: 5px;
+  padding: 8px;
+  background-color: #FFFFFF;
+  font-family: 'Roboto';
+  /* font-weight:bold; */
+}
+
+input[type=button]:active {
+	transform: scale(0.95);
+}
+
+input[type=button]:focus {
+	outline: none;
+}
+
+input[type=button]:hover{
+  transform: scale(0.95);
+  cursor: pointer;
 }
 
 h1 {

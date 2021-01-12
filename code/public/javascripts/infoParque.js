@@ -24,12 +24,26 @@ window.onload = function () {
 
 function showInfo() {
     let parqueInfo = JSON.parse(sessionStorage.getItem("parque"));
-    let elemAside = document.getElementById("info");
-    let html = "";
+    let elemNome = document.getElementById("nomeParque");
+    let elemInfo = document.getElementById("info");
+    let elemClassificacao = document.getElementById("classificacao");
+    let elemReviews = document.getElementById("review");
+    let htmlNome= "";
+    let htmlInfo= "";
+    let htmlClassificacao= "";
     sessionStorage.setItem("parqueID", parqueInfo.ParqueID);
-    //if(parques){
-        html += "<h1>Nome = " + parqueInfo.Nome + "</h1>";
-    //}
+        htmlNome += "<h1>" + parqueInfo.Nome + "</h1>";
+        
+        htmlInfo += "<p>Morada: " + parqueInfo.Descricao + 
+        "</p> <p>GPS: "+ parqueInfo.Latitude +","+ parqueInfo.Longitude + 
+        "</p> <p>Tipologia: "+ parqueInfo.Tipologia +
+        "</p> <p>Número de Lugares: "+ parqueInfo.LugaresTotal +
+        "</p> <p>Número de Lugares para Deficientes: "+ parqueInfo.LugaresPrioritarios +"</p>";
+        
+        htmlClassificacao += "<h1 class='classificacao'>"+ parqueInfo.ClassificacaoMedia +"</h1>"
 
-elemAside.innerHTML = html;
+elemNome.innerHTML = htmlNome;
+elemInfo.innerHTML = htmlInfo;
+elemClassificacao.innerHTML = htmlClassificacao;
+
 }

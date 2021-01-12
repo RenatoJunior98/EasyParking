@@ -3,10 +3,10 @@ var router = express.Router();
 var reviewModel = require("../models/reviewModel");
 
 
-/* new review */
+/* add review */
 router.post('/', async function(req, res, next) {
-    let review = req.body.review;
-    let result = await reviewModel.newReview(review);
+    let review = req.body;
+    let result = await reviewModel.save(review);
     res.status(result.status).send(result.data);
   });
   
