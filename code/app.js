@@ -5,10 +5,11 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var parquesRouter = require('./routes/parquesRoutes');
+var reviewsRouter = require('./routes/reviewsRoutes');
+
 
 var app = express();
-
-var parquesRouter = require('./routes/parquesRoutes');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -20,5 +21,5 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 app.use('/api/parques', parquesRouter);
-app.use('/api/reviews', parquesRouter);
+app.use('/api/reviews', reviewsRouter);
 module.exports = app;

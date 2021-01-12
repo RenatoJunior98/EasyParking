@@ -1,27 +1,35 @@
 
+window.onload = function () {
+    showInfo();
+}
 
-async function loadInfo(PID, LP, tipo, CM, long, lat) {
-    parquesMarkers(long, lat);
+// async function loadInfo() {
+//     parquesMarkers(long, lat);
+//     let elemAside = document.getElementById("info");
+//     let parqueID = sessionStorage.getItem( "parqueID");
+//     try {
+//         let info = await $.ajax({
+//             url: "/api/parques/" + parqueID,
+//             method: "get",
+//             dataType: "json"
+//         });
+//         showInfo(info);
+//         elemAside.innerHTML = html;
+//     } catch (err) {
+//         console.log(err);
+//         elemAside.innerHTML = "<h1> Página não está disponível</h1>" +
+//             "<h2> Por favor tente mais tarde</h2>";
+//     }
+// }
+
+function showInfo() {
+    let parqueInfo = JSON.parse(sessionStorage.getItem("parque"));
     let elemAside = document.getElementById("info");
-    sessionStorage.setItem( "parqueID", PID);
-    try {
-        let reviews = await $.ajax({
-            url: "/api/parques/" + PID,
-            method: "get",
-            dataType: "json"
-        });
-        let html = "";
-        let userID = 0;
-        html += "<h2> Lugares Prioritários: " + LP + "<br> Tipologia: " + tipo + "<br> Classificacao media: " + CM + "<br><br>Reviews do parque selecionado:<br>";
-        // for (let review of reviews) {
-        //     html += "<section> <h2>" + review.Nome + ":<br></h2>" +
-        //         "<p> Comentario: " + review.Comentario + "<br> classificação: " + review.Classificacao + " Estrelas. <br><br></p></review>";
-        //     userID = review.UserID;
-        // }
-        elemAside.innerHTML = html;
-    } catch (err) {
-        console.log(err);
-        elemAside.innerHTML = "<h1> Página não está disponível</h1>" +
-            "<h2> Por favor tente mais tarde</h2>";
-    }
+    let html = "";
+    sessionStorage.setItem("parqueID", parqueInfo.ParqueID);
+    //if(parques){
+        html += "<h1>Nome = " + parqueInfo.Nome + "</h1>";
+    //}
+
+elemAside.innerHTML = html;
 }

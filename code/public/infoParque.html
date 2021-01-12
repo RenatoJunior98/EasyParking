@@ -8,9 +8,6 @@
   <!-- add icon link -->
   <link rel="icon" href="images/easyParkingLogo.png" type="image/x-icon">
   <link rel="stylesheet" href="/stylesheets/infoParque.css">
-  <script src="javascripts/parquesLista.js"></script>
-  <script src="javascripts/mapa.js"></script>
-  <script src="javascripts/infoParque.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
     crossorigin="" />
@@ -33,6 +30,7 @@
     crossorigin=""></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="javascripts/infoParque.js"></script>
 </head>
 
 <body class="grid-container">
@@ -60,14 +58,15 @@
 
         <section class="classificação-flex"></section>
         <section class="rightSide-flex" id="nomeParque">
+          <a id = "info"></a>
           <a>Reviews e classificações de utilizadores</a>
-          <br><input type="button" class="buttonReview" value="Fazer Review"></input></br>
+          <br><input onclick="location.href='/review.html'" type="button" class="buttonReview" value="Fazer Review" ></input></br>
         </section>
 
       </section>
       <section class="reviews-flex" id="reviews"><p>Lista reviews</p></section>
+      
     </section>
-
   </aside>
 
   <mapa class="grid-mapa">

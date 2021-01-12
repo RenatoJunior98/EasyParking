@@ -41,3 +41,18 @@ module.exports.verificarLogin = async function (username, pass) {
         return { status: 500, data: err };
     }
 }
+
+
+
+// module.exports.getOne = async function(idParque) {
+//     try {
+//         let sql = "SELECT * FROM parque inner join preco inner join horario where Preco_ID=PrecoID AND horario_ID=horarioID AND parqueID = ?";
+//         let albuns = await pool.query(sql,[idParque]);
+//         let album = albuns[0];
+//         album.tracks = tracks;        
+//         return {status:200, data: album};
+//     } catch(err) {
+//         console.log(err);
+//         return {status:500, data: err};
+//     }
+// }

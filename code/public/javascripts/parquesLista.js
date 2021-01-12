@@ -34,7 +34,8 @@ function showParques(parques) {
         coordenada1 = parque.Latitude;
         coordenada2 = parque.Longitude;
         console.log(coordenada1);
-        html += "<button class='button button1' id = 'parque' onclick='selecionarParque(" + coordenada1 + "," + coordenada2 + "," + parque.ParqueID + "," + parque.LugaresPrioritarios + ",\"" + parque.Tipologia + "\"," + parque.ClassificacaoMedia + ")'><h1>" + parque.Nome + "</h1>" +
+      
+        html += "<button class='button button1' id = 'parque' onclick='selecionarParque(" + JSON.stringify(parque) + ")'><h1>" + parque.Nome + "</h1>" +
             "<p> Lugares Totais: " + parque.lugaresTotal + "</p>" +
             //"<p style='color:#006622;'> Lugares Totais: "+parque.lugaresLivres+"</p>"+
             "<p> Preço diário: " + parque.precoDiario + "€</p></button>";
@@ -44,9 +45,13 @@ elemAside.innerHTML = html;
 }
 
 
-function selecionarParque(long, lat, ParqueID, LP, tipo, CM) {
-    window.open("infoParque.html","_self");
-    loadInfo(ParqueID, LP, tipo, CM, long, lat);
+function selecionarParque(parque) {
+    sessionStorage.setItem("parque",JSON.stringify(parque)); 
+    console.log(sessionStorage.getItem("parque"));
+   // showInfo(parque);
+    window.open("infoParque.html");
+    //loadInfo(parque);
+   
 }
 
 
@@ -61,6 +66,7 @@ async function filtrar() {
         loadParques(parques);
     } catch (err) {
         let elemAside = document.getElementById("listaParques");
+        
         console.log(err);
         elemAside.innerHTML = "<h1> Página não está disponível</h1>" +
             "<h2> Por favor tente mais tarde</h2>";

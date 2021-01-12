@@ -12,6 +12,15 @@ router.get('/', async function(req, res, next) {
   });
 
 
+  /* GET parque */
+
+// router.get('/:id', async function(req, res, next) {
+//   let idParque = req.params.id;
+//   let result = await albModel.getOne(idParque);
+//   res.status(result.status).
+//      send(result.data);
+// });
+
 /* GET reviews */
 router.get('/:id', async function(req, res, next) {
   let id = req.params.id;
@@ -30,14 +39,4 @@ router.get('/:username/:pass', async function(req, res, next) {
 });
 
 
-/* new review */
-router.post('/:parqueID/:userID', async function(req, res, next) {
-  let parqueID = req.params.parqueID;
-  let userID = req.params.userID;
-  let result = await parkModel.newReview(parqueID, userID);
-  res.status(result.status).
-     send(result.data);
-});
-
-
-module.exports = router;
+module.exports = router

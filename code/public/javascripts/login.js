@@ -24,7 +24,8 @@ const container = document.getElementById('container');
 					//return 0;
     }
         elemAside.innerHTML = html;
-        sessionStorage.setItem( "userID", String(UserID));
+        sessionStorage.setItem( "userID", UserID);
+        console.log(sessionStorage.getItem("userID"));
         window.open("index.html","_self");
     return UserID;
     } catch(err) {
