@@ -10,3 +10,15 @@ module.exports.save = async function(review) {
         return { status: 500, data: err };
     }
 }
+
+module.exports.getReviews = async function (ParqueID) {
+    try {
+        let sql = "select Nome, Classificacao, Comentario from Review inner join User where Parque_ID = " + ParqueID + " AND userID = user_ID";
+        let reviews = await pool.query(sql);
+        return { status: 200, data: reviews };
+    } catch (err) {
+        console.log(err);
+        return { status: 500, data: err };
+    }
+}
+

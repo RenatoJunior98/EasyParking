@@ -1,6 +1,7 @@
 
 window.onload = function () {
     showInfo();
+    showReviews()
 }
 
 // async function loadInfo() {
@@ -45,5 +46,16 @@ function showInfo() {
 elemNome.innerHTML = htmlNome;
 elemInfo.innerHTML = htmlInfo;
 elemClassificacao.innerHTML = htmlClassificacao;
+}
 
+function showReviews(){
+    let parqueID = sessionStorage.getItem("parqueID");
+    let reviews = JSON.parse(sessionStorage.getItem("reviews"));
+    loadReviews(parqueID);
+    let elemReviews = document.getElementById("reviews");
+    let html = "";
+    for (let review of reviews) {
+        html += "<h1>" + review.Nome + "</h1><p>" + review.Comentario + "</p><p> Classificação: "+ review.Classificacao;
+}
+elemReviews.innerHTML = html;
 }

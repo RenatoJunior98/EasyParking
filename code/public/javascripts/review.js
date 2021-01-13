@@ -26,3 +26,20 @@ async function addReview() {
         // mensagem para o utilizador
     }
 }
+
+
+async function loadReviews(parqueID) {
+    let elemAside = document.getElementById("reviews");
+    try {
+        let reviews = await $.ajax({
+            url: "/api/reviews/"+parqueID,
+            method: "get",
+            dataType: "json"
+        });
+        sessionStorage.setItem("reviews",JSON.stringify(reviews)); 
+    } catch(err) {
+        console.log(err);
+        elemAside.innerHTML = "<h1> Página não está disponível</h1>"+
+                "<h2> Por favor tente mais tarde</h2>";
+    }
+}

@@ -19,17 +19,6 @@ module.exports.getAll = async function (filterObj) {
     }
 }
 
-module.exports.getReviews = async function (ParqueID) {
-    try {
-        let sql = "select * from Review inner join User where Parque_ID = " + ParqueID + " and User_ID = UserID;";
-        let reviews = await pool.query(sql);
-        return { status: 200, data: reviews };
-    } catch (err) {
-        console.log(err);
-        return { status: 500, data: err };
-    }
-}
-
 
 module.exports.verificarLogin = async function (username, pass) {
     try {
