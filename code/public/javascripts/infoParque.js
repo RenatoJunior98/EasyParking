@@ -1,7 +1,7 @@
 
 window.onload = function () {
     showInfo();
-    showReviews()
+    showReviews();
 }
 
 // async function loadInfo() {
@@ -25,27 +25,32 @@ window.onload = function () {
 
 function showInfo() {
     let parqueInfo = JSON.parse(sessionStorage.getItem("parque"));
+    let elemAtalhos = document.getElementById("atalhos");
     let elemNome = document.getElementById("nomeParque");
     let elemInfo = document.getElementById("info");
     let elemClassificacao = document.getElementById("classificacao");
-    let elemReviews = document.getElementById("review");
+    let htmlAtalhos= "";
     let htmlNome= "";
     let htmlInfo= "";
     let htmlClassificacao= "";
     sessionStorage.setItem("parqueID", parqueInfo.ParqueID);
+        htmlAtalhos += "<a><button class='material-icons direction-icon'>directions</button></a>  <a><button class='material-icons emel-icon'>info</button></a>  <a><button class='material-icons share-icon'>share</button></a>  <a><button class='material-icons bookmark-icon'>bookmark_border</button></a>"
+    
         htmlNome += "<h1>" + parqueInfo.Nome + "</h1>";
         
-        htmlInfo += "<p>Morada: " + parqueInfo.Descricao + 
-        "</p> <p>GPS: "+ parqueInfo.Latitude +","+ parqueInfo.Longitude + 
-        "</p> <p>Tipologia: "+ parqueInfo.Tipologia +
-        "</p> <p>Número de Lugares: "+ parqueInfo.LugaresTotal +
-        "</p> <p>Número de Lugares para Deficientes: "+ parqueInfo.LugaresPrioritarios +"</p>";
+        htmlInfo += "<br><p><span style='color: #FF5F00'>Morada: </span>" + parqueInfo.Descricao + 
+        "</p></br>   <br><p><span style='color: #FF5F00'>GPS: </span>"+ parqueInfo.Latitude +","+ parqueInfo.Longitude + 
+        "</p></br>   <br><p><span style='color: #FF5F00'>Tipologia: </span>"+ parqueInfo.Tipologia +
+        "</p></br>   <br><p><span style='color: #FF5F00'>Número de Lugares: </span>"+ parqueInfo.LugaresTotal +
+        "</p></br>   <br><p><span style='color: #FF5F00'>Número de Lugares para Deficientes: </span>"+ parqueInfo.LugaresPrioritarios +"</p></br>";
         
         htmlClassificacao += "<h1 class='classificacao'>"+ parqueInfo.ClassificacaoMedia +"</h1>"
 
+elemAtalhos.innerHTML = htmlAtalhos;
 elemNome.innerHTML = htmlNome;
 elemInfo.innerHTML = htmlInfo;
 elemClassificacao.innerHTML = htmlClassificacao;
+
 }
 
 function showReviews(){
@@ -55,7 +60,7 @@ function showReviews(){
     let elemReviews = document.getElementById("reviews");
     let html = "";
     for (let review of reviews) {
-        html += "<h1>" + review.Nome + "</h1><p>" + review.Comentario + "</p><p> Classificação: "+ review.Classificacao;
+        html += "<section class='review'><h1>" + review.Nome + "</h1><p>" + review.Comentario + "</p><p> Classificação: "+ review.Classificacao +"</section>";
 }
 elemReviews.innerHTML = html;
 }

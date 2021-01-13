@@ -36,7 +36,7 @@ function showParques(parques) {
         console.log(coordenada1);
       
         html += "<button class='button button1' id = 'parque' onclick='selecionarParque(" + JSON.stringify(parque) + ")'><h1>" + parque.Nome + "</h1>" +
-            "<p> Lugares Totais: " + parque.lugaresTotal + "</p>" +
+            "<p> Lugares Totais: " + parque.LugaresTotal + "</p>" +
             //"<p style='color:#006622;'> Lugares Totais: "+parque.lugaresLivres+"</p>"+
             "<p> Preço diário: " + parque.precoDiario + "€</p></button>";
     //}

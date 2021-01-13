@@ -95,6 +95,8 @@ button.profileB:hover{
 
 .atalhos-flex{
   flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .info-flex{
@@ -137,6 +139,11 @@ button.profileB:hover{
 
 .reviews-flex{
   flex:8;
+  margin: 20px;
+  font-size:  0.5em;
+  overflow-y: auto;
+  height: 290px;
+  border: 2px solid #969696;
 }
 
 .buttonReview{
@@ -213,20 +220,18 @@ h1 {
   flex: 1;
 }
 
-/* #reviews {
-  background-color:  rgb(41, 41, 41);
+.review {
+  border-bottom: 1px solid #bebebe;
   display: flex;
   justify-content: flex-start;
   flex-wrap:wrap;
-  flex-direction: column;
-  height: 600px; 
-  padding-left: 5px;
-  padding-top: 20px;
-  overflow-y: auto;
-} */
+  flex-direction: column; 
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
 
 .button {
-  font-family:'Montserrat', sans-serif;
   border: none;
   color: white;
   padding: 16px 32px;
@@ -253,4 +258,64 @@ h1 {
 button:focus {
    background-color: #FF5F00; 
    color: white;
+}
+
+.direction-icon{
+  flex:1;
+  background: #FF5F00;
+  color: white;
+  border: 2px solid #FF5F00;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 100px;
+    vertical-align: middle;
+    margin: 30px;
+    cursor: pointer;
+}
+
+.emel-icon{
+  flex:2;
+  background: #FF5F00;
+  color: white;
+  border: 2px solid #FF5F00;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 100px;
+    vertical-align: middle;
+    margin: 30px;
+    cursor: pointer;
+}
+
+.share-icon{
+  flex:3;
+  background: #FF5F00;
+  color: white;
+  border: 2px solid #FF5F00;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 100px;
+    vertical-align: middle;
+    margin: 30px;
+    cursor: pointer;
+}
+
+.bookmark-icon{
+  flex:4;
+  background: #FF5F00;
+  color: white;
+  border: 2px solid #FF5F00;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 100px;
+    vertical-align: middle;
+    margin: 30px;
+    cursor: pointer;
 }
