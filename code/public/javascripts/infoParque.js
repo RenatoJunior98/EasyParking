@@ -35,7 +35,7 @@ function showInfo() {
     let htmlInfo = "";
     let htmlClassificacao = "";
     sessionStorage.setItem("parqueID", parqueInfo.ParqueID);
-    htmlAtalhos += "<a><button class='material-icons direction-icon'>directions</button></a>  <a><button class='material-icons emel-icon'>info</button></a>  <a><button class='material-icons share-icon'>share</button></a>  <a><button class='material-icons bookmark-icon'>bookmark_border</button></a>"
+    htmlAtalhos += "<a><button class='material-icons direction-icon'>directions</button></a>  <a><button onclick='getEmel("+ JSON.stringify(parqueInfo.Nome) +")' class='material-icons emel-icon'>info</button></a>  <a><button class='material-icons share-icon'>share</button></a>  <a><button class='material-icons bookmark-icon'>bookmark_border</button></a>"
 
     htmlNome += "<h1>" + parqueInfo.Nome + "</h1>";
 
@@ -52,6 +52,34 @@ function showInfo() {
     elemInfo.innerHTML = htmlInfo;
     elemClassificacao.innerHTML = htmlClassificacao;
 
+}
+
+//retirado e alterado de: https://www.etnassoft.com/2011/03/03/eliminar-tildes-con-javascript/
+var normalize = (function() {
+    var from = "ABCDEFGHIJKLMNOPQRSTUVWXYZÃÀÁÄÂÈÉËÊÌÍÏÎÒÓÖÔÙÚÜÛãàáäâèéëêìíïîòóöôùúüûÑñÇç ", 
+        to   = "abcdefghijklmnopqrstuvwxyzaaaaaeeeeiiiioooouuuuaaaaaeeeeiiiioooouuuunncc-",
+        mapping = {};
+   
+    for(var i = 0, j = from.length; i < j; i++ )
+        mapping[ from.charAt( i ) ] = to.charAt( i );
+   
+    return function( str ) {
+        var ret = [];
+        for( var i = 0, j = str.length; i < j; i++ ) {
+            var c = str.charAt( i );
+            if( mapping.hasOwnProperty( str.charAt( i ) ) )
+                ret.push( mapping[ c ] );
+            else
+                ret.push( c );
+        }
+        return ret.join( '' );
+    }
+   
+})();
+
+function getEmel(nome){
+    window.open("https://www.emel.pt/pt/parques/"+ normalize(nome));
+    console.log(normalize(nome));
 }
 
 async function loadReviews() {
@@ -78,10 +106,11 @@ async function showReviews() {
     //let reviews = JSON.parse(sessionStorage.getItem("reviews"));
     let elemReviews = document.getElementById("reviews");
     let html = "";
-    alert(reviews);
     for (let review of reviews) {
         html += "<section class='review'><h1>" + review.Nome + "</h1><p>" + review.Comentario + "</p><p> Classificação: " + review.Classificacao + "</section>";
 }
-        html+= "section class='review><h1> O parque selecionado ainda não tem reviews</h1></section>";
+    if(reviews.length == 0)   
+    html+= "<section class='review'><h1> O parque selecionado ainda não tem reviews</h1></section>";
     elemReviews.innerHTML = html;
+
 }
