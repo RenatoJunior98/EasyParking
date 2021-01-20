@@ -22,14 +22,7 @@ router.get('/', async function(req, res, next) {
 // });
 
 
-/* login */
-router.get('/:username/:pass', async function(req, res, next) {
-  let username = req.params.username;
-  let pass = req.params.pass;
-  let result = await parkModel.verificarLogin(username, pass);
-  res.status(result.status).
-     send(result.data);
-});
+
 
 
 module.exports = router

@@ -31,7 +31,16 @@ module.exports.verificarLogin = async function (username, pass) {
     }
 }
 
-
+module.exports.save = async function(user) {
+    try {
+        let sql = "insert into user (Username, Pass, Nome) values (?,?,?);";
+        let result = await pool.query(sql, [user.username, user.Pass, user.Nome]);
+        return { status: 200, data: result };
+    } catch (err) {
+        console.log(err);
+        return { status: 500, data: err };
+    }
+}
 
 // module.exports.getOne = async function(idParque) {
 //     try {

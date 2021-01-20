@@ -46,8 +46,8 @@ elemAside.innerHTML = html;
 
 
 function selecionarParque(parque) {
-    sessionStorage.setItem("parque",JSON.stringify(parque)); 
-    console.log(sessionStorage.getItem("parque"));
+    sessionStorage.removeItem("parque");
+    sessionStorage.setItem("parque",JSON.stringify(parque));
    // showInfo(parque);
     window.open("infoParque.html","_self");
     //loadInfo(parque);
