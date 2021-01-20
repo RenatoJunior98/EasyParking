@@ -1,6 +1,5 @@
 
 
-
 var mymap = L.map('mapid').setView([38.70722, -9.15252], 15);
 var mapMark = L.icon({
   iconUrl: '\images\orangemapmarker.png',
@@ -10,9 +9,18 @@ var mapMark = L.icon({
 });
 
 
-function parquesMarkers(long, lat){
+
+function parquesMarkers(long, lat, nome){
   var marker = L.marker([long, lat]).addTo(mymap);
+  console.log(long, lat, nome);
+  marker.bindPopup("<b id = 'parquepopup'>"+ nome +"</b>");
+  //document.getElementById("parquepopup").onclick = getParqueNome(nome);
   // 38.70722, -9.15254
+}
+
+function getParqueNome(nomeParque){
+  sessionStorage.setItem("parqueNome", nomeParque);
+  console.log(sessionStorage.getItem("parqueNome"));
 }
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
