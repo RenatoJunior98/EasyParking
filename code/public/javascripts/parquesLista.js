@@ -41,7 +41,7 @@ function showParques(parques) {
         parquesMarkers(parque.Latitude, parque.Longitude, parque.Nome);
         // marker.bindPopup("<b>"+ parque.Nome +"</b>").openPopup();
         html += "<button class='button button1' id = 'parque' onclick='selecionarParque(" + JSON.stringify(parque) + ")'><h1>" + parque.Nome + "</h1>" +
-            "<p> Lugares Totais: " + parque.LugaresTotal + "</p>" +
+            "<p> Lugares Disponíveis: " + parque.LugaresDisponiveis + "</p>" +
             "<p> Preço diário: " + parque.precoDiario + "€</p></button>";
         // if (sessionStorage.getItem("parqueNome") !== null) {
         //     for (i = 0; i < parques.length; i++) {

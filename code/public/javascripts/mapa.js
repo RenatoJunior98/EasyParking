@@ -10,19 +10,6 @@ var mapMark = L.icon({
 
 
 
-function parquesMarkers(long, lat, nome){
-  var marker = L.marker([long, lat]).addTo(mymap);
-  console.log(long, lat, nome);
-  marker.bindPopup("<b id = 'parquepopup'>"+ nome +"</b>");
-  //document.getElementById("parquepopup").onclick = getParqueNome(nome);
-  // 38.70722, -9.15254
-}
-
-function getParqueNome(nomeParque){
-  sessionStorage.setItem("parqueNome", nomeParque);
-  console.log(sessionStorage.getItem("parqueNome"));
-}
-
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
   attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
   maxZoom: 21,
@@ -43,6 +30,34 @@ searchControl.on('results', function (data) {
   //    results.addLayer(L.marker(data.results[i].latlng));
   // }
 });
+
+
+
+function parquesMarkers(long, lat, nome){
+  var marker = L.marker([long, lat]).addTo(mymap);
+  console.log(long, lat, nome);
+  marker.bindPopup("<b id = 'parquepopup'>"+ nome +"</b>");
+  //document.getElementById("parquepopup").onclick = getParqueNome(nome);
+  // 38.70722, -9.15254
+}
+
+function getParqueNome(nomeParque){
+  sessionStorage.setItem("parqueNome", nomeParque);
+  console.log(sessionStorage.getItem("parqueNome"));
+  getRota();
+}
+
+
+function getRota(){
+  L.Routing.control({
+    waypoints: [
+        L.latLng(38.70722, -9.15254),
+        L.latLng(38.706138, -9.151017)
+    ],
+    routeWhileDragging: true
+}).addTo(map);
+}
+
 //var button = document.createElement("button");
 //button.class = "profileB";
 //button.innerHTML = '<i class="material-icons" style="font-size:45px;color:white">person</i>';

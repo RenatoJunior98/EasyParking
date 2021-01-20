@@ -9,7 +9,7 @@ module.exports.getAll = async function (filterObj) {
             filterQueries += " AND Nome LIKE ?";
             filterValues.push("%" + filterObj.Nome + "%");
         }
-        let sql = "select ClassificacaoMedia, LugaresPrioritarios, Tipologia, ParqueID, Latitude, Longitude, Descricao, Nome, LugaresTotal, precoDiario from Parque inner join Preco where Preco_ID = precoID" +
+        let sql = "select ClassificacaoMedia, LugaresPrioritarios, Tipologia, ParqueID, Latitude, Longitude, Descricao, Nome, LugaresTotal, precoDiario, LugaresDisponiveis from Parque inner join Preco where Preco_ID = precoID" +
         filterQueries;
         let parques = await pool.query(sql,filterValues);
         return { status: 200, data: parques };

@@ -42,6 +42,7 @@ function showInfo() {
         "</p></br>   <br><p><span style='color: #FF5F00'>GPS: </span>" + parqueInfo.Latitude + ", " + parqueInfo.Longitude +
         "</p></br>   <br><p><span style='color: #FF5F00'>Tipologia: </span>" + parqueInfo.Tipologia +
         "</p></br>   <br><p><span style='color: #FF5F00'>Número de Lugares: </span>" + parqueInfo.LugaresTotal +
+        "</p></br>   <br><p><span style='color: #FF5F00'>Número de Lugares: </span>" + parqueInfo.LugaresTotal +
         "</p></br>   <br><p><span style='color: #FF5F00'>Número de Lugares para Deficientes: </span>" + parqueInfo.LugaresPrioritarios + "</p></br>";
     parquesMarkers(parqueInfo.Latitude, parqueInfo.Longitude, parqueInfo.Nome);
 
