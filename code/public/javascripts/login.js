@@ -1,8 +1,6 @@
 async function checkLogin() {
     var userName = document.getElementById('username').value;
     var password = document.getElementById('pass').value;
-    let elemAside = document.getElementById("IS");
-    let html = "";
     let UserID = 0;
     try {
         let dados = await $.ajax({
@@ -14,18 +12,15 @@ async function checkLogin() {
             if (valor.userID != null) {
                 sessionStorage.setItem("nome", valor.nome);
                 UserID = valor.userID;
-                html += String(UserID);
             }
         }
-        elemAside.innerHTML = html;
         sessionStorage.setItem("userID", UserID);
-        alert(sessionStorage.getItem("userID"));
+        //alert(sessionStorage.getItem("userID"));
+        await swal("Sessão Iniciada com sucesso!", "");
         window.location = "index.html";
         return UserID;
     } catch (err) {
         console.log(err);
-        elemAside.innerHTML = "<h1> Página não está disponível</h1>" +
-            "<h2> Por favor tente mais tarde</h2>";
     }
 }
 

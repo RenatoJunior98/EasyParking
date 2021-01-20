@@ -36,7 +36,7 @@ function showInfo() {
     sessionStorage.setItem("parqueID", parqueInfo.ParqueID);
     htmlAtalhos += "<a><button class='material-icons direction-icon'>directions</button></a>  <a><button onclick='getEmel("+ JSON.stringify(parqueInfo.Nome) +")' class='material-icons emel-icon'>info</button></a>  <a><button class='material-icons share-icon'>share</button></a>  <a><button class='material-icons bookmark-icon'>bookmark_border</button></a>"
 
-    htmlNome += "<h1>" + parqueInfo.Nome + "</h1>";
+    htmlNome += "<h1>" + parqueInfo.Nome + "</h1> <input type='button' class='buttonLugares' value='+'></input> <input type='button' class='buttonLugares' value='-''></input>";
 
     htmlInfo += "<br><p><span style='color: #FF5F00'>Morada: </span>" + parqueInfo.Descricao +
         "</p></br>   <br><p><span style='color: #FF5F00'>GPS: </span>" + parqueInfo.Latitude + ", " + parqueInfo.Longitude +

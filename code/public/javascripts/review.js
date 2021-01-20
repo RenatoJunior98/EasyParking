@@ -13,6 +13,7 @@ async function addReview() {
             comentario: comentario
         }
         alert(JSON.stringify(review));
+        swal("Reserva feita com sucesso!", "success");
         let result = await $.ajax({
             url: "/api/reviews",
             method: "post",

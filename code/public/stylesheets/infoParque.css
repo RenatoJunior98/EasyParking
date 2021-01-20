@@ -88,6 +88,18 @@ button.profileB:hover{
   flex:8;
 }
 
+.buttonLugares{
+  font-size: 20px;
+  background-color: #FFFFFF;
+  color: black;
+  transform: scale(0.95);
+  cursor: pointer;
+  text-align: center;
+  width:30px;
+  height: 30px;
+  margin-left: 5px;
+}
+
 .grid-containerInfo{
   display: flex;
   flex-direction: column;
