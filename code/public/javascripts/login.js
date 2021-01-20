@@ -12,6 +12,7 @@ async function checkLogin() {
         });
         for (let valor of dados) {
             if (valor.userID != null) {
+                sessionStorage.setItem("nome", valor.nome);
                 UserID = valor.userID;
                 html += String(UserID);
             }
@@ -19,7 +20,7 @@ async function checkLogin() {
         elemAside.innerHTML = html;
         sessionStorage.setItem("userID", UserID);
         alert(sessionStorage.getItem("userID"));
-        window.open("index.html", "_self");
+        window.location = "index.html";
         return UserID;
     } catch (err) {
         console.log(err);

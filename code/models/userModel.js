@@ -2,7 +2,7 @@ var pool = require("./DBConn");
 
 module.exports.verificarLogin = async function (username, pass) {
     try {
-        let sql = "select userID from User where Username = \"" + username + "\" and Pass = \"" + pass + "\";";
+        let sql = "select userID, nome from User where Username = \"" + username + "\" and Pass = \"" + pass + "\";";
         let login = await pool.query(sql);
         return { status: 200, data: login };
     } catch (err) {

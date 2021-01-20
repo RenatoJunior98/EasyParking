@@ -25,7 +25,6 @@ window.onload = function () {
 
 function showInfo() {
     let parqueInfo = JSON.parse(sessionStorage.getItem("parque"));
-    console.log(parqueInfo);
     let elemAtalhos = document.getElementById("atalhos");
     let elemNome = document.getElementById("nomeParque");
     let elemInfo = document.getElementById("info");
@@ -40,10 +39,11 @@ function showInfo() {
     htmlNome += "<h1>" + parqueInfo.Nome + "</h1>";
 
     htmlInfo += "<br><p><span style='color: #FF5F00'>Morada: </span>" + parqueInfo.Descricao +
-        "</p></br>   <br><p><span style='color: #FF5F00'>GPS: </span>" + parqueInfo.Latitude + "," + parqueInfo.Longitude +
+        "</p></br>   <br><p><span style='color: #FF5F00'>GPS: </span>" + parqueInfo.Latitude + ", " + parqueInfo.Longitude +
         "</p></br>   <br><p><span style='color: #FF5F00'>Tipologia: </span>" + parqueInfo.Tipologia +
         "</p></br>   <br><p><span style='color: #FF5F00'>Número de Lugares: </span>" + parqueInfo.LugaresTotal +
         "</p></br>   <br><p><span style='color: #FF5F00'>Número de Lugares para Deficientes: </span>" + parqueInfo.LugaresPrioritarios + "</p></br>";
+    parquesMarkers(parqueInfo.Latitude, parqueInfo.Longitude, parqueInfo.Nome);
 
     htmlClassificacao += "<h1 class='classificacao'>" + parqueInfo.ClassificacaoMedia + "</h1>"
 
@@ -58,16 +58,16 @@ async function loadReviews() {
     let elemAside = document.getElementById("reviews");
     try {
         let reviews = await $.ajax({
-            url: "/api/reviews/"+ sessionStorage.getItem("parqueID"),
+            url: "/api/reviews/" + sessionStorage.getItem("parqueID"),
             method: "get",
             dataType: "json"
         });
         //sessionStorage.setItem("reviews",JSON.stringify(reviews)); 
         return reviews;
-    } catch(err) {
+    } catch (err) {
         console.log(err);
-        elemAside.innerHTML = "<h1> Página não está disponível</h1>"+
-                "<h2> Por favor tente mais tarde</h2>";
+        elemAside.innerHTML = "<h1> Página não está disponível</h1>" +
+            "<h2> Por favor tente mais tarde</h2>";
     }
 }
 
@@ -81,7 +81,8 @@ async function showReviews() {
     alert(reviews);
     for (let review of reviews) {
         html += "<section class='review'><h1>" + review.Nome + "</h1><p>" + review.Comentario + "</p><p> Classificação: " + review.Classificacao + "</section>";
-}
-        html+= "section class='review><h1> O parque selecionado ainda não tem reviews</h1></section>";
+    }
+    if (reviews.length == 0)
+        html += "<section class='review'><h1> O parque selecionado ainda não tem reviews</h1></section>";
     elemReviews.innerHTML = html;
 }
