@@ -41,14 +41,48 @@ body {
 
 
 p {
-  font-size: 14px;
+  font-size: 16px;
   font-family: 'Roboto';
+  margin-left: 10px;
 }
 
 a {
-  color: #3c15c5;
-  font-size: 14px;
+  color: #000000;
+  font-size: 16px;
   font-family: 'Roboto';
+}
+
+
+.voltarB{
+  color: #000000;
+  font-size: 16px;
+}
+
+.sairB{
+  position: fixed;
+  background:#FF5F00;
+  border: 2px solid #FF5F00;
+  height: 30px;
+  width: 60px;
+  z-index: 100;
+  top: 40;
+  right: 110;
+  transition: box-shadow .3s;
+  box-shadow: 0 3px 3px rgba(33,33,33,.2); 
+  cursor: pointer;
+	border-radius: 5px;
+}
+
+input[type=button].sairB:active {
+	transform: scale(0.95);
+}
+
+input[type=button].sairB:focus {
+	outline: none;
+}
+
+input[type=button].sairB:hover{
+	box-shadow: 0 6px 6px rgba(37, 37, 37, 0.2); 
 }
 
 button.profileB {
@@ -58,11 +92,12 @@ button.profileB {
   right: 25;
   border: 3px solid #FF5F00;
   border-radius: 50%;
-  height: 60px;
-  width: 60px;
+  height: 65px;
+  width: 65px;
   z-index: 100;
   transition: box-shadow .3s;
-	box-shadow: 0 3px 3px rgba(33,33,33,.2); 
+  box-shadow: 0 3px 3px rgba(33,33,33,.2); 
+  cursor: pointer;
 }
 
 button.profileB:active {
@@ -76,6 +111,19 @@ button.profileB:focus {
 button.profileB:hover{
 	box-shadow: 0 6px 6px rgba(37, 37, 37, 0.2); 
 }
+
+#nomeUser{
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 13px; 
+}
+
+#logOutB{
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 13px; 
+}
+
 
 /* LEFT SIDE */
 
@@ -101,14 +149,26 @@ button.profileB:hover{
 }
 
 .grid-containerInfo{
+  margin-top: 7px;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  height: 825px;
 }
 
 .atalhos-flex{
   flex: 1;
   display: flex;
   justify-content: center;
+}
+
+button:active {
+  border: 0;
+  transform: scale(0.95);
+}
+
+button:focus {
+	outline: none;
 }
 
 .info-flex{
@@ -151,10 +211,8 @@ button.profileB:hover{
 
 .reviews-flex{
   flex:8;
-  margin: 20px;
+  margin: 10px;
   font-size:  0.5em;
-  overflow-y: auto;
-  height: 290px;
   border: 2px solid #969696;
 }
 
@@ -168,15 +226,15 @@ button.profileB:hover{
   /* font-weight:bold; */
 }
 
-input[type=button]:active {
+.buttonReview.input[type=button]:active {
 	transform: scale(0.95);
 }
 
-input[type=button]:focus {
+.buttonReview.input[type=button]:focus {
 	outline: none;
 }
 
-input[type=button]:hover{
+.buttonReview.input[type=button]:hover{
   transform: scale(0.95);
   cursor: pointer;
 }
@@ -195,10 +253,6 @@ h1 {
 
 .grid-mapa {
   grid-area: m;
-}
-
-.grid-listaParques {
-  margin: 10px;
 }
 
 .grid-aside {
@@ -223,15 +277,6 @@ h1 {
   width: 100%;
   z-index: 1
   
-}
-
-#top-of-slot{
-  flex: 1;
-  display: flex;
-}
-
-#bottom-of-slot {
-  flex: 1;
 }
 
 .review {

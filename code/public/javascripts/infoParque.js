@@ -52,12 +52,24 @@ function showInfo() {
     elemNome.innerHTML = htmlNome;
     elemInfo.innerHTML = htmlInfo;
     elemClassificacao.innerHTML = htmlClassificacao;
-
+    if (sessionStorage.getItem("userID") !== null) {
+        let nomeAside = document.getElementById("iconNome");
+        nomeAside.innerHTML = "<a id='nomeUser'> " + sessionStorage.getItem("nome") + "</a>";
+        let buttonAside = document.getElementById("sairButton");
+        buttonAside.innerHTML = "<input type='button' class='sairB' id='logOutB' value='Log Out' onClick='logOut()'></input>"
+    }
 }
+
+async function logOut(){
+    await sessionStorage.removeItem("userID");
+    await sessionStorage.removeItem("nome");
+    window.location = "infoParque.html";
+}
+
 
 //retirado e alterado de: https://www.etnassoft.com/2011/03/03/eliminar-tildes-con-javascript/
 var normalize = (function() {
-    var from = "ABCDEFGHIJKLMNOPQRSTUVWXYZÃÀÁÄÂÈÉËÊÌÍÏÎÒÓÖÔÙÚÜÛãàáäâèéëêìíïîòóöôùúüûÑñÇç ", 
+    var from = "ABCDEFGHIJKLMNOPQRSTUVWXYZÃÀÁÄÂÈÉËÊÌÍÏÎÒÓÖÔÙÚÜÛãàáäâèéëêìíïîòóöôùúüûÑñÇç -", 
         to   = "abcdefghijklmnopqrstuvwxyzaaaaaeeeeiiiioooouuuuaaaaaeeeeiiiioooouuuunncc-",
         mapping = {};
    

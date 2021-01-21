@@ -48,6 +48,34 @@ a {
   color: #ffffff;
 }
 
+.sairB{
+  position: fixed;
+  color: #FFFFFF;
+  background:#FF5F00;
+  border: 2px solid #FF5F00;
+  height: 30px;
+  width: 60px;
+  z-index: 100;
+  top: 40;
+  right: 110;
+  transition: box-shadow .3s;
+  box-shadow: 0 3px 3px rgba(33,33,33,.2); 
+  cursor: pointer;
+	border-radius: 5px;
+}
+
+input[type=button].sairB:active {
+	transform: scale(0.95);
+}
+
+input[type=button].sairB:focus {
+	outline: none;
+}
+
+input[type=button].sairB:hover{
+	box-shadow: 0 6px 6px rgba(37, 37, 37, 0.2); 
+}
+
 button.profileB {
   background:#FF5F00;
   position: fixed;
@@ -55,11 +83,12 @@ button.profileB {
   right: 25;
   border: 3px solid #FF5F00;
   border-radius: 50%;
-  height: 60px;
-  width: 60px;
+  height: 65px;
+  width: 65px;
   z-index: 100;
   transition: box-shadow .3s;
-	box-shadow: 0 3px 3px rgba(33,33,33,.2); 
+  box-shadow: 0 3px 3px rgba(33,33,33,.2); 
+  cursor: pointer;
 }
 
 button.profileB:active {
@@ -120,7 +149,7 @@ h1 {
 }
 
 .grid-listaParques {
-  margin: 10px;
+  margin-top: 10px;
 } 
 
 .grid-aside {
@@ -140,36 +169,29 @@ h1 {
 #mapid { 
   height: 100%; 
   width: 100%;
-  z-index: 1
-}
-
-#top-of-slot{
-  flex: 1;
-  display: flex;
-}
-
-#bottom-of-slot {
-  flex: 1;
+  z-index: 1;
+  position: fixed;
 }
 
 #listaParques {
-  /* background-color:  rgb(41, 41, 41); */
+  /* background-color:  rgb(235, 235, 235); */
   display: flex;
   justify-content: flex-start;
   /* flex-wrap:wrap; */
   flex-direction: column;
   padding-left: 5px;
-  padding-top: 20px;
+  padding-right: 5px;
+  padding-top: 5px;
   font-size:  0.5em;
   overflow-y: auto;
-  
+  height: 815px;
+  /* border: 2px solid #000000; */
 }
 
 
 .button1 {
   font-family: 'Roboto';
   border: none;
-  color: white;
   padding: 16px 32px;
   border-radius: 8px;
   text-decoration: none;

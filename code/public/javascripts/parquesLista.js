@@ -27,9 +27,18 @@ async function loadParques(parquesFiltrados) {
     if (sessionStorage.getItem("userID") !== null) {
         let nomeAside = document.getElementById("iconNome");
         nomeAside.innerHTML = "<a> " + sessionStorage.getItem("nome") + "</a>";
+        let buttonAside = document.getElementById("sairButton");
+        buttonAside.innerHTML = "<input type='button' class='sairB' value='Log Out' onClick='logOut()'></input>"
     }
 
 }
+
+async function logOut(){
+    await sessionStorage.removeItem("userID");
+    await sessionStorage.removeItem("nome");
+    window.location = "index.html";
+}
+
 
 function showParques(parques) {
     let elemAside = document.getElementById("listaParques");

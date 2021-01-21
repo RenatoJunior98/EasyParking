@@ -1,6 +1,6 @@
 
 
-var mymap = L.map('mapid').setView([38.70722, -9.15252], 15);
+var mymap = L.map('mapid').setView([38.727168, -9.110647], 14);
 var mapMark = L.icon({
   iconUrl: '\images\orangemapmarker.png',
   iconSize: [38, 95], // size of the icon

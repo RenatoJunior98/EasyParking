@@ -12,8 +12,7 @@ async function addReview() {
             classificacao: classificacao,
             comentario: comentario
         }
-        alert(JSON.stringify(review));
-        swal("Reserva feita com sucesso!", "success");
+        await swal("Reserva feita com sucesso!", "");
         let result = await $.ajax({
             url: "/api/reviews",
             method: "post",
@@ -21,11 +20,16 @@ async function addReview() {
             data: JSON.stringify(review),
             contentType: "application/json"
         });
-        alert(JSON.stringify(result));
     } catch (err) {
         console.log(err);
         // mensagem para o utilizador
     }
 }
 
+function fazerReview(){
+    if(sessionStorage.getItem("userID")!==null)
+    window.location= "review.html";
+    else
+    swal("Inicie sessão para poder fazer uma review");
+}
 
