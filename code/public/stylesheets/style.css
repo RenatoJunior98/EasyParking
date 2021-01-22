@@ -104,20 +104,19 @@ button.profileB:hover{
 }
 
 #ep-logo{
-  width: 100px;
-  height: 100px;
+  height: 80px;
 }
 
 .image{
   flex:1;
-  margin-left: 15px;
+  margin: 15px;
+  margin-left: 20px;
 }
 
 .searchBar-flex{
-  flex:8;
-  width: 400px;
-  margin-top: 28px;
-  margin-left: 30px;
+  float:right;
+  width: 450px;
+  margin-left: 20px;
 }
 
 #parque{
@@ -139,6 +138,7 @@ h1 {
 
 .grid-bar {
   display: flex;
+  align-items: center;
   background-color: #FF5F00;
   border-radius: 0 0 10px 10px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -220,9 +220,9 @@ h1 {
 
 form.searchBar input[type=text] {
   border-radius: 10px;
-  width:300px;
+  width:250px;
   flex:8;
-  padding: 10px;
+  padding: 8px;
   font-size: 17px;
   border: 1px solid #ffffff;
   /* float: left; */
@@ -247,13 +247,12 @@ form.searchBar select:focus{
 form.searchBar input[type=button] {
   /* float: left; */
   border-radius: 10px;
-  width: 20%;
-  padding: 10px;
+  width: 18%;
+  padding: 9px;
   background: #ffffff;
   color: #FF5F00;
-  font-size: 17px;
+  font-size: 15px;
   border: 1px solid #ffffff;
-  border-left: none;
   cursor: pointer;
   /* transition: box-shadow .3s; */
 	box-shadow: 0 3px 3px rgba(33,33,33,.2); 
