@@ -2,13 +2,13 @@
 
 
 window.onload = function () {
-    loadParques(null);
+    showParques();
 }
 
 async function loadParques(parquesFiltrados) {
     let elemAside = document.getElementById("listaParques");
     if (parquesFiltrados) {
-        showParques(parquesFiltrados);
+        return parquesFiltrados;
     }
     else {
         try {
@@ -17,7 +17,7 @@ async function loadParques(parquesFiltrados) {
                 method: "get",
                 dataType: "json"
             });
-            showParques(parques);
+            return parques;
         } catch (err) {
             console.log(err);
             elemAside.innerHTML = "<h1> Página não está disponível</h1>" +
@@ -40,10 +40,18 @@ async function logOut(){
 }
 
 
-function showParques(parques) {
+async function showParques() {
+    let parques = await loadParques(null);
+    console.log(parques);
     let elemAside = document.getElementById("listaParques");
     let html = "";
     //if(parques){
+        if (sessionStorage.getItem("userID") !== null) {
+            let nomeAside = document.getElementById("iconNome");
+            nomeAside.innerHTML = "<a id='nomeUser'> " + sessionStorage.getItem("nome") + "</a>";
+            let buttonAside = document.getElementById("sairButton");
+            buttonAside.innerHTML = "<input type='button' class='sairB' id='logOutB' value='Log Out' onClick='logOut()'></input>"
+        }
     for (let parque of parques) {
         coordenada1 = parque.Latitude;
         coordenada2 = parque.Longitude;
@@ -65,8 +73,9 @@ function showParques(parques) {
 
 function selecionarParque(parque) {
     sessionStorage.removeItem("parque");
-    sessionStorage.setItem("parque", JSON.stringify(parque));
-    // showInfo(parque);
+    console.log(parque.ParqueID);
+    sessionStorage.setItem("parqueID", parque.ParqueID);
+    //showInfo(parque);
     window.location = "infoParque.html";
     //loadInfo(parque);
 

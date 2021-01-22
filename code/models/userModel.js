@@ -23,8 +23,7 @@ module.exports.verificarUsername = async function (username) {
     }
 }
 
-
-module.exports.save = async function (user) {
+module.exports.newUser = async function (user) {
     try {
         let sql = "insert into User (Username, Pass, Nome) values (?,?,?);";
         let result = await pool.query(sql, [user.username, user.pass, user.nome]);

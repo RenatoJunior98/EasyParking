@@ -12,15 +12,20 @@ router.get('/', async function(req, res, next) {
   });
 
 
-  /* GET parque */
+/* GET lugares disponiveis */
+router.get('/:id', async function(req, res, next) {
+  let id = req.params.id;
+  let result = await parkModel.getLugaresDisponiveis(id);
+  res.status(result.status).
+     send(result.data);
+});
 
-// router.get('/:id', async function(req, res, next) {
-//   let idParque = req.params.id;
-//   let result = await albModel.getOne(idParque);
-//   res.status(result.status).
-//      send(result.data);
-// });
-
+router.post('/lugares/:lugares/:parqueID', async function(req, res, next) {
+  let lugares = req.params.lugares;
+  let parqueID = req.params.parqueID;
+  let result = await parkModel.mudaLugares(lugares, parqueID);
+  res.status(result.status).send(result.data);
+});
 
 
 

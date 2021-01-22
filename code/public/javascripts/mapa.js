@@ -35,7 +35,6 @@ searchControl.on('results', function (data) {
 
 function parquesMarkers(long, lat, nome){
   var marker = L.marker([long, lat]).addTo(mymap);
-  console.log(long, lat, nome);
   marker.bindPopup("<b id = 'parquepopup'>"+ nome +"</b>");
   //document.getElementById("parquepopup").onclick = getParqueNome(nome);
   // 38.70722, -9.15254

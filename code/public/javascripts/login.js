@@ -2,25 +2,31 @@ async function checkLogin() {
     var userName = document.getElementById('username').value;
     var password = document.getElementById('pass').value;
     let UserID = 0;
-    try {
-        let dados = await $.ajax({
-            url: "/api/users/" + userName + "/" + password,
-            method: "get",
-            dataType: "json"
-        });
-        for (let valor of dados) {
-            if (valor.userID != null) {
-                sessionStorage.setItem("nome", valor.nome);
-                UserID = valor.userID;
+    if (userName.length == 0)
+        swal("Introduza um Username ", "");
+    else if (password.length == 0)
+        swal("Introduza uma password ", "");
+    else {
+        try {
+            let dados = await $.ajax({
+                url: "/api/users/" + userName + "/" + password,
+                method: "get",
+                dataType: "json"
+            });
+            for (let valor of dados) {
+                if (valor.userID != null) {
+                    sessionStorage.setItem("nome", valor.nome);
+                    UserID = valor.userID;
+                }
             }
+            sessionStorage.setItem("userID", UserID);
+            //alert(sessionStorage.getItem("userID"));
+            await swal("Sessão Iniciada com sucesso!", "");
+            window.location = "index.html";
+            return UserID;
+        } catch (err) {
+            console.log(err);
         }
-        sessionStorage.setItem("userID", UserID);
-        //alert(sessionStorage.getItem("userID"));
-        await swal("Sessão Iniciada com sucesso!", "");
-        window.location = "index.html";
-        return UserID;
-    } catch (err) {
-        console.log(err);
     }
 }
 
@@ -36,22 +42,28 @@ async function checkUsername(username) {
         }
         else
             return false;
-    } 
+    }
     catch (err) {
-    console.log(err);
-}
+        console.log(err);
+    }
 }
 
 
 async function addUSer() {
-    try {
-        let nome = document.getElementById("nome").value;
-        let newUsername = document.getElementById("newUsername").value;
-        let password = document.getElementById("newPass").value;
-        let userValido = await checkUsername(newUsername);
-        console.log(userValido);
+    let nome = document.getElementById("nome").value;
+    let newUsername = document.getElementById("newUsername").value;
+    let password = document.getElementById("newPass").value;
+    let userValido = await checkUsername(newUsername);
+    console.log(userValido);
+    if (nome.length == 0)
+        swal("Introduza um nome ", "");
+    else if (newUsername.length == 0)
+        swal("Introduza uma username ", "");
+    else if (password.length == 0)
+        swal("Introduza uma password ", "");
+    else {
         if (userValido == false) {
-            alert("Username ja se encontra utilizado, por favor tente novamente com um username diferente!");
+            swal("Username ja se encontra utilizado, por favor tente novamente com um username diferente!", "");
         }
         else {
             let user = {
@@ -59,18 +71,18 @@ async function addUSer() {
                 pass: password,
                 nome: nome,
             }
-            let result = await $.ajax({
-                url: "/api/users",
-                method: "post",
-                dataType: "json",
-                data: JSON.stringify(user),
-                contentType: "application/json"
-            });
-            alert("User registado")
+            try {
+                let result = await $.ajax({
+                    url: "/api/users",
+                    method: "post",
+                    dataType: "json",
+                    data: JSON.stringify(user),
+                    contentType: "application/json"
+                });
+                swal("User registado")
+        } catch (err) {
+            console.log(err);
         }
-    } catch (err) {
-        console.log(err);
     }
-
 }
-
+}

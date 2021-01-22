@@ -25,7 +25,7 @@ router.get('/:username', async function(req, res, next) {
   /* add user */
 router.post('/', async function(req, res, next) {
     let user = req.body;
-    let result = await userModel.save(user);
+    let result = await userModel.newUser(user);
     res.status(result.status).send(result.data);
   });
 

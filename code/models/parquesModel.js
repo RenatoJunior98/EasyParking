@@ -20,6 +20,18 @@ module.exports.getAll = async function (filterObj) {
 }
 
 
+module.exports.getLugaresDisponiveis = async function (parqueID) {
+    try {
+        let sql = "select LugaresDisponiveis from Parque where ParqueID =" + parqueID + ";";
+        let lugares = await pool.query(sql);
+        return { status: 200, data: lugares };
+    } catch (err) {
+        console.log(err);
+        return { status: 500, data: err };
+    }
+}
+
+
 module.exports.verificarLogin = async function (username, pass) {
     try {
         let sql = "select userID from User where Username = \"" + username + "\" and Pass = \"" + pass + "\";";
@@ -31,16 +43,17 @@ module.exports.verificarLogin = async function (username, pass) {
     }
 }
 
-module.exports.save = async function(user) {
+module.exports.mudaLugares = async function (valor, parqueID) {
     try {
-        let sql = "insert into user (Username, Pass, Nome) values (?,?,?);";
-        let result = await pool.query(sql, [user.username, user.Pass, user.Nome]);
+        let sql = "UPDATE Parque SET LugaresDisponiveis=? WHERE parqueID=?;";
+        let result = await pool.query(sql, [valor, parqueID]);
         return { status: 200, data: result };
     } catch (err) {
         console.log(err);
         return { status: 500, data: err };
     }
 }
+
 
 // module.exports.getOne = async function(idParque) {
 //     try {

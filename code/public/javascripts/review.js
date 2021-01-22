@@ -1,6 +1,5 @@
 async function addReview() {
-    try {
-        let comentario = document.getElementById("reviewTexto").value;
+    let comentario = document.getElementById("reviewTexto").value;
         let classificacao = parseInt(document.getElementById("classificacao").value);
         console.log(sessionStorage.getItem("parqueID"));
         console.log(sessionStorage.getItem("userID"));
@@ -12,7 +11,11 @@ async function addReview() {
             classificacao: classificacao,
             comentario: comentario
         }
-        await swal("Reserva feita com sucesso!", "");
+    if (classificacao == null)
+        swal("Introduza uma classificação ", "");
+    else {
+    try {
+        
         let result = await $.ajax({
             url: "/api/reviews",
             method: "post",
@@ -20,16 +23,25 @@ async function addReview() {
             data: JSON.stringify(review),
             contentType: "application/json"
         });
+        alert(result);
     } catch (err) {
         console.log(err);
         // mensagem para o utilizador
     }
 }
+}
 
-function fazerReview(){
-    if(sessionStorage.getItem("userID")!==null)
-    window.location= "review.html";
+function test() {
+    swal("Review feita com sucesso")
+    window.location = "infoParque.html";
+}
+
+function fazerReview() {
+    if (sessionStorage.getItem("userID") == null)
+        swal("Inicie sessão para poder fazer uma review", "");
     else
-    swal("Inicie sessão para poder fazer uma review");
+        window.location = "review.html";
+
+
 }
 
