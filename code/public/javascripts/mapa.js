@@ -7,6 +7,8 @@ var mapMark = L.icon({
   iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
   popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
+var markersLayer = L.layerGroup();
+mymap.addLayer(markersLayer);
 
 
 
@@ -26,18 +28,13 @@ var results = L.layerGroup().addTo(mymap);
 
 searchControl.on('results', function (data) {
   results.clearLayers();
-  //  for (var i = data.results.length - 1; i >= 0; i--) {
-  //    results.addLayer(L.marker(data.results[i].latlng));
-  // }
 });
 
 
 
 function parquesMarkers(long, lat, nome){
-  var marker = L.marker([long, lat]).addTo(mymap);
-  marker.bindPopup("<b id = 'parquepopup'>"+ nome +"</b>");
-  //document.getElementById("parquepopup").onclick = getParqueNome(nome);
-  // 38.70722, -9.15254
+  var marker = markersLayer.addLayer(L.marker([long, lat]).addTo(mymap));
+  // marker.bindPopup("<b id = 'parquepopup'>"+ nome +"</b>");
 }
 
 function getParqueNome(nomeParque){
@@ -46,8 +43,7 @@ function getParqueNome(nomeParque){
   getRota();
 }
 
-
-function getRota(){
+function getRota() {
   L.Routing.control({
     waypoints: [
         L.latLng(38.70722, -9.15254),
@@ -57,6 +53,9 @@ function getRota(){
 }).addTo(map);
 }
 
+function clearMarker() {
+  markersLayer.clearLayers();
+}
 //var button = document.createElement("button");
 //button.class = "profileB";
 //button.innerHTML = '<i class="material-icons" style="font-size:45px;color:white">person</i>';

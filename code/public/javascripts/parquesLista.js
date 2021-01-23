@@ -2,13 +2,13 @@
 
 
 window.onload = function () {
-    showParques();
+    loadParques(null);
 }
 
 async function loadParques(parquesFiltrados) {
     let elemAside = document.getElementById("listaParques");
     if (parquesFiltrados) {
-        return parquesFiltrados;
+        showParques(parquesFiltrados);
     }
     else {
         try {
@@ -17,7 +17,7 @@ async function loadParques(parquesFiltrados) {
                 method: "get",
                 dataType: "json"
             });
-            return parques;
+            showParques(parques);
         } catch (err) {
             console.log(err);
             elemAside.innerHTML = "<h1> Página não está disponível</h1>" +
@@ -40,8 +40,7 @@ async function logOut(){
 }
 
 
-async function showParques() {
-    let parques = await loadParques(null);
+async function showParques(parques) {
     console.log(parques);
     let elemAside = document.getElementById("listaParques");
     let html = "";
@@ -52,9 +51,8 @@ async function showParques() {
             let buttonAside = document.getElementById("sairButton");
             buttonAside.innerHTML = "<input type='button' class='sairB' id='logOutB' value='Log Out' onClick='logOut()'></input>"
         }
+        clearMarker();
     for (let parque of parques) {
-        coordenada1 = parque.Latitude;
-        coordenada2 = parque.Longitude;
         parquesMarkers(parque.Latitude, parque.Longitude, parque.Nome);
         // marker.bindPopup("<b>"+ parque.Nome +"</b>").openPopup();
         html += "<button class='button button1' id = 'parque' onclick='selecionarParque(" + JSON.stringify(parque) + ")'><h1>" + parque.Nome + "</h1>" +
@@ -91,9 +89,9 @@ async function filtrar() {
             dataType: "json"
         });
         loadParques(parques);
+        console.log(parques);
     } catch (err) {
         let elemAside = document.getElementById("listaParques");
-
         console.log(err);
         elemAside.innerHTML = "<h1> Página não está disponível</h1>" +
             "<h2> Por favor tente mais tarde</h2>";

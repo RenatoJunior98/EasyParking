@@ -141,35 +141,6 @@ a {
 	margin: 15px 0;
 }
 
-button {
-	font-family: 'Roboto';
-	border-radius: 5px;
-	background-color: #FF5F00;
-	border: 1px solid #FF5F00;
-	color: #FFFFFF;
-	cursor: pointer;
-	margin: 5px;
-	font-size: 16px;
-	padding: 10px 16px;
-	/* letter-spacing: 1px; */
-	text-transform: uppercase;
-	transition: box-shadow .3s;
-	box-shadow: 0 3px 3px rgba(33,33,33,.2); 
-}
-
-button:active {
-	transform: scale(0.95);
-}
-
-button:focus {
-	outline: none;
-}
-
-button:hover{
-	box-shadow: 0 6px 6px rgba(37, 37, 37, 0.2); 
-	cursor: pointer;
-}
-
 .buttonRegistar{
 	font-family: 'Roboto';
 	border-radius: 5px;
@@ -181,7 +152,35 @@ button:hover{
 	padding: 10px 16px;
 	/* letter-spacing: 1px; */
 	text-transform: uppercase;
+	cursor: pointer;
 }
+
+.buttonLogin{
+	font-family: 'Roboto';
+	border-radius: 5px;
+	background-color:#FF5F00 ;
+	border: 1px solid #FF5F00;
+	color: #ffffff;
+	margin: 5px;
+	font-size: 16px;
+	padding: 10px 16px;
+	/* letter-spacing: 1px; */
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+input[type=button]:active {
+	transform: scale(0.95);
+}
+
+input[type=button]:focus {
+	outline: none;
+}
+
+input[type=button]:hover{
+	box-shadow: 0 6px 6px rgba(37, 37, 37, 0.2); 
+}
+
 
 form {
 	background-color: #FFFFFF;

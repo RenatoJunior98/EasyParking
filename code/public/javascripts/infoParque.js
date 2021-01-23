@@ -6,7 +6,7 @@ window.onload = function () {
 
 async function loadInfo() {
     //parquesMarkers(long, lat);
-    let parqueID = await sessionStorage.getItem( "parqueID");
+    let parqueID = await sessionStorage.getItem("parqueID");
     console.log(parqueID);
     try {
         let parques = await $.ajax({
@@ -14,9 +14,9 @@ async function loadInfo() {
             method: "get",
             dataType: "json"
         });
-        for (let parque of parques){
+        for (let parque of parques) {
             console.log(parque);
-            if(parqueID == parque.ParqueID){
+            if (parqueID == parque.ParqueID) {
                 return parque;
             }
         }
@@ -32,6 +32,7 @@ async function showInfo() {
     let elemNome = document.getElementById("nomeParque");
     let elemInfo = document.getElementById("info");
     let elemClassificacao = document.getElementById("classificacao");
+    parquesMarkers(parqueInfo.Latitude, parqueInfo.Longitude, parqueInfo.Nome);
     let htmlAtalhos = "";
     let htmlNome = "";
     let htmlInfo = "";
@@ -45,7 +46,7 @@ async function showInfo() {
         "</p></br>   <br><p><span style='color: #FF5F00'>Tipologia: </span>" + parqueInfo.Tipologia +
         "</p></br>   <br><p><span style='color: #FF5F00'>Número de Lugares totais: </span>" + parqueInfo.LugaresTotal +
         "</p></br>   <br><p><span style='color: #FF5F00'>Número de Lugares disponiveis: </span>" + parqueInfo.LugaresDisponiveis +
-        "</p></br>   <br><p><span style='color: #FF5F00'>Número de Lugares para Deficientes: </span>" + parqueInfo.LugaresPrioritarios + 
+        "</p></br>   <br><p><span style='color: #FF5F00'>Número de Lugares para Deficientes: </span>" + parqueInfo.LugaresPrioritarios +
         "</p></br>   <input onclick='fazerReserva()'' type='button' class='buttonReview' value='FAZER RESERVA'>";
     //parquesMarkers(parqueInfo.Latitude, parqueInfo.Longitude, parqueInfo.Nome);
 

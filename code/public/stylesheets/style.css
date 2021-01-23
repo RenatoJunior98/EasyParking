@@ -107,17 +107,7 @@ button.profileB:hover{
   height: 80px;
 }
 
-.image{
-  flex:1;
-  margin: 15px;
-  margin-left: 20px;
-}
 
-.searchBar-flex{
-  float:right;
-  width: 450px;
-  margin-left: 20px;
-}
 
 #parque{
   border: 2px solid; 
@@ -137,11 +127,26 @@ h1 {
 }
 
 .grid-bar {
-  display: flex;
-  align-items: center;
+  display: grid;
+  position: relative;
+  grid-template-columns:30% auto;
+  grid-template-rows: 100%;
+  grid-template-areas:  
+  'i b';
   background-color: #FF5F00;
   border-radius: 0 0 10px 10px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.image{
+  grid-area: i;
+  margin: 15px;
+  margin-left: 20px;
+}
+
+.searchBar-flex{
+  grid-area: b;
+  place-self : center stretch;
 }
 
 .grid-mapa {
@@ -160,7 +165,7 @@ h1 {
 .grid-container {
   display: grid;
   position: relative;
-  grid-template-columns:auto 70%;
+  grid-template-columns:auto 65%;
   grid-template-rows: 100%;
   grid-template-areas:  
   's m';
@@ -184,7 +189,7 @@ h1 {
   padding-top: 5px;
   font-size:  0.5em;
   overflow-y: auto;
-  height: 815px;
+  height: 800px;
   /* border: 2px solid #000000; */
 }
 
@@ -271,7 +276,7 @@ form.searchBar input[type=button]:hover {
   box-shadow: 0px 6px 6px rgba(37, 37, 37, 0.2);
 }
 
-form.searchBar::after {
+form.searchBar:after {
   content: "";
   clear: both;
   display: table;
