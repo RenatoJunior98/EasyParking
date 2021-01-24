@@ -47,7 +47,7 @@ async function showInfo() {
         "</p></br>   <br><p><span style='color: #FF5F00'>Número de Lugares totais: </span>" + parqueInfo.LugaresTotal +
         "</p></br>   <br><p><span style='color: #FF5F00'>Número de Lugares disponiveis: </span>" + parqueInfo.LugaresDisponiveis +
         "</p></br>   <br><p><span style='color: #FF5F00'>Número de Lugares para Deficientes: </span>" + parqueInfo.LugaresPrioritarios +
-        "</p></br>   <input onclick='fazerReserva()'' type='button' class='buttonReview' value='FAZER RESERVA'>";
+        "</p></br>   <input onclick='verificarLoginReserva()'' type='button' class='buttonReview' value='FAZER RESERVA'>";
     //parquesMarkers(parqueInfo.Latitude, parqueInfo.Longitude, parqueInfo.Nome);
 
     htmlClassificacao += "<h1 class='classificacao'>" + parqueInfo.ClassificacaoMedia + "</h1>"

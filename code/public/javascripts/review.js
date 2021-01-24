@@ -23,7 +23,6 @@ async function addReview() {
             data: JSON.stringify(review),
             contentType: "application/json"
         });
-        alert(result);
     } catch (err) {
         console.log(err);
         // mensagem para o utilizador
@@ -36,7 +35,7 @@ function test() {
     window.location = "infoParque.html";
 }
 
-function fazerReview() {
+function verificarLoginReview() {
     if (sessionStorage.getItem("userID") == null)
         swal("Inicie sessão para poder fazer uma review", "");
     else

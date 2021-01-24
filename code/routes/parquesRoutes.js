@@ -28,6 +28,14 @@ router.post('/lugares/:lugares/:parqueID', async function(req, res, next) {
 });
 
 
+/* check codigo */
+router.get('/:codigo', async function (req, res, next) {
+  let codigo = req.params.codigo;
+  let result = await userModel.verificarcodigo(codigo);
+  res.status(result.status).
+    send(result.data);
+});
+
 
 
 module.exports = router

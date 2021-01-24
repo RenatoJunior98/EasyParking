@@ -7,7 +7,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var parquesRouter = require('./routes/parquesRoutes');
 var reviewsRouter = require('./routes/reviewsRoutes');
-var reviewsRouter = require('./routes/reservaRoutes');
+var reservaRouter = require('./routes/reservaRoutes');
 var utilizadorRouter = require('./routes/userRoutes');
 
 var app = express();
@@ -23,7 +23,7 @@ app.use('/users', usersRouter);
 
 app.use('/api/parques', parquesRouter);
 app.use('/api/reviews', reviewsRouter);
-app.use('/api/reserva', reviewsRouter);
+app.use('/api/reserva', reservaRouter);
 app.use('/api/users', utilizadorRouter);
 
 module.exports = app;

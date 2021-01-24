@@ -7,7 +7,7 @@ var userModel = require("../models/userModel");
 router.get('/:username/:pass', async function (req, res, next) {
   let username = req.params.username;
   let pass = req.params.pass;
-  let result = await userModel.verificarLogin(username, pass);
+  let result = await userModel.login(username, pass);
   res.status(result.status).
     send(result.data);
 });

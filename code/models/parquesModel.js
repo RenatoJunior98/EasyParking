@@ -31,18 +31,6 @@ module.exports.getLugaresDisponiveis = async function (parqueID) {
     }
 }
 
-
-module.exports.verificarLogin = async function (username, pass) {
-    try {
-        let sql = "select userID from User where Username = \"" + username + "\" and Pass = \"" + pass + "\";";
-        let login = await pool.query(sql);
-        return { status: 200, data: login };
-    } catch (err) {
-        console.log(err);
-        return { status: 500, data: err };
-    }
-}
-
 module.exports.mudaLugares = async function (valor, parqueID) {
     try {
         let sql = "UPDATE Parque SET LugaresDisponiveis=? WHERE parqueID=?;";

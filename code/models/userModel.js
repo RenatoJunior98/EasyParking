@@ -1,6 +1,6 @@
 var pool = require("./DBConn");
 
-module.exports.verificarLogin = async function (username, pass) {
+module.exports.login = async function (username, pass) {
     try {
         let sql = "select userID, nome from User where Username = \"" + username + "\" and Pass = \"" + pass + "\";";
         let login = await pool.query(sql);

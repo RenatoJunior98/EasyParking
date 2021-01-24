@@ -11,11 +11,12 @@ router.post('/', async function(req, res, next) {
   });
   
 
-//   /* GET reviews */
-// router.get('/:id', async function(req, res, next) {
-//   let id = req.params.id;
-//   let result = await reviewModel.getReviews(id);
-//   res.status(result.status).
-//      send(result.data);
-// });
-//   module.exports = router;
+/* check codigo */
+router.get('/:codigo', async function (req, res, next) {
+  let codigo = req.params.codigo;
+  let result = await reservaModel.checkCodigo(codigo);
+  res.status(result.status).
+    send(result.data);
+});
+
+module.exports = router;

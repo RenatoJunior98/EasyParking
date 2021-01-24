@@ -20,7 +20,6 @@ async function checkLogin() {
                 }
             }
             sessionStorage.setItem("userID", UserID);
-            //alert(sessionStorage.getItem("userID"));
             await swal("Sessão Iniciada com sucesso!", "");
             window.location = "index.html";
             return UserID;
