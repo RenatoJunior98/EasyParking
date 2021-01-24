@@ -14,10 +14,6 @@ html {
   font-family: 'Roboto';
 }
 
-body{
-  background-color: #f3f5f9;
-}
-
 p{
   padding-left: 25px;
   padding-top: 10px;
@@ -77,38 +73,6 @@ h1 {
   background-color: rgb(63, 63, 63);
 }
 
-.footer-flex {
-  display: flex;
-  background-color:#FF5F00;
-  color: white;
-  padding: 10;
-  align-items: center;
-}
-  /* position: absolute;
-  bottom: 0;
-  width: 100%; */
-
-/* .grid-container {
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-areas:
-  'h h'
-  'm m'
-  'f f';
-} */
-
-.input-flex{
-  padding: 20;
-}
-
-
-.wrapper .sidebar ul li .side-active{
-  color: #FF5F00;
-  font-size: 18px; 
-  font-weight: bold;
-}
-
-
 /* testing */
 
 .button {
@@ -139,4 +103,16 @@ h1 {
 button:focus {
    background-color: #FF5F00; 
    color: white;
+}
+
+/*main content*/
+
+.titulo{
+  background-color: #FFFFFF;
+  margin: 20px;
+}
+
+.background{
+  background-color: #f1f1f1;
+  align-items: center;
 }

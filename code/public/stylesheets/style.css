@@ -193,6 +193,21 @@ h1 {
   /* border: 2px solid #000000; */
 }
 
+.buttonIndisponivel{
+  font-family: 'Roboto';
+  border: none;
+  padding: 16px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.3s;
+  text-align: center;
+  background-color: rgb(200, 200, 200); 
+  color: rgb(53, 53, 53); 
+  border: 2px solid #ac0000;
+}
 
 .button1 {
   font-family: 'Roboto';

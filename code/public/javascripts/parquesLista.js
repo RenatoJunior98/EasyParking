@@ -55,9 +55,20 @@ async function showParques(parques) {
     for (let parque of parques) {
         parquesMarkers(parque.Latitude, parque.Longitude, parque.Nome);
         // marker.bindPopup("<b>"+ parque.Nome +"</b>").openPopup();
-        html += "<button class='button button1' id = 'parque' onclick='selecionarParque(" + JSON.stringify(parque) + ")'><h1>" + parque.Nome + "</h1>" +
+        if (parque.LugaresDisponiveis !== 0){
+        
+        html += "<button class='button1' id = 'parque' onclick='selecionarParque(" + JSON.stringify(parque) + ")'><h1>" + parque.Nome + "</h1>" +
             "<p> Lugares Disponíveis: " + parque.LugaresDisponiveis + "</p>" +
             "<p> Preço diário: " + parque.precoDiario + "€</p></button>";
+        }
+
+        else{
+        html += "<section class='buttonIndisponivel'><h1>" + parque.Nome + "</h1>" +
+            "<p> Lugares Disponíveis: " + parque.LugaresDisponiveis + "</p>" +
+            "<p> Preço diário: " + parque.precoDiario + "€</p></section>";
+        }
+
+
         // if (sessionStorage.getItem("parqueNome") !== null) {
         //     for (i = 0; i < parques.length; i++) {
         //         if (sessionStorage.getItem("parqueNome") == parques[i].Nome)

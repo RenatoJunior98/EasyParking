@@ -223,18 +223,29 @@ button:focus {
   padding: 8px;
   background-color: #FFFFFF;
   font-family: 'Roboto';
-  /* font-weight:bold; */
 }
 
-.buttonReview.input[type=button]:active {
+.buttonReserva{
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #FF5F00;
+  font-family: 'Roboto';
+  float: right;
+  margin-right: 30px;
+  font-size: 20px;
+}
+
+input[type=button]:active {
 	transform: scale(0.95);
 }
 
-.buttonReview.input[type=button]:focus {
+input[type=button]:focus {
 	outline: none;
 }
 
-.buttonReview.input[type=button]:hover{
+input[type=button]:hover{
   transform: scale(0.95);
   cursor: pointer;
 }
@@ -277,6 +288,11 @@ h1 {
   width: 100%;
   z-index: 1
   
+}
+
+.tituloReviews{
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .review {
