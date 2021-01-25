@@ -57,9 +57,9 @@ async function showParques(parques) {
         // marker.bindPopup("<b>"+ parque.Nome +"</b>").openPopup();
         if (parque.LugaresDisponiveis !== 0){
         
-        html += "<button class='button1' id = 'parque' onclick='selecionarParque(" + JSON.stringify(parque) + ")'><h1>" + parque.Nome + "</h1>" +
+        html += "<section class='button1' id = 'parque' onclick='selecionarParque(" + JSON.stringify(parque) + ")'><h1>" + parque.Nome + "</h1>" +
             "<p> Lugares Disponíveis: " + parque.LugaresDisponiveis + "</p>" +
-            "<p> Preço diário: " + parque.precoDiario + "€</p></button>";
+            "<p> Preço diário: " + parque.precoDiario + "€</p></section>";
         }
 
         else{

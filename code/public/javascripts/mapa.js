@@ -56,8 +56,9 @@ function getRota() {
 function clearMarker() {
   markersLayer.clearLayers();
 }
-//var button = document.createElement("button");
-//button.class = "profileB";
-//button.innerHTML = '<i class="material-icons" style="font-size:45px;color:white">person</i>';
 
-//document.getElementById("body").appendChild(button);
+
+// directions
+
+
+

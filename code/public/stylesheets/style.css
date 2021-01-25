@@ -107,14 +107,6 @@ button.profileB:hover{
   height: 80px;
 }
 
-
-
-#parque{
-  border: 2px solid; 
-  border-color: #232323; 
-  padding:10px;
-}
-
 #review{
   border: 2px solid; 
   border-color: #232323; 
@@ -205,12 +197,13 @@ h1 {
   transition-duration: 0.3s;
   text-align: center;
   background-color: rgb(200, 200, 200); 
-  color: rgb(53, 53, 53); 
-  border: 2px solid #ac0000;
+  color: rgb(85, 85, 85); 
+  border: 2px solid #4d4d4d;
 }
 
 .button1 {
   font-family: 'Roboto';
+  text-align: center;
   border: none;
   padding: 16px 32px;
   border-radius: 8px;
@@ -223,6 +216,7 @@ h1 {
   background-color: white; 
   color: black; 
   border: 2px solid #FF5F00;
+  border-color: #232323;
 }
 
 

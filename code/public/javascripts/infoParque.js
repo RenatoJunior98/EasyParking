@@ -46,8 +46,7 @@ async function showInfo() {
         "</p></br>   <br><p><span style='color: #FF5F00'>Tipologia: </span>" + parqueInfo.Tipologia +
         "</p></br>   <br><p><span style='color: #FF5F00'>Número de Lugares totais: </span>" + parqueInfo.LugaresTotal +
         "</p></br>   <br><p><span style='color: #FF5F00'>Número de Lugares disponiveis: </span>" + parqueInfo.LugaresDisponiveis +
-        "</p></br>   <br><p><span style='color: #FF5F00'>Número de Lugares para Deficientes: </span>" + parqueInfo.LugaresPrioritarios +
-        "</p></br>   <input onclick='verificarLoginReserva()'' type='button' class='buttonReserva' value='FAZER RESERVA'>";
+        "</p></br>   <br><p><span style='color: #FF5F00'>Número de Lugares para Deficientes: </span>" + parqueInfo.LugaresPrioritarios +"</p>"
     //parquesMarkers(parqueInfo.Latitude, parqueInfo.Longitude, parqueInfo.Nome);
 
     htmlClassificacao += "<h1 class='classificacao'>" + parqueInfo.ClassificacaoMedia + "☆</h1>"
@@ -130,27 +129,6 @@ async function loadLugaresDisponiveis() {
         console.log(err);
     }
 }
-
-// async function rating(){
-//     var starClassificacao ="";
-//     var classificacao = review.Classificacao;
-//     if (classificacao = 1){
-//         starClassificacao="★";
-//     }
-//     else if (classificacao = 2){
-//         starClassificacao="★★";
-//     }
-//     else if (classificacao = 3){
-//         starClassificacao= "★★★";
-//     }
-//     else if (classificacao = 4){
-//         starClassificacao="★★★★";
-//     }
-//     else {
-//         starClassificacao="★★★★★";
-//     }
-//     return starClassificacao;
-// }
 
 async function showReviews() {
     // let parqueID = sessionStorage.getItem("parqueID");

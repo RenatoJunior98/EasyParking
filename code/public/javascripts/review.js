@@ -23,16 +23,12 @@ async function addReview() {
             data: JSON.stringify(review),
             contentType: "application/json"
         });
+       window.location = "infoParque.html";
     } catch (err) {
         console.log(err);
         // mensagem para o utilizador
     }
 }
-}
-
-function test() {
-    swal("Review feita com sucesso")
-    window.location = "infoParque.html";
 }
 
 function verificarLoginReview() {

@@ -6,7 +6,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <!-- add icon link -->
-  <link rel="icon" href="images/easyParkingLogo.png" type="image/x-icon">
+  <link rel="icon" href="images/easyParkingLogosquare.png" type="image/x-icon">
   <link rel="stylesheet" href="/stylesheets/infoParque.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
@@ -56,7 +56,10 @@
 
       <section class="atalhos-flex" id="atalhos"><a>1</a></section>
       <section class="info-flex" id="info"><a>2</a></section>
-      <section class="precario-flex" id="precario"><a>3</a><p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p></section>
+      <section class="reservar-flex" >
+        <input type="date" id="data" name="data">
+        <input onclick="verificarLoginReserva()" type="button" class="buttonReserva" value="FAZER RESERVA">
+      </section>
       <section class="reviewHeader-flex">
 
         <section class="classificação-flex"><a id = "classificacao"></a>
