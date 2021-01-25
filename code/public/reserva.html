@@ -1,32 +1,51 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <title>Easy Parking</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <!-- add icon link -->
-    <link rel="icon" href="images/easyParkingLogosquare.png" type="image/x-icon">
-    <link rel="stylesheet" href="/stylesheets/styleReview.css">
-    <script src="javascripts/reserva.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <meta charset="utf-8" />
+  <title>Wellcome to Easy Parking</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <!-- add icon link -->
+  <link rel="icon" href="images/easyParkingLogosquare.png" type="image/x-icon">
+  <link rel="stylesheet" href="/stylesheets/reserva.css">
+  <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+  <script src="\javascripts\reserva.js"></script>
+  <script src="\javascripts\login.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
-<body>
-        <a class="voltarB" href="/index.html">Voltar</a>
-    <main id = main>
-        <section class="container" id="container">
-            <section class="form-container reviewCont">
-                <form>
-                    <h1>Fazer reserva no parque:</h1>
-                    <h2>nome parque</h2>
-                    <button onclick="addReserva()">RESERVAR</button>
-                </form>
-            </section>
-        </section>
-    </main>
+<body class="grid-container">
+  <header class="grid-header">
+    <section class="header">
+      <section class="image">
+        <a href="/index.html">
+          <img src="\images\easyParkingLogo.png" id="eplogo" alt="Easy Parking Logo"></a>
+      </section>
+      <section class="header-right">
+        <a href="/quemSomos.html">Quem somos</a>
+        <a href="/ajuda.html">Ajuda</a>
+        <a class="active" href="/reserva.html">Reservas</a>
+        <a href="/iniciarSessao.html">Iniciar Sessão</a>
+      </section>
+    </section>
+  </header>
+
+
+  <main class="grid-main">
+    <section class="containerAtivos">
+      <h1 class="titulo">Reservas Ativas</h1>
+      <section class="background">
+      <section id="listaReservas-ativas">aaaa</section>
+    </section>
+    </section>
+    <section class="containerHistorico">
+      <h1 class="titulo">Histórico de reservas</h1>
+      <section class="background">
+      <section id="listaReservas-historico">bbbbb</section>
+    </section>
+    </section>
+  </main>
+
 </body>
 
 </html>

@@ -34,6 +34,36 @@ p {
 	margin: 20px 0 30px;
 }
 
+/* __________header__________ */
+
+.header {
+	overflow: hidden;
+	padding: 20px 10px;
+}
+  
+.header a {
+	margin: 3px;
+	float: left;
+	color: rgb(255, 255, 255);
+	text-align: center;
+	padding: 12px;
+	text-decoration: none;
+	font-size: 18px; 
+	line-height: 25px;
+	border-radius: 10px;
+	background-color:rgb(41, 41, 41);
+}
+  
+.header a:hover {
+	background-color: #FF5F00;
+	color: #FFFFFF;
+}
+  
+.header-right {
+	float: right;
+}
+
+
 button {
 	border-radius: 10px;
 	background-color: #FF5F00;
@@ -54,46 +84,10 @@ button:focus {
 	outline: none;
 }
 
-
-/* __________header__________ */
-
-.header {
-	overflow: hidden;
-	padding: 20px 10px;
-  }
-  
-  .header a {
-	margin: 3px;
-	float: left;
-	color: black;
-	text-align: center;
-	padding: 12px;
-	text-decoration: none;
-	font-size: 18px; 
-	line-height: 25px;
-	border-radius: 10px;
-  }
-  
-  .header a.logo {
-	font-size: 25px;
-	font-weight: bold;
-  }
-  
-  .header a:hover {
-	background-color: rgb(41, 41, 41);
+.header a:hover {
+	background-color: #FF5F00;
 	color: #FFFFFF;
-  }
-  
-  .header a.active {
-	background-color:#FF5F00;
-	color: white;
-  }
-  
-  .header-right {
-	float: right;
-  }
-  
-
+}
   /* main */
 
 
@@ -122,20 +116,12 @@ h2 {
 	text-align: center;
 }
 
-/* p {
-	font-size: 14px;
-	font-weight: 100;
-	line-height: 20px;
-	letter-spacing: 0.5px;
-	margin: 20px 0 30px;
-} */
-
 span {
 	font-size: 12px;
 }
 
 a {
-	color: #333;
+	color: rgb(255, 255, 255);
 	font-size: 14px;
 	text-decoration: none;
 	margin: 15px 0;
@@ -281,40 +267,3 @@ input {
 	width: 384px;
 }
 
-/* __________header__________ */
-
-.header {
-	overflow: hidden;
-	padding: 20px 10px;
-  }
-  
-  .header a {
-	margin: 3px;
-	float: left;
-	color: black;
-	text-align: center;
-	padding: 12px;
-	text-decoration: none;
-	font-size: 18px; 
-	line-height: 25px;
-	border-radius: 10px;
-  }
-  
-  .header a.logo {
-	font-size: 25px;
-	font-weight: bold;
-  }
-  
-  .header a:hover {
-	background-color: rgb(41, 41, 41);
-	color: #FFFFFF;
-  }
-  
-  .header a.active {
-	background-color:#FF5F00;
-	color: white;
-  }
-  
-  .header-right {
-	float: right;
-  }

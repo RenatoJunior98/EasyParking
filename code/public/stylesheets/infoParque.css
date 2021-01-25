@@ -1,32 +1,33 @@
-
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-
 /* html {
   overflow-y:scroll;
 } */
 
 /* width */
+
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 /* Track */
+
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: #f1f1f1;
 }
- 
+
 /* Handle */
+
 ::-webkit-scrollbar-thumb {
-  background: rgb(75, 75, 75); 
+  background: rgb(75, 75, 75);
 }
 
 /* Handle on hover */
+
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(46, 46, 46); 
+  background: rgb(46, 46, 46);
 }
 
-
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -38,7 +39,6 @@ body {
   padding: 0px;
   font-family: 'Roboto';
 }
-
 
 p {
   font-size: 16px;
@@ -52,15 +52,14 @@ a {
   font-family: 'Roboto';
 }
 
-
-.voltarB{
+.voltarB {
   color: #000000;
   font-size: 16px;
 }
 
-.sairB{
+.sairB {
   position: fixed;
-  background:#FF5F00;
+  background: #FF5F00;
   border: 2px solid #FF5F00;
   height: 30px;
   width: 60px;
@@ -68,25 +67,25 @@ a {
   top: 40;
   right: 110;
   transition: box-shadow .3s;
-  box-shadow: 0 3px 3px rgba(33,33,33,.2); 
+  box-shadow: 0 3px 3px rgba(33, 33, 33, .2);
   cursor: pointer;
-	border-radius: 5px;
+  border-radius: 5px;
 }
 
 input[type=button].sairB:active {
-	transform: scale(0.95);
+  transform: scale(0.95);
 }
 
 input[type=button].sairB:focus {
-	outline: none;
+  outline: none;
 }
 
-input[type=button].sairB:hover{
-	box-shadow: 0 6px 6px rgba(37, 37, 37, 0.2); 
+input[type=button].sairB:hover {
+  box-shadow: 0 6px 6px rgba(37, 37, 37, 0.2);
 }
 
 button.profileB {
-  background:#FF5F00;
+  background: #FF5F00;
   position: fixed;
   top: 25;
   right: 25;
@@ -96,59 +95,58 @@ button.profileB {
   width: 65px;
   z-index: 100;
   transition: box-shadow .3s;
-  box-shadow: 0 3px 3px rgba(33,33,33,.2); 
+  box-shadow: 0 3px 3px rgba(33, 33, 33, .2);
   cursor: pointer;
 }
 
 button.profileB:active {
-	transform: scale(0.95);
+  transform: scale(0.95);
 }
 
 button.profileB:focus {
-	outline: none;
+  outline: none;
 }
 
-button.profileB:hover{
-	box-shadow: 0 6px 6px rgba(37, 37, 37, 0.2); 
+button.profileB:hover {
+  box-shadow: 0 6px 6px rgba(37, 37, 37, 0.2);
 }
 
-#nomeUser{
+#nomeUser {
   color: #FFFFFF;
   text-align: center;
-  font-size: 13px; 
+  font-size: 13px;
 }
 
-#logOutB{
+#logOutB {
   color: #FFFFFF;
   text-align: center;
-  font-size: 13px; 
+  font-size: 13px;
 }
-
 
 /* LEFT SIDE */
 
-.voltar-flex{
-  flex:1;
+.voltar-flex {
+  flex: 1;
   margin: 41px;
 }
 
-.nomeParque-flex{
-  flex:8;
+.nomeParque-flex {
+  flex: 8;
 }
 
-.buttonLugares{
+.buttonLugares {
   font-size: 20px;
   background-color: #FFFFFF;
   color: black;
   transform: scale(0.95);
   cursor: pointer;
   text-align: center;
-  width:30px;
+  width: 30px;
   height: 30px;
   margin-left: 5px;
 }
 
-.grid-containerInfo{
+.grid-containerInfo {
   margin-top: 7px;
   display: flex;
   flex-direction: column;
@@ -156,7 +154,7 @@ button.profileB:hover{
   height: 825px;
 }
 
-.atalhos-flex{
+.atalhos-flex {
   flex: 1;
   display: flex;
   justify-content: center;
@@ -168,10 +166,10 @@ button:active {
 }
 
 button:focus {
-	outline: none;
+  outline: none;
 }
 
-.info-flex{
+.info-flex {
   flex: 2;
   border-top: 1px solid #D9D9D9;
   border-bottom: 1px solid #D9D9D9;
@@ -179,22 +177,22 @@ button:focus {
   padding-bottom: 15px;
 }
 
-.reservar-flex{
+.reservar-flex {
   flex: 3;
 }
 
-.reviewHeader-flex{
-  flex:4;
+.reviewHeader-flex {
+  flex: 4;
   border-top: 1px solid #D9D9D9;
   padding-top: 15px;
 }
 
-.classificação-flex{
+.classificação-flex {
   display: flex;
   flex-direction: row;
 }
 
-.classificacao{
+.classificacao {
   flex: 1;
   background: #FF5F00;
   color: white;
@@ -204,19 +202,19 @@ button:focus {
   align-items: center;
 }
 
-.rightSide-flex{
+.rightSide-flex {
   flex: 2;
   margin-left: 20px;
 }
 
-.reviews-flex{
-  flex:8;
+.reviews-flex {
+  flex: 8;
   margin: 10px;
-  font-size:  0.5em;
+  font-size: 0.5em;
   border: 2px solid #969696;
 }
 
-.buttonReview{
+.buttonReview {
   border: 2px solid #FF5F00;
   color: #FF5F00;
   border-radius: 5px;
@@ -225,7 +223,7 @@ button:focus {
   font-family: 'Roboto';
 }
 
-.buttonReserva{
+.buttonReserva {
   border: 2px solid #ffffff;
   color: #ffffff;
   border-radius: 5px;
@@ -238,14 +236,14 @@ button:focus {
 }
 
 input[type=button]:active {
-	transform: scale(0.95);
+  transform: scale(0.95);
 }
 
 input[type=button]:focus {
-	outline: none;
+  outline: none;
 }
 
-input[type=button]:hover{
+input[type=button]:hover {
   transform: scale(0.95);
   cursor: pointer;
 }
@@ -258,7 +256,7 @@ h1 {
   display: flex;
   background-color: #FF5F00;
   border-radius: 0 0 10px 10px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   align-items: center;
 }
 
@@ -274,23 +272,21 @@ h1 {
 .grid-container {
   display: grid;
   position: relative;
-  grid-template-columns:auto 70%;
+  grid-template-columns: auto 70%;
   grid-template-rows: 100%;
-  grid-template-areas:  
-  's m';
+  grid-template-areas: 's m';
 }
 
-#mapid { 
+#mapid {
   /* height: 600px; 
   width: 1000px; */
   position: fixed;
-  height: 100%; 
+  height: 100%;
   width: 100%;
   z-index: 1
-  
 }
 
-.tituloReviews{
+.tituloReviews {
   font-size: 20px;
   font-weight: bold;
 }
@@ -299,8 +295,8 @@ h1 {
   border-bottom: 1px solid #bebebe;
   display: flex;
   justify-content: flex-start;
-  flex-wrap:wrap;
-  flex-direction: column; 
+  flex-wrap: wrap;
+  flex-direction: column;
   padding-left: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -320,8 +316,8 @@ h1 {
 }
 
 .button1 {
-  background-color: white; 
-  color: black; 
+  background-color: white;
+  color: black;
   border: 2px solid #FF5F00;
 }
 
@@ -331,66 +327,66 @@ h1 {
 }
 
 button:focus {
-   background-color: #FF5F00; 
-   color: white;
+  background-color: #FF5F00;
+  color: white;
 }
 
-.direction-icon{
-  flex:1;
+.direction-icon {
+  flex: 1;
   background: #FF5F00;
   color: white;
   border: 2px solid #FF5F00;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 100px;
-    vertical-align: middle;
-    margin: 30px;
-    cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 100px;
+  vertical-align: middle;
+  margin: 30px;
+  cursor: pointer;
 }
 
-.emel-icon{
-  flex:2;
+.emel-icon {
+  flex: 2;
   background: #FF5F00;
   color: white;
   border: 2px solid #FF5F00;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 100px;
-    vertical-align: middle;
-    margin: 30px;
-    cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 100px;
+  vertical-align: middle;
+  margin: 30px;
+  cursor: pointer;
 }
 
-.share-icon{
-  flex:3;
+.share-icon {
+  flex: 3;
   background: #FF5F00;
   color: white;
   border: 2px solid #FF5F00;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 100px;
-    vertical-align: middle;
-    margin: 30px;
-    cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 100px;
+  vertical-align: middle;
+  margin: 30px;
+  cursor: pointer;
 }
 
-.bookmark-icon{
-  flex:4;
+.bookmark-icon {
+  flex: 4;
   background: #FF5F00;
   color: white;
   border: 2px solid #FF5F00;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 100px;
-    vertical-align: middle;
-    margin: 30px;
-    cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 100px;
+  vertical-align: middle;
+  margin: 30px;
+  cursor: pointer;
 }
