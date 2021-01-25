@@ -16,7 +16,7 @@ async function addReview() {
     else {
     try {
         
-        let review = await $.ajax({
+        let result = await $.ajax({
             url: "/api/reviews",
             method: "post",
             dataType: "json",

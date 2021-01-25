@@ -1,3 +1,8 @@
+window.onload = function () {
+  showReserva();
+}
+
+
 function verificarLoginReserva() {
   console.log(sessionStorage.getItem("userID"));
   if (sessionStorage.getItem("userID") == null)
@@ -81,3 +86,35 @@ async function addReserva() {
     // mensagem para o utilizador
   }
 }
+
+async function loadReservas() {
+  try {
+    let reservas = await $.ajax({
+      url: "/api/reserva/reservas/" + sessionStorage.getItem("userID"),
+      method: "get",
+      dataType: "json"
+    });
+    return reservas;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+
+async function showReserva() {
+  let reservas = await loadReservas();
+  console.log(reservas);
+  let elemAtivas = document.getElementById("listaReservas-ativas");
+  let elemHistorico = document.getElementById("listaReservas-historico");
+  let htmlAtivas = "";
+  let htmlHistorico = "";
+  for (let reserva of reservas) {
+    if (reserva.Estado == "Ativa")
+      htmlAtivas += "<a>Nome do parque: " + reserva.Nome + "<br>Codigo: " + reserva.Codigo + " </a>";
+    else
+      htmlHistorico += "<a>Reserva " + reserva.Estado + " <br>Nome do parque: " + reserva.Nome + "<br>Codigo: " + reserva.Codigo + " </a>";
+  }
+  elemAtivas.innerHTML = htmlAtivas;
+  elemHistorico.innerHTML = htmlHistorico;
+}
+

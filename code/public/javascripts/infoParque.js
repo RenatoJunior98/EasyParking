@@ -6,6 +6,7 @@ window.onload = function () {
 
 async function loadInfo() {
     //parquesMarkers(long, lat);
+    var d = new Date();
     let parqueID = await sessionStorage.getItem("parqueID");
     console.log(parqueID);
     try {

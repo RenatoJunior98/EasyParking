@@ -19,4 +19,22 @@ router.get('/:codigo', async function (req, res, next) {
     send(result.data);
 });
 
+/* Mudar estado da reserva */
+router.post('/:reservaID/:estadoID', async function(req, res, next) {
+  let reservaID = req.params.reservaID;
+  let estadoID = req.params.estadoID;
+  let result = await reservaModel.mudarEstado(reservaID, estadoID);
+  res.status(result.status).send(result.data);
+});
+
+/* GET reservas */
+router.get('/reservas/:userID', async function(req, res, next) {
+  let userID = req.params.userID;
+  let result = await reservaModel.getReservas(userID);
+  res.status(result.status).
+     send(result.data);
+});
+
+
+
 module.exports = router;

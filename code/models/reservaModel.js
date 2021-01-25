@@ -22,14 +22,28 @@ module.exports.verificarcodigo = async function (codigo) {
         return { status: 500, data: err };
     }
 }
-// module.exports.getReviews = async function (ParqueID) {
-//     try {
-//         let sql = "select Nome, Classificacao, Comentario from Review inner join User where Parque_ID = " + ParqueID + " AND userID = user_ID";
-//         let reviews = await pool.query(sql);
-//         return { status: 200, data: reviews };
-//     } catch (err) {
-//         console.log(err);
-//         return { status: 500, data: err };
-//     }
-// }
+
+
+module.exports.mudarEstado = async function (estadoID, reservaID) {
+    try {
+        let sql = "UPDATE Reserva SET RE_ID=? WHERE ReservaID=?;";
+        let result = await pool.query(sql, [estadoID, reservaID]);
+        return { status: 200, data: result };
+    } catch (err) {
+        console.log(err);
+        return { status: 500, data: err };
+    }
+}
+
+
+module.exports.getReservas = async function (userID) {
+    try {
+        let sql = "select Estado, Parque.Nome, Descricao, Codigo, DataHora from ReservaEstado inner join Parque inner join Reserva inner join User where Reserva.Parque_ID = ParqueID AND REID = RE_ID AND Reserva.User_ID = UserID AND UserID = " + userID + ";";
+        let reservas = await pool.query(sql);
+        return { status: 200, data: reservas };
+    } catch (err) {
+        console.log(err);
+        return { status: 500, data: err };
+    }
+}
 

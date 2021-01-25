@@ -33,7 +33,7 @@ async function loadParques(parquesFiltrados) {
 
 }
 
-async function logOut(){
+async function logOut() {
     await sessionStorage.removeItem("userID");
     await sessionStorage.removeItem("nome");
     window.location = "index.html";
@@ -45,13 +45,13 @@ async function showParques(parques) {
     let elemAside = document.getElementById("listaParques");
     let html = "";
     //if(parques){
-        if (sessionStorage.getItem("userID") !== null) {
-            let nomeAside = document.getElementById("iconNome");
-            nomeAside.innerHTML = "<a id='nomeUser'> " + sessionStorage.getItem("nome") + "</a>";
-            let buttonAside = document.getElementById("sairButton");
-            buttonAside.innerHTML = "<input type='button' class='sairB' id='logOutB' value='Log Out' onClick='logOut()'></input>"
-        }
-        clearMarker();
+    if (sessionStorage.getItem("userID") !== null) {
+        let nomeAside = document.getElementById("iconNome");
+        nomeAside.innerHTML = "<a id='nomeUser'> " + sessionStorage.getItem("nome") + "</a>";
+        let buttonAside = document.getElementById("sairButton");
+        buttonAside.innerHTML = "<input type='button' class='sairB' id='logOutB' value='Log Out' onClick='logOut()'></input>"
+    }
+    clearMarker();
     for (let parque of parques) {
         parquesMarkers(parque.Latitude, parque.Longitude, parque.Nome);
         // marker.bindPopup("<b>"+ parque.Nome +"</b>").openPopup();
@@ -107,6 +107,19 @@ async function filtrar() {
         elemAside.innerHTML = "<h1> Página não está disponível</h1>" +
             "<h2> Por favor tente mais tarde</h2>";
     }
+}
 
-
+async function verificarReservas() {
+    var d = new Date();
+    try {
+        let result = await $.ajax({
+            url: "/api/reserva/",
+            method: "post",
+            dataType: "json",
+        });
+        window.location = ("infoParque.html");
+    } catch (err) {
+        console.log(err);
+        // mensagem para o utilizador
+    }
 }

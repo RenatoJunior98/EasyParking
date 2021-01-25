@@ -20,6 +20,7 @@ router.get('/:id', async function(req, res, next) {
      send(result.data);
 });
 
+/* Mudar lugares disoponiveis */
 router.post('/lugares/:lugares/:parqueID', async function(req, res, next) {
   let lugares = req.params.lugares;
   let parqueID = req.params.parqueID;
