@@ -2,8 +2,8 @@ var pool = require("./DBConn");
 
 module.exports.newReserva = async function(reserva) {
     try {
-        let sql = "INSERT INTO Reserva (Codigo, User_ID, Parque_ID, DataHora) values (?,?,?, CURRENT_TIMESTAMP);";
-        let result = await pool.query(sql, [reserva.codigo, reserva.userID, reserva.parqueID]);
+        let sql = "INSERT INTO Reserva (Codigo, User_ID, Parque_ID, diaReserva, DataHora) values (?,?,?,?, CURRENT_TIMESTAMP);";
+        let result = await pool.query(sql, [reserva.codigo, reserva.userID, reserva.parqueID, reserva.diaReserva]);
         return { status: 200, data: result };
     } catch (err) {
         console.log(err);
@@ -38,7 +38,7 @@ module.exports.mudarEstado = async function (estadoID, reservaID) {
 
 module.exports.getReservas = async function (userID) {
     try {
-        let sql = "select Estado, Parque.Nome, Descricao, Codigo, DataHora from ReservaEstado inner join Parque inner join Reserva inner join User where Reserva.Parque_ID = ParqueID AND REID = RE_ID AND Reserva.User_ID = UserID AND UserID = " + userID + ";";
+        let sql = "select Estado, Parque.Nome, Descricao, Codigo, DATE_FORMAT(DiaReserva, '%d/%m/%Y') as DiaReserva from ReservaEstado inner join Parque inner join Reserva inner join User where Reserva.Parque_ID = ParqueID AND REID = RE_ID AND Reserva.User_ID = UserID AND UserID = " + userID + ";";
         let reservas = await pool.query(sql);
         return { status: 200, data: reservas };
     } catch (err) {
@@ -47,3 +47,13 @@ module.exports.getReservas = async function (userID) {
     }
 }
 
+module.exports.getParqueIDReservasDia = async function () {
+    try {
+        let sql = "select ReservaID, Parque_ID from Reserva where DiaReserva = CURDATE() AND RE_ID = 5;";
+        let reservas = await pool.query(sql);
+        return { status: 200, data: reservas };
+    } catch (err) {
+        console.log(err);
+        return { status: 500, data: err };
+    }
+}

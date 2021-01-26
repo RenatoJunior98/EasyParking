@@ -38,7 +38,7 @@
 
 <body class="grid-container">
 
-  <button onclick="window.location.href='/iniciarSessao.html';" class="profileB" id = "iconNome"><i class="material-icons" style="font-size:45px;color:white">person</i></button>
+  <button onclick="reservasLogin()" class="profileB" id = "iconNome"><i class="material-icons" style="font-size:45px;color:white">person</i></button>
   <section id="sairButton"></section> 
 
   <aside class="grid-aside">
@@ -56,7 +56,7 @@
       <section class="atalhos-flex" id="atalhos"><a>1</a></section>
       <section class="info-flex" id="info"><a>2</a></section>
       <section class="reservar-flex" >
-        <input type="date" id="data" name="data">
+      <section id="date"></section>
         <input onclick="verificarLoginReserva()" type="button" class="buttonReserva" value="FAZER RESERVA">
       </section>
       <section class="reviewHeader-flex">

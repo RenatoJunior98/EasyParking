@@ -24,10 +24,11 @@ async function showReserva() {
   let htmlAtivas = "";
   let htmlHistorico = "";
   for (let reserva of reservas) {
-    if (reserva.Estado == "Ativa")
-      htmlAtivas += "<section class='reservaItem'> <h1>Nome do parque: " + reserva.Nome + "</h1><p>Codigo: " + reserva.Codigo + " </p> </section>";
+    console.log(reserva.DiaReserva);
+    if (reserva.Estado == "Em espera")
+      htmlAtivas += "<section class='reservaItem'> <h1>Nome do parque: " + reserva.Nome + "</h1><p>Codigo: " + reserva.Codigo + " </p> <p>Dia: " + reserva.DiaReserva + " </p> </section>";
     else
-      htmlHistorico += "<section class='reservaItem'> <h1>Nome do parque: " + reserva.Nome + "</h1><p>Reserva " + reserva.Estado + "</p> <p>Codigo: " + reserva.Codigo + " </p> </section>";
+      htmlHistorico += "<section class='reservaItem'> <h1>Nome do parque: " + reserva.Nome + "</h1><p>Reserva " + reserva.Estado + "</p> <p>Codigo: " + reserva.Codigo + " <p>Dia: " + reserva.DiaReserva + " </p> </p> </section>";
   } 
   elemAtivas.innerHTML = htmlAtivas;
   elemHistorico.innerHTML = htmlHistorico;

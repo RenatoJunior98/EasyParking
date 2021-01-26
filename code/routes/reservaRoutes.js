@@ -14,7 +14,7 @@ router.post('/', async function(req, res, next) {
 /* check codigo */
 router.get('/:codigo', async function (req, res, next) {
   let codigo = req.params.codigo;
-  let result = await reservaModel.checkCodigo(codigo);
+  let result = await reservaModel.verificarcodigo(codigo);
   res.status(result.status).
     send(result.data);
 });
@@ -35,6 +35,11 @@ router.get('/reservas/:userID', async function(req, res, next) {
      send(result.data);
 });
 
-
+/* GET parqueID from reservas */
+router.get('/', async function(req, res, next) {
+  let result = await reservaModel.getParqueIDReservasDia();
+  res.status(result.status).
+     send(result.data);
+});
 
 module.exports = router;
