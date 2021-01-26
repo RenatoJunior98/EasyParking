@@ -57,3 +57,16 @@ module.exports.getParqueIDReservasDia = async function () {
         return { status: 500, data: err };
     }
 }
+
+module.exports.usarReserva = async function (codigo) {
+    try {
+        //codigo da base de dados q responde a esta query: 83L3XCAJ7
+        let sql = "UPDATE Reserva SET RE_ID=4 WHERE Codigo= '?' AND RE_ID = 2;";
+        let result = await pool.query(sql, codigo);
+        console.log(JSON.stringify(result));
+        return { status: 200, data: result};
+    } catch (err) {
+        console.log(err);
+        return { status: 500, data: err };
+    }
+}

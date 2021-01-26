@@ -42,4 +42,12 @@ router.get('/', async function(req, res, next) {
      send(result.data);
 });
 
+/* Mudar estado da reserva após utilização*/
+router.post('/usarReserva/:codigo', async function(req, res, next) {
+  let codigo = "";
+  codigo = req.params.codigo;
+  let result = await reservaModel.usarReserva(codigo);
+  res.status(result.status).send(result.data);
+});
+
 module.exports = router;

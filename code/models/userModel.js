@@ -15,7 +15,6 @@ module.exports.verificarUsername = async function (username) {
     try {
         let sql = "select userID from User where Username = \"" + username + "\";";
         let login = await pool.query(sql);
-        console.log(JSON.stringify(login));
         return { status: 200, data: login };
     } catch (err) {
         console.log(err);

@@ -25,7 +25,9 @@ async function showReserva() {
   let htmlHistorico = "";
   for (let reserva of reservas) {
     console.log(reserva.DiaReserva);
+    console.log(reserva.Codigo);
     if (reserva.Estado == "Em espera")
+    
       htmlAtivas += "<section class='reservaItem'> <h1>Nome do parque: " + reserva.Nome + "</h1><p>Codigo: " + reserva.Codigo + " </p> <p>Dia: " + reserva.DiaReserva + " </p> </section>";
     else
       htmlHistorico += "<section class='reservaItem'> <h1>Nome do parque: " + reserva.Nome + "</h1><p>Reserva " + reserva.Estado + "</p> <p>Codigo: " + reserva.Codigo + " <p>Dia: " + reserva.DiaReserva + " </p> </p> </section>";
