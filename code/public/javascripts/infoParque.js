@@ -25,6 +25,7 @@ async function loadInfo() {
 
 async function showInfo() {
   let parqueInfo = await loadInfo();
+  
   let elemAtalhos = document.getElementById("atalhos");
   let elemNome = document.getElementById("nomeParque");
   let elemInfo = document.getElementById("info");
@@ -186,20 +187,21 @@ async function loadLugaresDisponiveis() {
 
 
 async function mudaLugaresDisponiveis(valor) {
-  let lugares = await loadLugaresDisponiveis()
-  lugares.LugaresDisponiveis += valor;
-  if (lugares.LugaresDisponiveis < 0) {
+  let lugares = await loadLugaresDisponiveis();
+  lugaresDisponiveis = lugares[0].LugaresDisponiveis;
+  lugaresDisponiveis += valor;
+  if (lugaresDisponiveis < 0) {
     swal("0 lugares disponiveis!", "");
     window.location = ("infoParque.html");
   }
-  else if (lugares.LugaresDisponiveis > lugares.LugaresTotal) {
+  else if (lugaresDisponiveis > lugares[0].LugaresTotal) {
     swal("parque lotado!", "");
     window.location = ("infoParque.html");
   }
   else {
     try {
       let result = await $.ajax({
-        url: "/api/parques/lugares/" + lugares.LugaresDisponiveis + "/" + sessionStorage.getItem("parqueID"),
+        url: "/api/parques/lugares/" + lugaresDisponiveis + "/" + sessionStorage.getItem("parqueID"),
         method: "post",
         dataType: "json",
       });
