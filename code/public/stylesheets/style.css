@@ -1,9 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-/* html {
-  overflow-y:scroll;
-} */
+/* SCROLL */
 
 /* width */
 ::-webkit-scrollbar {
@@ -171,10 +169,8 @@ h1 {
 }
 
 #listaParques {
-  /* background-color:  rgb(235, 235, 235); */
   display: flex;
   justify-content: flex-start;
-  /* flex-wrap:wrap; */
   flex-direction: column;
   padding-left: 5px;
   padding-right: 5px;
@@ -182,7 +178,6 @@ h1 {
   font-size:  0.5em;
   overflow-y: auto;
   height: 800px;
-  /* border: 2px solid #000000; */
 }
 
 .buttonIndisponivel{
@@ -293,4 +288,24 @@ form.searchBar:after {
 
 input:focus, textarea:focus, select:focus{
 	outline: none;
+}
+
+.markerInput{
+  border: none;
+  font-family: 'Roboto';
+  text-align: center;
+  padding: 3px 6px;
+  background-color: #ffffff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.markerInput:hover {
+  background-color: #FF5F00;
+  color: white;
+}
+
+.markerInput:focus {
+   background-color: #FF5F00; 
+   color: white;
 }

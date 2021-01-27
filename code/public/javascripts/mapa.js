@@ -1,15 +1,14 @@
 
 
 var mymap = L.map('mapid').setView([38.727168, -9.110647], 14);
-var mapMark = L.icon({
-  iconUrl: '\images\orangemapmarker.png',
-  iconSize: [38, 95], // size of the icon
-  iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
-  popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
-});
+// var mapMark = L.icon({
+//   iconUrl: '\images\orangemapmarker.png',
+//   iconSize: [38, 95], 
+//   iconAnchor: [22, 94],
+//   popupAnchor: [-3, -76] 
+// });
 var markersLayer = L.layerGroup();
 mymap.addLayer(markersLayer);
-
 
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -31,10 +30,18 @@ searchControl.on('results', function (data) {
 });
 
 
+function parquesMarkers(lat, long, nome, parqueID){
+  var marker = markersLayer.addLayer(L.marker([lat, long]).bindPopup("<input type='button' class='markerInput' onclick='selecionarMarkerParque(" + parqueID + ")' id = 'parquepopup' value='"+ nome +"'>").addTo(mymap));
+}
 
-function parquesMarkers(long, lat, nome){
-  var marker = markersLayer.addLayer(L.marker([long, lat]).addTo(mymap));
-  // marker.bindPopup("<b id = 'parquepopup'>"+ nome +"</b>");
+function parquesMarkersInfo(lat, long){
+  var marker = markersLayer.addLayer(L.marker([lat, long]).addTo(mymap));
+}
+
+function selecionarMarkerParque(parqueID) {
+  // sessionStorage.removeItem("parqueID");
+  sessionStorage.setItem("parqueID", parqueID);
+  window.location = "infoParque.html";
 }
 
 function getParqueNome(nomeParque){
@@ -43,15 +50,15 @@ function getParqueNome(nomeParque){
   getRota();
 }
 
-function getRota() {
-  L.Routing.control({
-    waypoints: [
-        L.latLng(38.70722, -9.15254),
-        L.latLng(38.706138, -9.151017)
-    ],
-    routeWhileDragging: true
-}).addTo(map);
-}
+// function getRota() {
+//   L.Routing.control({
+//     waypoints: [
+//         L.latLng(38.70722, -9.15254),
+//         L.latLng(38.706138, -9.151017)
+//     ],
+//     routeWhileDragging: true
+// }).addTo(map);
+// }
 
 function clearMarker() {
   markersLayer.clearLayers();

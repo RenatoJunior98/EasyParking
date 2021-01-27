@@ -88,44 +88,13 @@ button:focus {
 	background-color: #FF5F00;
 	color: #FFFFFF;
 }
-  /* main */
-
-
-* {
-	box-sizing: border-box;
-}
-
-body {
-	background: #f6f5f7;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	font-family: 'Roboto';
-	height: 100vh;
-	margin: -20px 0 50px;
-}
-
-h1 {
-	font-weight: bold;
-	margin: 0;
-	font-size: 28px;
-}
-
-h2 {
-	text-align: center;
-}
-
-span {
-	font-size: 12px;
-}
 
 a {
 	color: rgb(255, 255, 255);
 	font-size: 14px;
 	text-decoration: none;
 	margin: 15px 0;
-}
+} 
 
 .buttonRegistar{
 	font-family: 'Roboto';

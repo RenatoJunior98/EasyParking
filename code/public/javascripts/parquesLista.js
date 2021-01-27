@@ -53,11 +53,10 @@ async function showParques(parques) {
     }
     clearMarker();
     for (let parque of parques) {
-        parquesMarkers(parque.Latitude, parque.Longitude, parque.Nome);
-        // marker.bindPopup("<b>"+ parque.Nome +"</b>").openPopup();
+        parquesMarkers(parque.Latitude, parque.Longitude, parque.Nome, parque.ParqueID);
         if (parque.LugaresDisponiveis !== 0) {
 
-            html += "<section class='button1' id = 'parque' onclick='selecionarParque(" + JSON.stringify(parque) + ")'><h1>" + parque.Nome + "</h1>" +
+            html += "<section class='button1' id = 'parque' onclick='selecionarParque(" + parque.ParqueID + ")'><h1>" + parque.Nome + "</h1>" +
                 "<p> Lugares Disponíveis: " + parque.LugaresDisponiveis + "</p>" +
                 "<p> Preço diário: " + parque.precoDiario + "€</p></section>";
         }
@@ -80,15 +79,21 @@ async function showParques(parques) {
 }
 
 
-function selecionarParque(parque) {
-    sessionStorage.removeItem("parque");
-    sessionStorage.setItem("parqueID", parque.ParqueID);
-    //showInfo(parque);
+function selecionarParque(parqueID) {
+    // sessionStorage.removeItem("parqueID");
+    sessionStorage.setItem("parqueID", parqueID);
     window.location = "infoParque.html";
-    //loadInfo(parque);
-
 }
 
+function reservasLogin() {
+    if (sessionStorage.getItem("userID") !== null){
+        window.location = "reserva.html"
+    }
+    else {
+        window.location = "iniciarSessao.html"
+    }
+  
+  }
 
 async function filtrar() {
     try {
@@ -114,6 +119,7 @@ async function verificarReservas() {
             method: "get",
             dataType: "json"
         });
+        console.log(reservas);
         if (reservas.length > 0)
             for (let index = 0; index < reservas.length; index++)
                 mudaLugaresDisponiveis(reservas[index]);
@@ -139,29 +145,27 @@ async function loadLugaresDisponiveis(parqueID) {
 
 async function mudaLugaresDisponiveis(reserva) {
     let lugares = await loadLugaresDisponiveis(reserva.Parque_ID);
-    for (let lugar of lugares) {
-        lugar.LugaresDisponiveis += -1;
+        lugares[0].LugaresDisponiveis += -1;
         //if (lugar.LugaresDisponiveis > 0 && lugar.LugaresDisponiveis < lugar.LugaresTotal) {
+            console.log(reserva.RE_ID);
             mudaEstadoReserva(reserva.ReservaID, reserva.RE_ID);
             try {
                 let result = await $.ajax({
-                    url: "/api/parques/lugares/" + lugar.LugaresDisponiveis + "/" + reserva.Parque_ID,
+                    url: "/api/parques/lugares/" + lugares[0].LugaresDisponiveis + "/" + reserva.Parque_ID,
                     method: "post",
                     dataType: "json",
                 });
-                console.log(result);
             } catch (err) {
                 console.log(err);
                 // mensagem para o utilizador
             }
         //}
-    }
 }
 
 async function mudaEstadoReserva(reservaID, RE_ID) {
     try {
         let result = await $.ajax({
-            url: "/api/reserva/" + reservaID + "/" + RE_ID,
+            url: "/api/reserva/" + RE_ID + "/" + reservaID,
             method: "post",
             dataType: "json",
         });

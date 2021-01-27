@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-/* html {
-  overflow-y:scroll;
-} */
+
+/* SCROLL */
 
 /* width */
 
@@ -179,7 +178,29 @@ button:focus {
 
 .reservar-flex {
   flex: 3;
+  align-items: center;
 }
+
+#data{
+  margin-top: 5px;
+  margin-left: 35px;
+}
+
+.calendar{
+  border: 1px solid #c4c4c4;
+  padding: 3px 5px;
+  box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+  border-radius: 5px;
+  margin-right: 40px;
+
+}
+
+label {
+  display: block;
+  margin-top: 35px;
+  margin-left: 10px;
+}
+
 
 .reviewHeader-flex {
   flex: 4;
@@ -233,6 +254,7 @@ button:focus {
   float: right;
   margin-right: 30px;
   font-size: 20px;
+  margin-bottom: 10px;
 }
 
 input[type=button]:active {

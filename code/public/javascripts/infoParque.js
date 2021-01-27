@@ -4,7 +4,6 @@ window.onload = function () {
   showReviews();
 }
 async function loadInfo() {
-  //parquesMarkers(long, lat);
   var d = new Date();
   let parqueID = await sessionStorage.getItem("parqueID");
   try {
@@ -30,7 +29,8 @@ async function showInfo() {
   let elemNome = document.getElementById("nomeParque");
   let elemInfo = document.getElementById("info");
   let elemDate = document.getElementById("date");
-  parquesMarkers(parqueInfo.Latitude, parqueInfo.Longitude, parqueInfo.Nome);
+  //parquesMarkers(parqueInfo.Latitude, parqueInfo.Longitude, parqueInfo.Nome);
+  parquesMarkersInfo(parqueInfo.Latitude, parqueInfo.Longitude);
   let htmlAtalhos = "";
   let htmlNome = "";
   let htmlInfo = "";
@@ -42,7 +42,7 @@ async function showInfo() {
   //https://www.geeksforgeeks.org/javascript-date-toisostring-method/
   let dateString = date.toISOString().replaceAll("/", "-");
   console.log(dateString.substring(0,10));
-  let htmlDate = "<input type='date' id='data' name='data' min= '" + dateString.substring(0,10) + "'>";
+  let htmlDate = "<label for='data'>Escolha o dia para a sua reserva</label> <input type='date' id='data' name='data' min= '" + dateString.substring(0,10) + "'>";
   //sessionStorage.setItem("parqueID", parqueInfo.ParqueID);
   htmlAtalhos += "<a><button class='material-icons direction-icon'>directions</button></a>  <a><button onclick='getEmel(" + JSON.stringify(parqueInfo.Nome) + ")' class='material-icons emel-icon'>info</button></a>  <a><button class='material-icons share-icon'>share</button></a>  <a><button class='material-icons bookmark-icon'>bookmark_border</button></a>"
   htmlNome += "<h1>" + parqueInfo.Nome + "</h1> <input type='button' class='buttonLugares' value='+' onclick = 'mudaLugaresDisponiveis(1)'></input> <input type='button' class='buttonLugares' value='-'' onclick = 'mudaLugaresDisponiveis(-1)'></input>";
