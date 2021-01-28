@@ -57,6 +57,7 @@ async function showInfo() {
   elemNome.innerHTML = htmlNome;
   elemInfo.innerHTML = htmlInfo;
   elemDate.innerHTML = htmlDate;
+  getDirerecoes(parqueInfo.Latitude, parqueInfo.Longitude);
   if (sessionStorage.getItem("userID") !== null) {
     let nomeAside = document.getElementById("iconNome");
     nomeAside.innerHTML = "<a id='nomeUser'> " + sessionStorage.getItem("nome") + "</a>";

@@ -76,6 +76,7 @@ async function showParques(parques) {
         // }
     }
     elemAside.innerHTML = html;
+    routinggh()
 }
 
 
