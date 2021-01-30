@@ -57,7 +57,7 @@ async function showInfo() {
   elemNome.innerHTML = htmlNome;
   elemInfo.innerHTML = htmlInfo;
   elemDate.innerHTML = htmlDate;
-  getDirerecoes(parqueInfo.Latitude, parqueInfo.Longitude);
+  getDirecoes(parqueInfo.Latitude, parqueInfo.Longitude);
   if (sessionStorage.getItem("userID") !== null) {
     let nomeAside = document.getElementById("iconNome");
     nomeAside.innerHTML = "<a id='nomeUser'> " + sessionStorage.getItem("nome") + "</a>";
@@ -96,7 +96,6 @@ async function showReviews() {
 
 
 async function loadReviews() {
-  let elemAside = document.getElementById("reviews");
   try {
     let reviews = await $.ajax({
       url: "/api/reviews/" + sessionStorage.getItem("parqueID"),
@@ -107,8 +106,6 @@ async function loadReviews() {
     return reviews;
   } catch (err) {
     console.log(err);
-    elemAside.innerHTML = "<h1> Página não está disponível</h1>" +
-      "<h2> Por favor tente mais tarde</h2>";
   }
 }
 

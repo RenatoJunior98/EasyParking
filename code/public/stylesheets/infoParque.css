@@ -52,8 +52,8 @@ a {
 }
 
 .voltarB {
-  color: #000000;
-  font-size: 16px;
+  color: #FFFFFF;
+  font-size: 18px;
 }
 
 .sairB {
@@ -131,6 +131,7 @@ button.profileB:hover {
 
 .nomeParque-flex {
   flex: 8;
+  color: #FFFFFF;
 }
 
 .buttonLugares {
@@ -300,11 +301,10 @@ h1 {
 }
 
 #mapid {
-  /* height: 600px; 
-  width: 1000px; */
+  height: 940px; 
+  /* width: 1345px; */
+  width: 70%;
   position: fixed;
-  height: 100%;
-  width: 100%;
   z-index: 1
 }
 

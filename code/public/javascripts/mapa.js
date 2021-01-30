@@ -1,4 +1,5 @@
-var mymap = L.map('mapid').setView([38.727168, -9.110647], 14);
+var mymap = L.map('mapid').setView([38.727168, -9.156047], 14);
+
 var mapMark = L.icon({
   iconUrl: 'images/orangemapmarker.png',
   iconSize: [38, 40], 
@@ -32,7 +33,7 @@ searchControl.on('results', function (data) {
 var ghRouting = new GraphHopper.Routing({ key: "b8d15971-3f3b-4158-b2c1-2195d844bc28", host: "https://graphhopper.com/api/1/", vehicle: "car", elevation: false });
 
 
-function getDirerecoes (latParque,longParque){
+function getDirecoes (latParque,longParque){
   mymap.on('click', function(e) {
 
 ghRouting.addPoint(new GHInput(e.latlng.lat, e.latlng.lng));
@@ -51,7 +52,7 @@ ghRouting.doRequest()
       "type": "Feature",
       "geometry": path.points
     });
-
+    console.log(json);
   })
   .catch(function (err) {
     var str = "An error occured: " + err.message;
@@ -62,7 +63,7 @@ ghRouting.doRequest()
 }
 
 function parquesMarkers(lat, long, nome, parqueID) {
-  var marker = markersLayer.addLayer(L.marker([lat, long]).bindPopup("<input type='button' class='markerInput' onclick='selecionarMarkerParque(" + parqueID + ")' id = 'parquepopup' value='" + nome + "'>").addTo(mymap));
+  var marker = markersLayer.addLayer(L.marker([lat, long]).bindPopup("<input type='button' class='markerInput' onclick='selecionarMarkerParque(" + parqueID + ")' value='" + nome + "'>").addTo(mymap));
 }
 
 function parquesMarkersInfo(lat, long) {
@@ -70,7 +71,6 @@ function parquesMarkersInfo(lat, long) {
 }
 
 function selecionarMarkerParque(parqueID) {
-  // sessionStorage.removeItem("parqueID");
   sessionStorage.setItem("parqueID", parqueID);
   window.location = "infoParque.html";
 }
