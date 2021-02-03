@@ -6,15 +6,16 @@ var reviewModel = require("../models/reviewModel");
 /* add review */
 router.post('/', async function(req, res, next) {
     let review = req.body;
+    console.log("Model: " + JSON.stringify(review));
     let result = await reviewModel.newReview(review);
     res.status(result.status).send(result.data);
   });
-  
+
 
   /* GET reviews */
-router.get('/:id', async function(req, res, next) {
-  let id = req.params.id;
-  let result = await reviewModel.getReviews(id);
+router.get('/reviewsParque/:parqueID', async function(req, res, next) {
+  let idObj = req.params.parqueID;
+  let result = await reviewModel.getReviews(idObj);
   res.status(result.status).
      send(result.data);
 });

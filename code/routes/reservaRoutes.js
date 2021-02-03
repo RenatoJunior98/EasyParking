@@ -2,50 +2,33 @@ var express = require('express');
 var router = express.Router();
 var reservaModel = require("../models/reservaModel");
 
-
-/* check codigo */
-router.get('/:codigo', async function (req, res, next) {
-  let codigo = req.params.codigo;
-  let result = await reservaModel.verificarcodigo(codigo);
-  res.status(result.status).
-    send(result.data);
-});
-
 /* GET reservas */
-router.get('/reservas/:userID', async function(req, res, next) {
-  let userID = req.params.userID;
-  let result = await reservaModel.getReservas(userID);
+router.get('/reservasUser/', async function(req, res, next) {
+  let userObj = req.query;
+  let result = await reservaModel.getReservas(userObj);
   res.status(result.status).
      send(result.data);
 });
 
-/* GET parqueID from reservas */
-router.get('/', async function(req, res, next) {
-  let result = await reservaModel.getParqueIDReservasDia();
-  res.status(result.status).
-     send(result.data);
-});
 
 /* add reserva */
-router.post('/', async function(req, res, next) {
+router.post('/newBooking', async function(req, res, next) {
   let reserva = req.body;
+  console.log("Route: " + JSON.stringify(reserva));
   let result = await reservaModel.newReserva(reserva);
   res.status(result.status).send(result.data);
 });
 
 
-/* Mudar estado da reserva */
-router.post('/:reservaID/:estadoID', async function(req, res, next) {
-  let reservaID = req.params.reservaID;
-  let estadoID = req.params.estadoID;
-  let result = await reservaModel.mudarEstado(estadoID, reservaID);
+/* Verificar reservas não utilizadas ou em espera com diaReserva de hoje e muda estados e os lugares disponiveis do parque a que pertence */
+router.put('/newState', async function(req, res, next) {
+  let result = await reservaModel.VerificarReservas();
   res.status(result.status).send(result.data);
 });
 
-/* Mudar estado da reserva após utilização*/
-router.post('/:codigo', async function(req, res, next) {
-  let codigo = "";
-  codigo = req.params.codigo;
+/* Verifica codigo e muda estado da reserva após utilização*/
+router.put('/use/', async function(req, res, next) {
+  let codigo = req.body;
   let result = await reservaModel.usarReserva(codigo);
   res.status(result.status).send(result.data);
 });

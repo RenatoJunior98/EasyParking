@@ -77,7 +77,6 @@ function selecionarMarkerParque(parqueID) {
 
 function getParqueNome(nomeParque) {
   sessionStorage.setItem("parqueNome", nomeParque);
-  console.log(sessionStorage.getItem("parqueNome"));
   getRota();
 }
 

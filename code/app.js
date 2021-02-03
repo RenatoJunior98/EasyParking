@@ -23,7 +23,7 @@ app.use('/users', usersRouter);
 
 app.use('/api/parques', parquesRouter);
 app.use('/api/reviews', reviewsRouter);
-app.use('/api/reserva', reservaRouter);
+app.use('/api/reservas', reservaRouter);
 app.use('/api/users', utilizadorRouter);
 
 module.exports = app;

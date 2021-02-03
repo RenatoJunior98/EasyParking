@@ -12,30 +12,14 @@ router.get('/', async function(req, res, next) {
   });
 
 
-/* GET lugares disponiveis */
-router.get('/:id', async function(req, res, next) {
-  let id = req.params.id;
-  let result = await parkModel.getLugaresDisponiveis(id);
-  res.status(result.status).
-     send(result.data);
-});
 
 /* Mudar lugares disoponiveis */
-router.post('/lugares/:lugares/:parqueID', async function(req, res, next) {
-  let lugares = req.params.lugares;
-  let parqueID = req.params.parqueID;
-  let result = await parkModel.mudaLugares(lugares, parqueID);
+router.put('/updateLugares', async function(req, res, next) {
+  let lugaresObj = req.body;
+  let result = await parkModel.mudaLugares(lugaresObj);
   res.status(result.status).send(result.data);
 });
 
-
-/* check codigo */
-// router.get('/:codigo', async function (req, res, next) {
-//   let codigo = req.params.codigo;
-//   let result = await userModel.verificarcodigo(codigo);
-//   res.status(result.status).
-//     send(result.data);
-// });
 
 
 

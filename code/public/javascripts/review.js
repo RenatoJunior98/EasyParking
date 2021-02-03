@@ -1,8 +1,6 @@
 async function addReview() {
     let comentario = document.getElementById("reviewTexto").value;
         let classificacao = parseInt(document.getElementById("classificacao").value);
-        console.log(sessionStorage.getItem("parqueID"));
-        console.log(sessionStorage.getItem("userID"));
         let parqueID = sessionStorage.getItem("parqueID");
         let userID = sessionStorage.getItem("userID");
         let review = {
@@ -14,8 +12,8 @@ async function addReview() {
     if (classificacao == null)
         swal("Introduza uma classificação ", "");
     else {
+        console.log(review);
     try {
-        
         let result = await $.ajax({
             url: "/api/reviews",
             method: "post",
