@@ -22,6 +22,7 @@ async function checkLogin() {
             if (dados[0] != null) {
                 await swal("Sessão Iniciada com sucesso!", "");
                 sessionStorage.setItem("nome", dados[0].nome);
+                sessionStorage.setItem("userID", dados[0].userID);
                 window.location = "index.html";
             }
             else
