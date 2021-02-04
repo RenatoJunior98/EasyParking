@@ -1,11 +1,5 @@
 var mymap = L.map('mapid').setView([38.727168, -9.156047], 14);
 
-var mapMark = L.icon({
-  iconUrl: 'images/orangemapmarker.png',
-  iconSize: [38, 40], 
-  iconAnchor: [22, 94],
-  popupAnchor: [-3, -76] 
-});
 var markersLayer = L.layerGroup();
 var routingLayer = L.layerGroup();
 mymap.addLayer(markersLayer);

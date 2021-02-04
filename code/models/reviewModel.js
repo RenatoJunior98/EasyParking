@@ -2,7 +2,6 @@ var pool = require("./DBConn");
 
 module.exports.newReview = async function (review) {
     try {
-        console.log("Model: " + JSON.stringify(review));
         let sql = "INSERT INTO Review (Comentario, Classificacao, Parque_ID, User_ID) values (?,?,?,?);";
         let result = await pool.query(sql, [review.comentario, review.classificacao, review.parqueID, review.userID]);
         return { status: 200, data: result };

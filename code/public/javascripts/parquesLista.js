@@ -58,7 +58,7 @@ async function showParques(parques) {
         }
 
         else {
-            html += "<section class='buttonIndisponivel'><h1>" + parque.Nome + "</h1>" +
+            html += "<section class='buttonIndisponivel' onclick='selecionarParque(" + parque.ParqueID + ")' ><h1>" + parque.Nome + "</h1>" +
                 "<p> Lugares Disponíveis: " + parque.LugaresDisponiveis + "</p>" +
                 "<p> Preço diário: " + parque.precoDiario + "€</p></section>";
         }

@@ -14,13 +14,12 @@ router.get('/reservasUser/', async function(req, res, next) {
 /* add reserva */
 router.post('/newBooking', async function(req, res, next) {
   let reserva = req.body;
-  console.log("Route: " + JSON.stringify(reserva));
   let result = await reservaModel.newReserva(reserva);
   res.status(result.status).send(result.data);
 });
 
 
-/* Verificar reservas não utilizadas ou em espera com diaReserva de hoje e muda estados e os lugares disponiveis do parque a que pertence */
+/* Verificar reservas não utilizadas ou em espera */
 router.put('/newState', async function(req, res, next) {
   let result = await reservaModel.VerificarReservas();
   res.status(result.status).send(result.data);
@@ -30,7 +29,7 @@ router.put('/newState', async function(req, res, next) {
 router.put('/use/', async function(req, res, next) {
   let codigo = req.body;
   let result = await reservaModel.usarReserva(codigo);
-  res.status(result.status).send(result.data);
+  res.status(result.status).send(result.msg);
 });
 
 module.exports = router;

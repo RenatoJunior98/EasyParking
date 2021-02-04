@@ -15,8 +15,6 @@ module.exports.newReserva = async function (reserva) {
                 valido = false;
         }
         let sql = "INSERT INTO Reserva (Codigo, User_ID, Parque_ID, diaReserva, DataHora) values (?,?,?,?, CURRENT_TIMESTAMP);";
-        let result = await pool.query(sql, [codigo, reserva.userID, reserva.parqueID, reserva.diaReserva]);
-        console.log("reserva feita: " + result);
         return { status: 200, data: result };
     } catch (err) {
         console.log(err);
@@ -30,7 +28,6 @@ function getCodigo(){
     for (var i = 0; i < 9; i++) {
         codigo += characters.charAt(Math.floor(Math.random() * characters.length));
       }
-    console.log("Model getCodigo: " + codigo);
     return codigo;
 }
 
@@ -61,7 +58,6 @@ module.exports.VerificarReservas = async function () {
 
 module.exports.getReservas = async function (user) {
     try {
-        console.log("Model: " + JSON.stringify(user));
         let sql = "select Estado, Parque.Nome, Descricao, Codigo, DATE_FORMAT(DataHora, '%d/%m/%Y às %h:%i') as DataHora, DATE_FORMAT(DiaReserva, '%d/%m/%Y') as DiaReserva from ReservaEstado inner join Parque inner join Reserva inner join User where Reserva.Parque_ID = ParqueID AND REID = RE_ID AND Reserva.User_ID = UserID AND UserID = ?;";
         let reservas = await pool.query(sql, [user.userID]);
         return { status: 200, data: reservas };
@@ -74,17 +70,18 @@ module.exports.getReservas = async function (user) {
 
 module.exports.usarReserva = async function (reservaCode) {
     try {
-        let sql = "select COUNT(ReservaID) from Reserva where Codigo = ? AND diaReserva = CURDATE() AND RE_ID = 2;";
-        let reserva = await pool.query(sql, reservaCode.codigo);
-        if (reserva[0] == 0)
-            return false;
+        let sql = "select COUNT(ReservaID) as nReservas from Reserva where Codigo = \"" + reservaCode.codigo + "\" AND diaReserva = CURDATE() AND RE_ID = 2 AND Parque_ID = ?;";
+        let reservas = await pool.query(sql, reservaCode.Parque_ID);
+        let reserva = reservas[0];
+        if (reserva.nReservas == 0)
+        return { status: 404, msg: "Codigo invalido ou utilizador encontra-se no parque errado" };
         else {
-            let sqlUpdateEstado = "UPDATE Reserva SET RE_ID=4 WHERE Codigo= ?;";
-            let result = await pool.query(sqlUpdateEstado, reservaCode.codigo);
-            return true;
-        }
+            let sqlUpdateEstado = "UPDATE Reserva SET RE_ID=4 WHERE Codigo= \"" + reservaCode.codigo + "\";";
+            let result = await pool.query(sqlUpdateEstado);
+            return { status: 200, msg: "Codigo valido" };       
+        } 
     } catch (err) {
         console.log(err);
-        return { status: 500, data: err };
+        return { status: 500, msg: JSON.stringify(reservaCode) };
     }
 }

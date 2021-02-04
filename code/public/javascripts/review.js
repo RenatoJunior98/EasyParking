@@ -12,7 +12,6 @@ async function addReview() {
     if (classificacao == null)
         swal("Introduza uma classificação ", "");
     else {
-        console.log(review);
     try {
         let result = await $.ajax({
             url: "/api/reviews",

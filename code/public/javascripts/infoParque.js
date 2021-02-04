@@ -182,7 +182,6 @@ async function confirmaReserva() {
         swal("A reserva foi feita com sucesso!", {
           icon: "success",
         });
-        console.log("reserva confirmada");
         addReserva();
       }
     });
@@ -198,7 +197,6 @@ async function addReserva() {
     userID: userID
   }
   try {
-    console.log(reserva);
     let novaReserva = await $.ajax({
       url: "/api/reservas/newBooking",
       method: "post",
