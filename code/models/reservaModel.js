@@ -15,6 +15,7 @@ module.exports.newReserva = async function (reserva) {
                 valido = false;
         }
         let sql = "INSERT INTO Reserva (Codigo, User_ID, Parque_ID, diaReserva, DataHora) values (?,?,?,?, CURRENT_TIMESTAMP);";
+        let result = await pool.query(sql, [codigo, reserva.userID, reserva.parqueID, reserva.diaReserva]);
         return { status: 200, data: result };
     } catch (err) {
         console.log(err);
@@ -28,6 +29,7 @@ function getCodigo(){
     for (var i = 0; i < 9; i++) {
         codigo += characters.charAt(Math.floor(Math.random() * characters.length));
       }
+    console.log("Model getCodigo: " + codigo);
     return codigo;
 }
 
