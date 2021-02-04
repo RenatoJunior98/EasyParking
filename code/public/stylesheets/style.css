@@ -235,7 +235,6 @@ form.searchBar input[type=text] {
   padding: 8px;
   font-size: 17px;
   border: 1px solid #ffffff;
-  /* float: left; */
   margin:auto;
   background: #ffffff;
   transition: box-shadow .3s;

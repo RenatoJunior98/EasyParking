@@ -94,27 +94,6 @@ p {
 	margin: 20px 0 30px;
 }
 
-button {
-	border-radius: 10px;
-	background-color: #FF5F00;
-	color: #FFFFFF;
-	font-size: 12px;
-	font-weight: bold;
-	padding: 12px 45px;
-	letter-spacing: 1px;
-	text-transform: uppercase;
-	transition: transform 80ms ease-in;
-}
-
-button:active {
-	transform: scale(0.95);
-}
-
-button:focus {
-	outline: none;
-}
-
-
   /* main */
 
 
@@ -132,14 +111,6 @@ h2 {
 	text-align: center;
 }
 
-/* p {
-	font-size: 14px;
-	font-weight: 100;
-	line-height: 20px;
-	letter-spacing: 0.5px;
-	margin: 20px 0 30px;
-} */
-
 span {
 	font-size: 12px;
 }
@@ -149,34 +120,6 @@ a {
 	font-size: 14px;
 	text-decoration: none;
 	margin: 15px 0;
-}
-
-button {
-	font-family: 'Roboto';
-	border-radius: 5px;
-	background-color: #FF5F00;
-	border: 1px solid #FF5F00;
-	color: #FFFFFF;
-	cursor: pointer;
-	margin: 5px;
-	font-size: 16px;
-	padding: 10px 16px;
-	/* letter-spacing: 1px; */
-	text-transform: uppercase;
-	transition: box-shadow .3s;
-	box-shadow: 0 3px 3px rgba(33,33,33,.2); 
-}
-
-button:active {
-	transform: scale(0.95);
-}
-
-button:focus {
-	outline: none;
-}
-
-button:hover{
-	box-shadow: 0 6px 6px rgba(37, 37, 37, 0.2); 
 }
 
 form {
