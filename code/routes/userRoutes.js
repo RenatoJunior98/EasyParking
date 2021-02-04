@@ -4,10 +4,10 @@ var userModel = require("../models/userModel");
 
 
 /* login */
-router.get('/LoginDados/:username/:password', async function (req, res, next) {
- let username = req.params.username;
-  let pass = req.params.password;
-  let result = await userModel.login(username, pass);
+router.get('/LoginDados/', async function (req, res, next) {
+ let user = req.query;
+ console.log("model" + JSON.stringify(user));
+  let result = await userModel.login(user);
   res.status(result.status).
     send(result.data);
 });

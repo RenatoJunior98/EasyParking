@@ -1,6 +1,10 @@
 async function checkLogin() {
     var userName = document.getElementById('username').value;
     var password = document.getElementById('pass').value;
+    let user = {
+        username: userName,
+        pass: password
+    } 
     if (userName.length == 0)
         swal("Introduza um Username ", "");
     else if (password.length == 0)
@@ -8,14 +12,16 @@ async function checkLogin() {
     else {
         try {
             let dados = await $.ajax({
-                url: "/api/users/LoginDados/" + userName + "/" + password,
+                url: "/api/users/LoginDados/",
                 method: "get",
                 dataType: "json",
+                data: user,
+                contentType: "application/json"
+
             });
             if (dados[0] != null) {
                 await swal("Sessão Iniciada com sucesso!", "");
                 sessionStorage.setItem("nome", dados[0].nome);
-                sessionStorage.setItem("userID", dados[0].userID);
                 window.location = "index.html";
             }
             else

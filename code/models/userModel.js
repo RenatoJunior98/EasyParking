@@ -1,8 +1,9 @@
 var pool = require("./DBConn");
 
-module.exports.login = async function (username, pass) {
+module.exports.login = async function (user) {
+    console.log("model" + JSON.stringify(user));
     try {
-        let sql = "select userID, nome from User where Username = \"" + username + "\" and Pass = \"" + pass + "\";";
+        let sql = "select userID, nome from User where Username = \"" + user.username + "\" and Pass = \"" + user.pass + "\";";
         let login = await pool.query(sql);
         return { status: 200, data: login };
     } catch (err) {
