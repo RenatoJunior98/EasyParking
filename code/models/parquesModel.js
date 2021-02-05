@@ -14,10 +14,10 @@ module.exports.getAll = async function (filterObj) {
             let parques = await pool.query(sql, filterObj.parqueID);
             return { status: 200, data: parques };
         }
-            let sql = "select LugaresPrioritarios, Tipologia, ParqueID, Latitude, Longitude, Descricao, Nome, LugaresTotal, precoDiario, LugaresDisponiveis from Parque inner join Preco where Preco_ID = precoID " +
+        let sql = "select LugaresPrioritarios, Tipologia, ParqueID, Latitude, Longitude, Descricao, Nome, LugaresTotal, precoDiario, LugaresDisponiveis from Parque inner join Preco where Preco_ID = precoID " +
             filterQueries + " ORDER BY `Parque`.`Nome` ASC";
-            let parques = await pool.query(sql,filterValues);
-            return { status: 200, data: parques };
+        let parques = await pool.query(sql, filterValues);
+        return { status: 200, data: parques };
     } catch (err) {
         console.log(err);
         return { status: 500, data: err };
@@ -26,13 +26,14 @@ module.exports.getAll = async function (filterObj) {
 
 module.exports.mudaLugares = async function (obj) {
     try {
-        let sqlLugaresDisponivei = "select LugaresDisponiveis, lugaresTotal from Parque where ParqueID =?;";
+        let sqlLugaresDisponivei = "select LugaresDisponiveis, LugaresTotal from Parque where ParqueID =?;";
         let lugares = await pool.query(sqlLugaresDisponivei, obj.parqueID);
-        if (lugares[0].LugaresDisponiveis > Math.round(lugares[0].lugaresTotal / 10) && lugares[0].LugaresDisponiveis < lugares[0].lugaresTotal) {
+        if (lugares[0].LugaresDisponiveis > (Math.round(lugares[0].LugaresTotal / 10)) && (lugares[0].LugaresDisponiveis + obj.valor) <= lugares[0].LugaresTotal) {
             let sql = "UPDATE Parque SET LugaresDisponiveis= (LugaresDisponiveis + ?) WHERE parqueID=?;";
             let result = await pool.query(sql, [obj.valor, obj.parqueID]);
+            console.log("result " + result);
             return { status: 200, data: result };
-        }  
+        }
     } catch (err) {
         console.log(err);
         return { status: 500, data: err };
