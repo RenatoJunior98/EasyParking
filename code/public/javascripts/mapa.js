@@ -26,13 +26,14 @@ searchControl.on('results', function (data) {
 
 var ghRouting = new GraphHopper.Routing({ key: "b8d15971-3f3b-4158-b2c1-2195d844bc28", host: "https://graphhopper.com/api/1/", vehicle: "car", elevation: false });
 
+var markerRota;
 
 function getDirecoes (latParque,longParque){
   mymap.on('click', function(e) {
-
+    if(ghRouting.points.length > 1) {ghRouting.clearPoints();routingLayer.clearLayers();mymap.removeLayer(markerRota);}
 ghRouting.addPoint(new GHInput(e.latlng.lat, e.latlng.lng));
 ghRouting.addPoint(new GHInput(latParque,longParque));
-parquesMarkersInfo(e.latlng.lat, e.latlng.lng);
+markerRota = L.marker([e.latlng.lat, e.latlng.lng]).addTo(mymap);
 
 routingLayer = L.geoJson().addTo(mymap);
 routingLayer.options = {
