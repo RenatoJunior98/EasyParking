@@ -60,7 +60,7 @@ module.exports.VerificarReservas = async function () {
 
 module.exports.getReservas = async function (user) {
     try {
-        let sql = "select Estado, Parque.Nome, Descricao, Codigo, DATE_FORMAT(DataHora, '%d/%m/%Y às %h:%i') as DataHora, DATE_FORMAT(DiaReserva, '%d/%m/%Y') as DiaReserva from ReservaEstado inner join Parque inner join Reserva inner join User where Reserva.Parque_ID = ParqueID AND REID = RE_ID AND Reserva.User_ID = UserID AND UserID = ?;";
+        let sql = "select Estado, Parque.Nome, Descricao, Codigo, DATE_FORMAT(DataHora, '%d/%m/%Y às %h:%i') as DataHora, DATE_FORMAT(DiaReserva, '%d/%m/%Y') as DiaReserva, IsNotificado from ReservaEstado inner join Parque inner join Reserva inner join User where Reserva.Parque_ID = ParqueID AND REID = RE_ID AND Reserva.User_ID = UserID AND UserID = ?;";
         let reservas = await pool.query(sql, [user.userID]);
         return { status: 200, data: reservas };
     } catch (err) {
@@ -68,6 +68,25 @@ module.exports.getReservas = async function (user) {
         return { status: 500, data: err };
     }
 }
+
+
+module.exports.getNotificacoes = async function (user) {
+    try {
+        let sqlCount = "select count(*) as IsNotificado from Reserva where IsNotificado = 0 AND User_ID = ? AND (RE_ID = 2 OR RE_ID = 5);";
+        let reservasCount = await pool.query(sqlCount, [user.userID]);
+        let sql = "select ReservaID, Estado, Parque.Nome, DATE_FORMAT(DiaReserva, '%d/%m/%Y') as DiaReserva from ReservaEstado inner join Parque inner join Reserva where Reserva.Parque_ID = ParqueID AND REID = RE_ID AND Reserva.User_ID = ? AND (RE_ID = 2 OR RE_ID = 5) AND IsNotificado = 0 ORDER BY CASE WHEN RE_ID = 2 THEN '1' WHEN RE_ID = 5 THEN '2' WHEN RE_ID = 3 THEN '3' ELSE RE_ID END ASC";
+        let reservas = await pool.query(sql, [user.userID]);
+        let reservasnotificacao = {
+            reservas: reservas,
+            reservasCount: reservasCount[0].IsNotificado
+        }
+        return { status: 200, data: reservasnotificacao };
+    } catch (err) {
+        console.log(err);
+        return { status: 500, data: err };
+    }
+}
+
 
 
 module.exports.usarReserva = async function (reservaCode) {
@@ -85,5 +104,16 @@ module.exports.usarReserva = async function (reservaCode) {
     } catch (err) {
         console.log(err);
         return { status: 500, msg: JSON.stringify(reservaCode) };
+    }
+}
+
+module.exports.notificacaoVista = async function (obj) {
+    try {
+            let sql = "UPDATE Reserva SET IsNotificado= 1 WHERE ReservaID=?;";
+            let result = await pool.query(sql, [obj.ReservaID]);
+            return { status: 200, data: result };
+    } catch (err) {
+        console.log(err);
+        return { status: 500, data: err };
     }
 }

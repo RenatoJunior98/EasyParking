@@ -10,6 +10,14 @@ router.get('/reservasUser/', async function(req, res, next) {
      send(result.data);
 });
 
+/* GET notificacoes */
+router.get('/reservasNotificacoes/', async function(req, res, next) {
+  let userObj = req.query;
+  let result = await reservaModel.getNotificacoes(userObj);
+  res.status(result.status).
+     send(result.data);
+});
+
 
 /* add reserva */
 router.post('/newBooking', async function(req, res, next) {
@@ -31,5 +39,14 @@ router.put('/use/', async function(req, res, next) {
   let result = await reservaModel.usarReserva(codigo);
   res.status(result.status).send(result.msg);
 });
+
+
+/* Mudar IsNotificado */
+router.put('/updateNotificacao', async function(req, res, next) {
+  let lugaresObj = req.body;
+  let result = await reservaModel.notificacaoVista(lugaresObj);
+  res.status(result.status).send(result.data);
+});
+
 
 module.exports = router;

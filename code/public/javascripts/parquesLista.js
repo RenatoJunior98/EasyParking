@@ -1,6 +1,8 @@
 window.onload = function () {
     loadParques(null);
     verificarReservas();
+    if (sessionStorage.getItem("userID") !== null)
+        loadNotificacoes();
 }
 
 async function loadParques(parquesFiltrados) {
@@ -38,8 +40,6 @@ async function showParques(parques) {
     if (sessionStorage.getItem("userID") !== null) {
         let nomeAside = document.getElementById("iconNome");
         nomeAside.innerHTML = "<a>" + sessionStorage.getItem("nome") + "</a>";
-        let verNotificacoesAside = document.getElementById("verNotificacoesB");
-        verNotificacoesAside.innerHTML = "<input type='button' id='verNotificacoesB' class='verNotificacoesB' onclick='verNotificacoes()' value='3'></input>";
         let buttonReservasAside = document.getElementById("reservasButton");
         buttonReservasAside.innerHTML = "<input type='button' class='reservasB' value='Reservas' onclick='reservasLogin()'></input>";
         let buttonAside = document.getElementById("sairButton");
@@ -114,10 +114,43 @@ function verNotificacoes() {
     var section = document.getElementById('notificacoes');
     if (section.style.display === 'block') {
         section.style.display = 'none';
-            
+
     }
     else {
         section.style.display = 'block';
-        section.innerHTML = "<section class='notificacoes'>Notificações aqui</section>";
     }
-};
+}
+
+async function showNotificacoes(reservas) {
+    var section = document.getElementById('notificacoes');
+    let html = "<section class='notificacoes'> <h2> Novas notificações: </h2>";
+    let verNotificacoesAside = document.getElementById("verNotificacoesB");
+    verNotificacoesAside.innerHTML = "<input type='button' id='verNotificacoesB' class='verNotificacoesB' onclick='verNotificacoes()' value='" + reservas.reservasCount + "'></input>";
+    //let reservas = await loadReservas();
+    console.log(JSON.stringify(reservas.reservas));
+    for (let reserva of reservas.reservas) {
+        if (reserva.Estado == "Em espera")
+            html += "<h3>"+  reserva.Nome  +"</h3>"
+            html += "<p> Tem uma reserva " + reserva.Estado + " no dia: " + reserva.DiaReserva + "</p>";
+        if (reserva.Estado == "Ativa")
+            html += "<h3>"+  reserva.Nome  +"</h3>"
+            html += "<p> Tem uma reserva " + reserva.Estado + " para hoje </p>";
+    }
+    html += "</section>"
+    section.innerHTML = html;
+}
+
+
+
+async function loadNotificacoes() {
+    try {
+        let reservas = await $.ajax({
+            url: "/api/reservas/reservasNotificacoes?userID= " + sessionStorage.getItem("userID"),
+            method: "get",
+            dataType: "json",
+        });
+        showNotificacoes(reservas);
+    } catch (err) {
+        console.log(err);
+    }
+}
