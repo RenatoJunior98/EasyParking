@@ -129,16 +129,18 @@ async function showNotificacoes(reservas) {
     console.log(JSON.stringify(reservas.reservas));
     for (let reserva of reservas.reservas) {
         if (reserva.Estado == "Em espera")
-            html += "<h3>"+  reserva.Nome  +"</h3>"
-            html += "<p> Tem uma reserva " + reserva.Estado + " no dia: " + reserva.DiaReserva + "</p>";
+            html += "<section class='sectionNotificacao'> <input type='button' class='apagarNotificacao' value='✘' onclick='fecharNotificacao' > "+
+            "<h3>"+  reserva.Nome  +"</h3>"+
+            "<p> Tem uma reserva " + reserva.Estado + " no dia: " + reserva.DiaReserva + "</p> </section>";
         if (reserva.Estado == "Ativa")
-            html += "<h3>"+  reserva.Nome  +"</h3>"
-            html += "<p> Tem uma reserva " + reserva.Estado + " para hoje </p>";
+            html += "<section class='sectionNotificacao'> <input type='button' class='apagarNotificacao' value='✘' > "+
+            "<h3>"+  reserva.Nome  +"</h3>"+
+            "<p> Tem uma reserva " + reserva.Estado + " para hoje </p> </section>"
+            "<input type='button' class='apagarNotificacao' >";
     }
     html += "</section>"
     section.innerHTML = html;
 }
-
 
 
 async function loadNotificacoes() {
@@ -152,4 +154,8 @@ async function loadNotificacoes() {
     } catch (err) {
         console.log(err);
     }
+}
+
+function fecharNotificacao() {
+    
 }

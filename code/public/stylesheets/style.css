@@ -127,7 +127,6 @@ input[type=button].sairB:hover{
   position:fixed;
   background-color:#ffffff;
   color: #FF5F00;
-  border: 3px solid #FF5F00;
   height: 400px;
   width: 250px;
   z-index: 100;
@@ -137,6 +136,37 @@ input[type=button].sairB:hover{
   box-shadow: 0 3px 3px rgba(33,33,33,.2);
   padding: 5px;
 }
+
+.sectionNotificacao{
+  padding: 5px;
+  border: 1px solid #a5a5a5;
+  border-radius: 5px;
+  margin: 5px;
+
+}
+
+.apagarNotificacao{
+  background-color: #FF5F00;
+  border: 2px solid #FF5F00;
+  color: #ffffff;
+  border-radius: 5px;
+  z-index: 102;
+  height: 17px;
+  width: 17px;
+  float: right;
+  font-size: 8px;
+  text-align: center;
+  cursor: pointer;
+}
+
+input[type=button].apagarNotificacao:active {
+	transform: scale(0.95);
+}
+
+input[type=button].apagarNotificacao:focus {
+	outline: none;
+}
+
 
 button.profileB {
   background:#FF5F00;
