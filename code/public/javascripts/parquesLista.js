@@ -22,12 +22,6 @@ async function loadParques(parquesFiltrados) {
                 "<h2> Por favor tente mais tarde</h2>";
         }
     }
-    if (sessionStorage.getItem("userID") !== null) {
-        let nomeAside = document.getElementById("iconNome");
-        nomeAside.innerHTML = "<a> " + sessionStorage.getItem("nome") + "</a>";
-        let buttonAside = document.getElementById("sairButton");
-        buttonAside.innerHTML = "<input type='button' class='sairB' value='Log Out' onClick='logOut()'></input>"
-    }
 
 }
 
@@ -43,9 +37,13 @@ async function showParques(parques) {
     let html = "";
     if (sessionStorage.getItem("userID") !== null) {
         let nomeAside = document.getElementById("iconNome");
-        nomeAside.innerHTML = "<a id='nomeUser'> " + sessionStorage.getItem("nome") + "</a>";
+        nomeAside.innerHTML = "<a>" + sessionStorage.getItem("nome") + "</a>";
+        let verNotificacoesAside = document.getElementById("verNotificacoesB");
+        verNotificacoesAside.innerHTML = "<input type='button' id='verNotificacoesB' class='verNotificacoesB' onclick='verNotificacoes()' value='3'></input>";
+        let buttonReservasAside = document.getElementById("reservasButton");
+        buttonReservasAside.innerHTML = "<input type='button' class='reservasB' value='Reservas' onclick='reservasLogin()'></input>";
         let buttonAside = document.getElementById("sairButton");
-        buttonAside.innerHTML = "<input type='button' class='sairB' id='logOutB' value='Log Out' onClick='logOut()'></input>"
+        buttonAside.innerHTML = "<input type='button' class='sairB' value='Log Out' onClick='logOut()'></input>";
     }
     clearMarker();
     for (let parque of parques) {
@@ -86,7 +84,7 @@ function reservasLogin() {
 async function filtrar() {
     try {
         let Nome = document.getElementById("search").value;
-          let parques = await $.ajax({
+        let parques = await $.ajax({
             url: "/api/parques?Nome=" + Nome,
             method: "get",
             dataType: "json"
@@ -100,11 +98,9 @@ async function filtrar() {
     }
 }
 
-
-
 async function verificarReservas() {
     try {
-          let reservas = await $.ajax({
+        let reservas = await $.ajax({
             url: "/api/reservas/newState",
             method: "put",
             dataType: "json"
@@ -113,3 +109,15 @@ async function verificarReservas() {
         console.log(err);
     }
 }
+
+function verNotificacoes() {
+    var section = document.getElementById('notificacoes');
+    if (section.style.display === 'block') {
+        section.style.display = 'none';
+            
+    }
+    else {
+        section.style.display = 'block';
+        section.innerHTML = "<section class='notificacoes'>Notificações aqui</section>";
+    }
+};
