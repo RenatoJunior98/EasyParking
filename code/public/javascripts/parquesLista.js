@@ -125,7 +125,7 @@ async function showNotificacoes(reservas) {
     var section = document.getElementById('notificacoes');
     let html = "<section class='notificacoes'> <h2> Novas notificações: </h2>";
     let verNotificacoesAside = document.getElementById("verNotificacoesB");
-    verNotificacoesAside.innerHTML = "<input type='button' id='verNotificacoesB' class='verNotificacoesB' onclick='verNotificacoes()' value='" + reservas.reservasCount + "'></input>";
+    verNotificacoesAside.innerHTML = "<input type='button' id='verNotificacoesB' class='verNotificacoesB' onclick='verNotificacoes()' value='🕭 " + reservas.reservasCount + "'></input>";
     console.log(JSON.stringify(reservas.reservas));
     for (let reserva of reservas.reservas) {
         if (reserva.Estado == "Em espera")

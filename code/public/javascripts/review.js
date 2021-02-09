@@ -23,7 +23,6 @@ async function addReview() {
        window.location = "infoParque.html";
     } catch (err) {
         console.log(err);
-        // mensagem para o utilizador
     }
 }
 }
