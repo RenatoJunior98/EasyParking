@@ -42,9 +42,9 @@ router.put('/use/', async function(req, res, next) {
 
 
 /* Mudar IsNotificado */
-router.put('/updateNotificacao', async function(req, res, next) {
-  let lugaresObj = req.body;
-  let result = await reservaModel.notificacaoVista(lugaresObj);
+router.put('/updateNotificacao/:reservaID', async function(req, res, next) {
+  let reservaID = req.params.reservaID;
+  let result = await reservaModel.notificacaoVista(reservaID);
   res.status(result.status).send(result.data);
 });
 

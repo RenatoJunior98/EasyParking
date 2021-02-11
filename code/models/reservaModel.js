@@ -107,10 +107,10 @@ module.exports.usarReserva = async function (reservaCode) {
     }
 }
 
-module.exports.notificacaoVista = async function (obj) {
+module.exports.notificacaoVista = async function (reservaID) {
     try {
             let sql = "UPDATE Reserva SET IsNotificado= 1 WHERE ReservaID=?;";
-            let result = await pool.query(sql, [obj.ReservaID]);
+            let result = await pool.query(sql, reservaID);
             return { status: 200, data: result };
     } catch (err) {
         console.log(err);

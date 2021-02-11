@@ -129,14 +129,13 @@ async function showNotificacoes(reservas) {
     console.log(JSON.stringify(reservas.reservas));
     for (let reserva of reservas.reservas) {
         if (reserva.Estado == "Em espera")
-            html += "<section class='sectionNotificacao'> <input type='button' class='apagarNotificacao' value='✘' onclick='fecharNotificacao' > "+
+            html += "<section class='sectionNotificacao'> <input type='button' class='apagarNotificacao' value='✘' onclick='fecharNotificacao("+reserva.ReservaID+")' > "+
             "<h3>"+  reserva.Nome  +"</h3>"+
             "<p> Tem uma reserva " + reserva.Estado + " no dia: " + reserva.DiaReserva + "</p> </section>";
         if (reserva.Estado == "Ativa")
-            html += "<section class='sectionNotificacao'> <input type='button' class='apagarNotificacao' value='✘' > "+
+            html += "<section class='sectionNotificacao'> <input type='button' class='apagarNotificacao' value='✘' onclick='fecharNotificacao("+reserva.ReservaID+")' > "+
             "<h3>"+  reserva.Nome  +"</h3>"+
-            "<p> Tem uma reserva " + reserva.Estado + " para hoje </p> </section>"
-            "<input type='button' class='apagarNotificacao' >";
+            "<p> Tem uma reserva " + reserva.Estado + " para hoje </p> </section>";
     }
     html += "</section>"
     section.innerHTML = html;
@@ -156,6 +155,16 @@ async function loadNotificacoes() {
     }
 }
 
-function fecharNotificacao() {
-    
-}
+async function fecharNotificacao(reservaID) {
+    console.log(reservaID);
+    try {
+        let reserva = await $.ajax({
+          url: "/api/reservas/updateNotificacao/" + reservaID,
+          method: "put",
+          dataType: "json"
+        });
+        loadNotificacoes();
+      } catch (err) {
+        console.log(err);
+      }
+    }

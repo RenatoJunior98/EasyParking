@@ -1,5 +1,5 @@
 window.onload = function () {
-  var parqueIDx= sessionStorage.getItem("parqueID");
+  var parqueIDx = sessionStorage.getItem("parqueID");
   showInfo();
   showReviews(parqueIDx);
 }
@@ -35,7 +35,7 @@ async function showInfo() {
   date.setDate(date.getDate() + 1)
   //https://www.geeksforgeeks.org/javascript-date-toisostring-method/
   let dateString = date.toISOString().replaceAll("/", "-");
-  let htmlDate = "<label for='data'>Escolha o dia para a sua reserva</label> <input type='date' id='data' name='data' min= '" + dateString.substring(0,10) + "'>";
+  let htmlDate = "<label for='data'>Escolha o dia para a sua reserva</label> <input type='date' id='data' name='data' min= '" + dateString.substring(0, 10) + "'>";
   htmlAtalhos += "<a><button class='material-icons direction-icon'>directions</button></a>  <a><button onclick='getEmel(" + JSON.stringify(parqueInfo.Nome) + ")' class='material-icons emel-icon'>info</button></a>  <a><button class='material-icons share-icon'>share</button></a>  <a><button class='material-icons bookmark-icon'>bookmark_border</button></a>"
   htmlNome += "<h1>" + parqueInfo.Nome + "</h1> <input type='button' class='buttonLugares' value='+' onclick = 'mudaLugaresDisponiveis(1)'></input> <input type='button' class='buttonLugares' value='-'' onclick = 'mudaLugaresDisponiveis(-1)'></input>";
   htmlInfo += "<br><p><span style='color: #FF5F00'>Morada: </span>" + parqueInfo.Descricao +
@@ -69,12 +69,12 @@ async function showReviews(parqueIDx) {
   for (let review of reviews) {
     html += "<section class='review'><h1>" + review.Nome + " ★" + review.Classificacao + "</h1><p>" + review.Comentario + "</section>";
   }
-  if (reviews.length == 0){
+  if (reviews.length == 0) {
     html += "<section class='review'><h1> O parque selecionado ainda não tem reviews</h1></section>";
     htmlClassificacao += "<h1 class='classificacao'> N/A </h1>";
   }
   else
-  htmlClassificacao += "<h1 class='classificacao'>" + reviewsClassificacao.classificacaoMedia + "☆</h1>";
+    htmlClassificacao += "<h1 class='classificacao'>" + reviewsClassificacao.classificacaoMedia + "☆</h1>";
   elemReviews.innerHTML = html;
   elemClassificacao.innerHTML = htmlClassificacao;
 }
@@ -89,11 +89,11 @@ async function logOut() {
 }
 
 function reservasLogin() {
-  if (sessionStorage.getItem("userID") !== null){
-      window.location = "reserva.html"
+  if (sessionStorage.getItem("userID") !== null) {
+    window.location = "reserva.html"
   }
   else {
-      window.location = "iniciarSessao.html"
+    window.location = "iniciarSessao.html"
   }
 
 }
@@ -141,25 +141,23 @@ async function loadReviews(parqueIDx) {
 
 
 async function mudaLugaresDisponiveis(valor) {
-    try {
-      let parqueObj = {
-        parqueID: sessionStorage.getItem("parqueID"),
-        valor: valor
-      }
-      let result = await $.ajax({
-        url: "/api/parques/updateLugares/",
-        method: "put",
-        dataType: "json",
-        data: JSON.stringify(parqueObj),
-        contentType: "application/json"
-      });
-      window.location = ("infoParque.html");
-    } catch (err) {
-      console.log(err);
+  try {
+    let parqueObj = {
+      parqueID: sessionStorage.getItem("parqueID"),
+      valor: valor
     }
+    let result = await $.ajax({
+      url: "/api/parques/updateLugares/",
+      method: "put",
+      dataType: "json",
+      data: JSON.stringify(parqueObj),
+      contentType: "application/json"
+    });
+    window.location = ("infoParque.html");
+  } catch (err) {
+    console.log(err);
   }
-
-
+}
 
 
 function verificarLoginReserva() {
@@ -170,6 +168,8 @@ function verificarLoginReserva() {
       addReserva();
   }
 }
+
+
 async function confirmaReserva() {
   swal({
     title: "Confirmação de reserva",
