@@ -58,10 +58,10 @@ module.exports.VerificarReservas = async function () {
 
 
 
-module.exports.getReservas = async function (user) {
+module.exports.getReservas = async function (userID) {
     try {
         let sql = "select Estado, Parque.Nome, Descricao, Codigo, DATE_FORMAT(DataHora, '%d/%m/%Y às %h:%i') as DataHora, DATE_FORMAT(DiaReserva, '%d/%m/%Y') as DiaReserva, IsNotificado from ReservaEstado inner join Parque inner join Reserva inner join User where Reserva.Parque_ID = ParqueID AND REID = RE_ID AND Reserva.User_ID = UserID AND UserID = ?;";
-        let reservas = await pool.query(sql, [user.userID]);
+        let reservas = await pool.query(sql, userID);
         return { status: 200, data: reservas };
     } catch (err) {
         console.log(err);
@@ -70,12 +70,12 @@ module.exports.getReservas = async function (user) {
 }
 
 
-module.exports.getNotificacoes = async function (user) {
+module.exports.getNotificacoes = async function (userID) {
     try {
         let sqlCount = "select count(*) as IsNotificado from Reserva where IsNotificado = 0 AND User_ID = ? AND (RE_ID = 2 OR RE_ID = 5);";
-        let reservasCount = await pool.query(sqlCount, [user.userID]);
+        let reservasCount = await pool.query(sqlCount, userID);
         let sql = "select ReservaID, Estado, Parque.Nome, DATE_FORMAT(DiaReserva, '%d/%m/%Y') as DiaReserva from ReservaEstado inner join Parque inner join Reserva where Reserva.Parque_ID = ParqueID AND REID = RE_ID AND Reserva.User_ID = ? AND (RE_ID = 2 OR RE_ID = 5) AND IsNotificado = 0 ORDER BY CASE WHEN RE_ID = 2 THEN '1' WHEN RE_ID = 5 THEN '2' WHEN RE_ID = 3 THEN '3' ELSE RE_ID END ASC";
-        let reservas = await pool.query(sql, [user.userID]);
+        let reservas = await pool.query(sql, userID);
         let reservasnotificacao = {
             reservas: reservas,
             reservasCount: reservasCount[0].IsNotificado

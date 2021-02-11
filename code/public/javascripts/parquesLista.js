@@ -126,7 +126,6 @@ async function showNotificacoes(reservas) {
     let html = "<section class='notificacoes'> <h2> Novas notificações: </h2>";
     let verNotificacoesAside = document.getElementById("verNotificacoesB");
     verNotificacoesAside.innerHTML = "<input type='button' id='verNotificacoesB' class='verNotificacoesB' onclick='verNotificacoes()' value='🕭 " + reservas.reservasCount + "'></input>";
-    console.log(JSON.stringify(reservas.reservas));
     for (let reserva of reservas.reservas) {
         if (reserva.Estado == "Em espera")
             html += "<section class='sectionNotificacao'> <input type='button' class='apagarNotificacao' value='✘' onclick='fecharNotificacao("+reserva.ReservaID+")' > "+
@@ -145,7 +144,7 @@ async function showNotificacoes(reservas) {
 async function loadNotificacoes() {
     try {
         let reservas = await $.ajax({
-            url: "/api/reservas/reservasNotificacoes?userID= " + sessionStorage.getItem("userID"),
+            url: "/api/reservas/reservasNotificacoes/" + sessionStorage.getItem("userID"),
             method: "get",
             dataType: "json",
         });

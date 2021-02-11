@@ -6,7 +6,6 @@ var userModel = require("../models/userModel");
 /* login */
 router.get('/LoginDados/', async function (req, res, next) {
  let user = req.query;
- console.log("model" + JSON.stringify(user));
   let result = await userModel.login(user);
   res.status(result.status).
     send(result.data);

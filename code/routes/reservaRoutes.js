@@ -3,17 +3,17 @@ var router = express.Router();
 var reservaModel = require("../models/reservaModel");
 
 /* GET reservas */
-router.get('/reservasUser/', async function(req, res, next) {
-  let userObj = req.query;
-  let result = await reservaModel.getReservas(userObj);
+router.get('/reservasUser/:userID', async function(req, res, next) {
+  let userID = req.params.userID;
+  let result = await reservaModel.getReservas(userID);
   res.status(result.status).
      send(result.data);
 });
 
 /* GET notificacoes */
-router.get('/reservasNotificacoes/', async function(req, res, next) {
-  let userObj = req.query;
-  let result = await reservaModel.getNotificacoes(userObj);
+router.get('/reservasNotificacoes/:userID', async function(req, res, next) {
+  let userID = req.params.userID;
+  let result = await reservaModel.getNotificacoes(userID);
   res.status(result.status).
      send(result.data);
 });

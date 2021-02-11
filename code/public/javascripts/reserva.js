@@ -5,7 +5,7 @@ window.onload = function () {
 async function loadReservas() {
   try {
     let reservas = await $.ajax({
-      url: "/api/reservas/reservasUser?userID= " + sessionStorage.getItem("userID"),
+      url: "/api/reservas/reservasUser/" + sessionStorage.getItem("userID"),
       method: "get",
       dataType: "json",
     });
