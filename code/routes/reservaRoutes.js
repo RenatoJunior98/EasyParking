@@ -34,9 +34,9 @@ router.put('/newState', async function(req, res, next) {
 });
 
 /* Verifica codigo e muda estado da reserva após utilização*/
-router.put('/use/', async function(req, res, next) {
-  let codigo = req.body;
-  let result = await reservaModel.usarReserva(codigo);
+router.put('/utilizacao', async function(req, res, next) {
+  let reservaObj = req.body;
+  let result = await reservaModel.usarReserva(reservaObj);
   res.status(result.status).send(result.msg);
 });
 

@@ -91,13 +91,13 @@ module.exports.getNotificacoes = async function (user) {
 
 module.exports.usarReserva = async function (reservaCode) {
     try {
-        let sql = "select COUNT(ReservaID) as nReservas from Reserva where Codigo = \"" + reservaCode.codigo + "\" AND diaReserva = CURDATE() AND RE_ID = 2 AND Parque_ID = ?;";
+        let sql = "select COUNT(ReservaID) as nReservas from Reserva where Codigo = \"" + reservaCode.Codigo + "\" AND diaReserva = CURDATE() AND RE_ID = 2 AND Parque_ID = ?;";
         let reservas = await pool.query(sql, reservaCode.Parque_ID);
         let reserva = reservas[0];
         if (reserva.nReservas == 0)
         return { status: 404, msg: "Codigo invalido ou utilizador encontra-se no parque errado" };
         else {
-            let sqlUpdateEstado = "UPDATE Reserva SET RE_ID=4 WHERE Codigo= \"" + reservaCode.codigo + "\";";
+            let sqlUpdateEstado = "UPDATE Reserva SET RE_ID=4 WHERE Codigo= \"" + reservaCode.Codigo + "\";";
             let result = await pool.query(sqlUpdateEstado);
             return { status: 200, msg: "Codigo valido" };       
         } 
