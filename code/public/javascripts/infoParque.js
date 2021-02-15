@@ -252,7 +252,7 @@ async function showNotificacoes(reservas) {
 async function loadNotificacoes() {
   try {
       let reservas = await $.ajax({
-          url: "/api/reservas/reservasNotificacoes?userID= " + sessionStorage.getItem("userID"),
+          url: "/api/reservas/reservasNotificacoes/" + sessionStorage.getItem("userID"),
           method: "get",
           dataType: "json",
       });
