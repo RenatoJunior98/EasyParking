@@ -127,7 +127,7 @@ input[type=button].sairB:hover{
   position:fixed;
   background-color:#ffffff;
   color: #FF5F00;
-  height: 400px;
+  max-height: 400px;
   width: 250px;
   z-index: 100;
   top: 115;
@@ -180,10 +180,10 @@ button.profileB {
   z-index: 100;
   transition: box-shadow .3s;
   box-shadow: 0 3px 3px rgba(33,33,33,.2); 
-  /* cursor: pointer; */
+  cursor: pointer;
 }
 
-/* button.profileB:active {
+button.profileB:active {
 	transform: scale(0.95);
 }
 
@@ -193,7 +193,7 @@ button.profileB:focus {
 
 button.profileB:hover{
 	box-shadow: 0 6px 6px rgba(37, 37, 37, 0.2); 
-} */
+}
 
 #ep-logo{
   height: 80px;

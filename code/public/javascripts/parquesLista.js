@@ -110,6 +110,8 @@ async function verificarReservas() {
     }
 }
 
+//notificações
+
 function verNotificacoes() {
     var section = document.getElementById('notificacoes');
     if (section.style.display === 'block') {
@@ -134,7 +136,8 @@ async function showNotificacoes(reservas) {
         if (reserva.Estado == "Ativa")
             html += "<section class='sectionNotificacao'> <input type='button' class='apagarNotificacao' value='✘' onclick='fecharNotificacao("+reserva.ReservaID+")' > "+
             "<h3>"+  reserva.Nome  +"</h3>"+
-            "<p> Tem uma reserva " + reserva.Estado + " para hoje </p> </section>";
+            "<p> Tem uma reserva " + reserva.Estado + " para hoje </p>"+ 
+            "<p> Código: "+ reserva.Codigo +"</section>";
     }
     html += "</section>"
     section.innerHTML = html;

@@ -56,6 +56,100 @@ a {
   font-size: 18px;
 }
 
+.reservasB{
+  position: fixed;
+  color: #FFFFFF;
+  background:#FF5F00;
+  border: 2px solid #FF5F00;
+  height: 30px;
+  width: 60px;
+  z-index: 100;
+  top: 40;
+  right: 115;
+  transition: box-shadow .3s;
+  box-shadow: 0 3px 3px rgba(33,33,33,.2); 
+  cursor: pointer;
+	border-radius: 5px;
+}
+
+input[type=button].reservasB:active {
+	transform: scale(0.95);
+}
+
+input[type=button].reservasB:focus {
+	outline: none;
+}
+
+input[type=button].reservasB:hover{
+	box-shadow: 0 6px 6px rgba(37, 37, 37, 0.2); 
+}
+
+
+.verNotificacoesB{
+  position: fixed;
+  color: #FF5F00;
+  background:#FFFFFF;
+  border: 2px solid #ffffff;
+  height: 25px;
+  width: 45px;
+  z-index: 101;
+  top: 80;
+  right: 20;
+  transition: box-shadow .3s;
+  box-shadow: 0 3px 3px rgba(33,33,33,.2); 
+  cursor: pointer;
+	border-radius: 5px;
+}
+
+#notificacoes {
+  display: none;
+}
+
+.notificacoes {
+  position:fixed;
+  background-color:#ffffff;
+  color: #FF5F00;
+  max-height: 400px;
+  width: 250px;
+  z-index: 100;
+  top: 115;
+  right: 10;
+  border-radius: 5px;
+  box-shadow: 0 3px 3px rgba(33,33,33,.2);
+  padding: 5px;
+}
+
+.sectionNotificacao{
+  padding: 5px;
+  border: 1px solid #a5a5a5;
+  border-radius: 5px;
+  margin: 5px;
+
+}
+
+.apagarNotificacao{
+  background-color: #FF5F00;
+  border: 2px solid #FF5F00;
+  color: #ffffff;
+  border-radius: 5px;
+  z-index: 102;
+  height: 17px;
+  width: 17px;
+  float: right;
+  font-size: 8px;
+  text-align: center;
+  cursor: pointer;
+}
+
+input[type=button].apagarNotificacao:active {
+	transform: scale(0.95);
+}
+
+input[type=button].apagarNotificacao:focus {
+	outline: none;
+}
+
+
 .sairB {
   position: fixed;
   background: #FF5F00;
@@ -64,7 +158,7 @@ a {
   width: 60px;
   z-index: 100;
   top: 40;
-  right: 110;
+  right: 185;
   transition: box-shadow .3s;
   box-shadow: 0 3px 3px rgba(33, 33, 33, .2);
   cursor: pointer;
@@ -87,7 +181,7 @@ button.profileB {
   background: #FF5F00;
   position: fixed;
   top: 25;
-  right: 25;
+  right: 35;
   border: 3px solid #FF5F00;
   border-radius: 50%;
   height: 65px;
